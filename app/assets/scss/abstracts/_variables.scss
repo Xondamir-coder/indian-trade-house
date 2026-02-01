@@ -1,0 +1,19 @@
+// Breakpoints
+$bp-xs: 425px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+// Fonts
+$font-base: 'Manrope';
+$font-inter: 'Inter';
+$font-jakarta: 'Plus Jakarta Sans';
+
+:root {
+  --spacing-inline: 10.6rem;
+  @media screen and (max-width: $bp-md) {
+    --spacing-inline: max(16px, 5.3rem);
+  }
+}

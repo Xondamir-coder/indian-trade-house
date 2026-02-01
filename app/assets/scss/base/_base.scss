@@ -1,0 +1,77 @@
+@use '../abstracts/variables' as vars;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-kerning: none;
+  text-rendering: optimizeSpeed;
+
+  // on 1440px, 1rem = 10px
+  // upscale up to 1920 then freeze
+  // downscale specific to element: e.g max(nrem, 10px)
+  $base: 1440;
+  $max: 1920;
+  font-size: min(100vw / ($base / 10), $max / $base * 10px);
+}
+body {
+  font-family: vars.$font-base;
+  font-size: max(1.6rem, 14px);
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+svg {
+  width: 100%;
+  fill: inherit;
+  stroke: inherit;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+input,
+textarea {
+  background-color: transparent;
+  font: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
