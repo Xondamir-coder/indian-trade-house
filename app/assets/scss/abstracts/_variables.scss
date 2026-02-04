@@ -12,8 +12,8 @@ $font-inter: 'Inter';
 $font-jakarta: 'Plus Jakarta Sans';
 
 :root {
-  --spacing-inline: 10.6rem;
+  --spacing-inline: 9.2rem;
   @media screen and (max-width: $bp-md) {
-    --spacing-inline: max(16px, 5.3rem);
+    --spacing-inline: max(20px, 4.6rem);
   }
 }

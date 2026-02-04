@@ -12,4 +12,12 @@ const translate = val => {
   return Object.fromEntries(Object.entries(val).map(([k, v]) => [k, translate(v)]));
 };
 
-export default el => translate(el);
+/**
+ * Translate a message using the current locale.
+ * @param {string} name - The name of the message.
+ * @returns {Array} - The translated message.
+ */
+export default name => {
+  const { tm } = useI18n();
+  return tm(name).map(translate);
+};

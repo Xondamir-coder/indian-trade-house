@@ -10,6 +10,7 @@
   "company": "Company",
   "products": "Products",
   "customer": "Customer",
+  "explore-all-sectors": "Explore All Sectors",
 
   "header": {
     "nav": ["Home", "Markets", "Products", "Services", "Participation", "About", "Contact"]
@@ -27,7 +28,7 @@
 
   "home": {
     "hero": {
-      "title": "Showroom of Export Oriented Indian Foods and Goods",
+      "title": ["Showroom of Export", "Oriented Indian Foods and Goods"],
       "subtitle": "A dedicated export platform providing Indian manufacturers and exporters with structured market entry, showroom placement, and business support in Uzbekistan and Afghanistan."
     },
     "why": {
@@ -36,6 +37,7 @@
       "subtitle": "Connecting Indian exporters with high-potential Central Asian markets.",
       "cards": [
         {
+          "image": "hilton.jpg",
           "image-title": "Uzbekistan",
           "image-subtitle": "Central Asia's Largest Consumer Market",
           "title": "Heart of Central Asia",
@@ -52,6 +54,7 @@
           ]
         },
         {
+          "image": "afghanistan.jpg",
           "image-title": "Afghanistan",
           "image-subtitle": "Strategic Link to South Asia & Middle East",
           "title": "Logistical Advantage",
@@ -101,7 +104,7 @@
         },
         {
           "title": "Automotive Parts",
-          "subtitle": "Spare parts, engines, and accessories for light and heavy vehicles",
+          "subtitle": "Spare parts, engines, and accessories for heavy & light",
           "label": "240+ Products"
         },
         {
@@ -146,7 +149,30 @@
     "roadmap": {
       "label": "Timeline",
       "title": "Project Roadmap",
-      "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets."
+      "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets.",
+      "sections": [
+        {
+          "label": "Stage 1 — 2025–2026",
+          "title": "Launch of Regional Showrooms",
+          "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets.",
+          "card-title": "Initial Market Entry & Validation",
+          "card-text": "Validate demand and establish physical market presence."
+        },
+        {
+          "label": "Stage 2 — 2026–2027",
+          "title": "Launch of Regional Showrooms",
+          "subtitle": "Opening physical showrooms in Airitom, Shavat–Dashoguz, Bekabad, and Andarkhan to enable direct product placement and market entry.",
+          "card-title": "Supporting text",
+          "card-text": "Scale participation and increase trade activity across regional centers."
+        },
+        {
+          "label": "Stage 3 — 2026–2027",
+          "title": "Expansion to Trade Centers",
+          "subtitle": "Scaling operations into integrated showroom and trade centers to support higher volumes and expanded partnerships.",
+          "card-title": "Initial Market Entry & Validation",
+          "card-text": "Validate demand and establish physical market presence."
+        }
+      ]
     },
     "tier": {
       "label": "Participation Packages",

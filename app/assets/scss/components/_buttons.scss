@@ -1,37 +1,34 @@
 @use '../abstracts/variables' as vars;
 
-.button--orange {
+%button {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.2rem;
-  height: 4.8rem;
-  padding: 0.8rem 1.4rem;
+  height: max(4.8rem, 40px);
+  padding-inline: 1.4rem;
   border-radius: 9.9rem;
-  border: 0.9px solid #fff;
-  // background-color: #ed7e17;
+  font-family: vars.$font-jakarta;
+  letter-spacing: 0.32px;
+  font-weight: 500;
+}
 
-  // box-shadow:
-  //   0 4.343px 10px 0 rgba(248, 203, 160, 0.5) inset,
-  //   0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
+.button--orange {
+  @extend %button;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
     var(--orgn-500, #ed7e17);
-
   color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.32px;
-  font-family: vars.$font-jakarta;
+}
+.button--white {
+  @extend %button;
 
-  // position: relative;
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   inset: 0;
-  //   border-radius: inherit;
-  //   border: 0.9px solid;
-  //   border-image-source:
-  //     linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%),
-  //     linear-gradient(180deg, #f8cba0 0%, #bd630f 100%);
-  // }
+  color: var(--Neutral-Neutral-90, #242424);
+  border: 1px solid #fff;
+  background: var(--Neutral-Neutral-10, #fff);
+  box-shadow:
+    0 1px 3px 0 rgba(18, 18, 18, 0.1),
+    0 1px 1px 0 rgba(238, 197, 171, 0.1),
+    0 4.343px 10px 0 rgba(248, 203, 160, 0.5) inset,
+    0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
 }

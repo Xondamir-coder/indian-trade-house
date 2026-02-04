@@ -1,6 +1,19 @@
+%heading-base {
+  font-weight: 800;
+  line-height: 130%;
+  color: var(--text-clr);
+}
+
+// section header title
 .heading-lg {
-  font-size: 5.6rem;
-  font-weight: 400;
-  line-height: 101.786%;
-  letter-spacing: min(-0.224rem, -1.44px);
+  @extend %heading-base;
+  --text-clr: #5f3207;
+  text-align: center;
+  font-size: 4.4rem;
+}
+
+.heading-md {
+  @extend %heading-base;
+  --text-clr: #e8e9eb;
+  font-size: 3.6rem;
 }
