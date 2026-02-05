@@ -150,11 +150,25 @@
       "label": "Timeline",
       "title": "Project Roadmap",
       "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets.",
+      "info": {
+        "title": "Product placement approval",
+        "items": [
+          {
+            "percent": "46%",
+            "title": "Last 90 days"
+          },
+          {
+            "percent": "32%",
+            "title": "Active showroom"
+          }
+        ]
+      },
       "sections": [
         {
           "label": "Stage 1 — 2025–2026",
           "title": "Launch of Regional Showrooms",
           "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets.",
+          "images": ["stats.png"],
           "card-title": "Initial Market Entry & Validation",
           "card-text": "Validate demand and establish physical market presence."
         },
@@ -162,6 +176,7 @@
           "label": "Stage 2 — 2026–2027",
           "title": "Launch of Regional Showrooms",
           "subtitle": "Opening physical showrooms in Airitom, Shavat–Dashoguz, Bekabad, and Andarkhan to enable direct product placement and market entry.",
+          "images": ["graph.png", "bars.png"],
           "card-title": "Supporting text",
           "card-text": "Scale participation and increase trade activity across regional centers."
         },
@@ -169,6 +184,7 @@
           "label": "Stage 3 — 2026–2027",
           "title": "Expansion to Trade Centers",
           "subtitle": "Scaling operations into integrated showroom and trade centers to support higher volumes and expanded partnerships.",
+          "images": ["stats.png"],
           "card-title": "Initial Market Entry & Validation",
           "card-text": "Validate demand and establish physical market presence."
         }
