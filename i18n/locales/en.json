@@ -11,6 +11,14 @@
   "products": "Products",
   "customer": "Customer",
   "explore-all-sectors": "Explore All Sectors",
+  "markets": "Markets",
+  "services": "Services",
+  "participation": "Participation",
+  "about": "About",
+  "client-sup": "Client support",
+  "help-center": "Help center",
+  "sys-status": "System status",
+  "feedback": "Feedback",
 
   "header": {
     "nav": ["Home", "Markets", "Products", "Services", "Participation", "About", "Contact"]
@@ -22,8 +30,8 @@
     "sub": "Subscribe newsletter",
     "sub-subtitle": "Subscribe our newsletter to get the latest news and updates!",
     "text": "Gearing your company through an innovative strategy.",
-    "links": ["Privacy policy", "Terms and conditions ", "Copyright"],
-    "copyright": "© 2026  Powered with love  by Creative Uzbeks"
+    "legals": ["Privacy policy", "Terms and conditions ", "Copyright"],
+    "dev-by": "Developed by"
   },
 
   "home": {
