@@ -150,7 +150,7 @@ const navItems = computed(() => [
         to: '/participation'
       },
       {
-        label: t('about'),
+        label: t('about-self'),
         to: '/about'
       }
     ]

@@ -14,11 +14,13 @@
   "markets": "Markets",
   "services": "Services",
   "participation": "Participation",
-  "about": "About",
+  "about-self": "About",
   "client-sup": "Client support",
   "help-center": "Help center",
   "sys-status": "System status",
   "feedback": "Feedback",
+  "uzbekistan": "Uzbekistan",
+  "afghanistan": "Afghanistan",
 
   "header": {
     "nav": ["Home", "Markets", "Products", "Services", "Participation", "About", "Contact"]
@@ -32,6 +34,13 @@
     "text": "Gearing your company through an innovative strategy.",
     "legals": ["Privacy policy", "Terms and conditions ", "Copyright"],
     "dev-by": "Developed by"
+  },
+
+  "partners-section": {
+    "label": "Media & Promotion",
+    "title": "Media Coverage & Partners",
+    "subtitle": "Promoted through regional media channels and supported by retail partners.",
+    "button-label": "Partner With Us"
   },
 
   "home": {
@@ -228,12 +237,93 @@
           ]
         }
       ]
+    }
+  },
+
+  "about": {
+    "hero": {
+      "title": "About the Market",
+      "subtitle": "Indian Trade House focuses on strategically selected Central Asian markets, providing Indian exporters with structured access to high-potential regions based on logistics, demand, and long-term trade opportunities."
     },
-    "media": {
-      "label": "Media & Promotion",
-      "title": "Media Coverage & Partners",
-      "subtitle": "Promoted through regional media channels and supported by retail partners.",
-      "button-label": "Partner With Us"
+    "services": {
+      "label": "Trade Support",
+      "title": "Our Services",
+      "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure.",
+      "info": [
+        {
+          "title": "78+ Million",
+          "subtitle": "Total population across Uzbekistan and Afghanistan"
+        },
+        {
+          "title": "3 Key Regions",
+          "subtitle": "Central Asia, South Asia, Middle East"
+        },
+        {
+          "title": "4+ Core Sectors",
+          "subtitle": "Agriculture, healthcare, industry, consumer goods"
+        },
+        {
+          "title": "3-Stage Roadmap",
+          "subtitle": "Increase in margins when companies improved"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Uzbekistan Advantage",
+          "subtitle": "A gateway to Central Asian markets with robust infrastructure and growing demand.",
+          "tooltip": {
+            "title": "Geographic Hub",
+            "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
+          },
+          "items": [
+            {
+              "title": "Key Sectors",
+              "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
+            },
+            {
+              "title": "Growing Economy",
+              "subtitle": "High demand for Pharmaceuticals, Textiles, Automotive parts, and agricultural machinery."
+            }
+          ]
+        },
+        {
+          "title": "Afghanistan Advantage",
+          "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East.",
+          "tooltip": {
+            "title": "Resource Potential",
+            "subtitle": "Access to significant natural resources and emerging regional trade corridors."
+          },
+          "items": [
+            {
+              "title": "Strategic Position",
+              "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East."
+            },
+            {
+              "title": "Market Demand",
+              "subtitle": "Growing demand for goods and technology driven by reconstruction and development projects."
+            }
+          ]
+        }
+      ]
+    },
+    "market": {
+      "label": "Market Strategy",
+      "title": "Market Strategy Summary",
+      "subtitle": "Indian Trade House combines Uzbekistan’s stability and logistics capabilities with Afghanistan’s growth-driven demand to create a balanced and scalable export platform for Indian manufacturers and exporters.",
+      "cards": [
+        {
+          "title": "Explore Opportunities",
+          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+        },
+        {
+          "title": "Explore Opportunities",
+          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+        },
+        {
+          "title": "Explore Opportunities",
+          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+        }
+      ]
     }
   }
 }

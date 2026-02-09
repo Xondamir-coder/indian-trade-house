@@ -193,22 +193,6 @@
         </li>
       </ul>
     </section>
-    <section class="media">
-      <div class="media__header">
-        <div class="media__header-label">
-          <IconsLightning class="media__header-icon" />
-          <span>{{ $t('home.media.label') }}</span>
-        </div>
-        <h2 class="heading-lg">{{ $t('home.media.title') }}</h2>
-        <p class="body-xl">{{ $t('home.media.subtitle') }}</p>
-      </div>
-      <ul class="media__list">
-        <li v-for="(item, i) in mediaItems" :key="i" class="media__item">
-          <component :is="item" class="media__item-logo" />
-        </li>
-      </ul>
-      <button class="button--white">{{ $t('home.media.button-label') }}</button>
-    </section>
   </main>
 </template>
 
@@ -220,11 +204,7 @@ import {
   IconsShirt,
   IconsStethoscope,
   IconsTool,
-  IconsTractor,
-  SvgFigma,
-  SvgLogoipsum,
-  SvgTelegram,
-  SvgZendesk
+  IconsTractor
 } from '#components';
 
 const { t } = useI18n();
@@ -265,7 +245,6 @@ const demandSupply = [
     color: '#DB34F2'
   }
 ];
-const mediaItems = [SvgLogoipsum, SvgLogoipsum, SvgZendesk, SvgLogoipsum, SvgTelegram, SvgFigma];
 
 const whyItems = computed(() => useMapRt('home.why.cards'));
 const demandItems = computed(() =>
@@ -281,63 +260,6 @@ const tierButtons = computed(() => [t('monthly'), t('yearly')]);
 </script>
 
 <style lang="scss" scoped>
-.media {
-  background:
-    radial-gradient(206.37% 104.89% at 97.64% 102.91%, #ffdcba 0%, rgba(237, 126, 23, 0.5) 100%),
-    radial-gradient(205.77% 99.41% at 50% 100%, #ff29d8 0%, rgba(255, 41, 216, 0) 100%), #ff7b00;
-  padding: 6rem 2.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  &__header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: center;
-    text-align: center;
-
-    h2,
-    p {
-      --text-clr: #fff;
-    }
-    &-icon {
-      width: 1.6rem;
-      fill: #fff;
-    }
-    &-label {
-      display: flex;
-      padding: 0.8rem 1.6rem;
-      justify-content: center;
-      align-items: center;
-      gap: 0.8rem;
-      border-radius: 1.2rem;
-      border: 1.2px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.2);
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 3.2rem;
-    }
-  }
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(6, 12rem);
-    gap: 1.6rem;
-  }
-  &__item {
-    @include mix.flex-center;
-    padding: 2.9rem 1rem 2.9852rem 1rem;
-    &:nth-child(3) svg {
-      width: 60%;
-    }
-    &:nth-child(5) svg {
-      width: 60%;
-    }
-    &:nth-child(6) svg {
-      width: 70%;
-    }
-  }
-}
 .tier {
   display: flex;
   padding-inline: var(--spacing-inline);

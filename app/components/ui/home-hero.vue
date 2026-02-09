@@ -121,7 +121,7 @@
   &__container {
     border-radius: 2.4rem;
     box-shadow: 0 0 0 1px #e5e3e0;
-    margin-top: min(-4rem, -25px);
+    margin-top: 4rem + 3.2rem;
     padding-top: calc(max(4rem, 25px) + max(4rem, 30px));
     min-height: 116vh;
     position: relative;

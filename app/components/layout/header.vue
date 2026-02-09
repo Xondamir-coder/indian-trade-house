@@ -42,10 +42,12 @@ const links = computed(() =>
   padding-inline: max(2.4rem, 12px);
   padding-block: max(1.6rem, 10px);
   border-radius: max(1.6rem, 10px);
-  margin-top: 3.2rem;
   background: #fff;
   box-shadow: 0 8px 60px 1px var(--orgn-50, #fdf2e7);
   z-index: 5;
+  position: fixed;
+  top: 3.2rem;
+  inset-inline: 0;
   &__right {
     display: flex;
     @media screen and (max-width: vars.$bp-sm) {
