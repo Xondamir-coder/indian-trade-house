@@ -8,7 +8,7 @@
         {{ $t('membership.hero.subtitle') }}
       </p>
       <button class="button--orange">
-        {{ $t('membership.hero.button') }}
+        {{ $t('apply-membership') }}
       </button>
     </section>
     <UiSectionServices :items="useMapRt('membership.services')" />

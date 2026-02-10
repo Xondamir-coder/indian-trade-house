@@ -23,6 +23,7 @@
   "feedback": "Feedback",
   "uzbekistan": "Uzbekistan",
   "afghanistan": "Afghanistan",
+  "apply-membership": "Apply for Membership",
 
   "info-cards": [
     {
@@ -442,8 +443,7 @@
   "membership": {
     "hero": {
       "title": "Participation & Membership",
-      "subtitle": "Join our export program and showcase your products in certified international showrooms.",
-      "button": "Apply for Membership"
+      "subtitle": "Join our export program and showcase your products in certified international showrooms."
     },
     "services": [
       {
@@ -543,5 +543,30 @@
         }
       ]
     }
+  },
+
+  "contact": {
+    "hero": {
+      "title": "Contact & Support",
+      "subtitle": "Get in touch with our team for export inquiries, partnership opportunities, and showroom information."
+    },
+    "services": [
+      {
+        "title": "Halal Certification",
+        "subtitle": "Mandatory for all food products"
+      },
+      {
+        "title": "Local Labeling",
+        "subtitle": "Packaging with Uzbek & Afghan labeling"
+      },
+      {
+        "title": "Shelf Life",
+        "subtitle": "Packaging with Uzbek & Afghan labeling"
+      },
+      {
+        "title": "SKU Limits",
+        "subtitle": "Standard: 10 SKUs & Premium: 30 SKUs"
+      }
+    ]
   }
 }
