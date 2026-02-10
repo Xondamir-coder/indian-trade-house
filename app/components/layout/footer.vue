@@ -29,23 +29,25 @@
         <UiNewsletterSignup />
       </div>
       <nav class="footer__nav">
-        <ul class="footer__list">
-          <li v-for="item in navItems" :key="item.label" class="footer__list-item">
-            <h5 class="footer__list-label">
-              {{ item.label }}
-            </h5>
-            <div class="footer__list-links">
-              <NuxtLink
-                v-for="link in item.links"
-                :key="link.to"
-                :to="link.to"
-                class="footer__list-link"
-              >
-                {{ link.label }}
-              </NuxtLink>
-            </div>
-          </li>
-        </ul>
+        <ClientOnly>
+          <ul class="footer__list">
+            <li v-for="(item, i) in navItems" :key="i" class="footer__list-item">
+              <h5 class="footer__list-label">
+                {{ $t(item.label) }}
+              </h5>
+              <div class="footer__list-links">
+                <NuxtLink
+                  v-for="link in item.links"
+                  :key="link.to"
+                  :to="$localePath(link.to)"
+                  class="footer__list-link"
+                >
+                  {{ $t(link.label) }}
+                </NuxtLink>
+              </div>
+            </li>
+          </ul>
+        </ClientOnly>
       </nav>
     </div>
     <div class="footer__bottom">
@@ -58,16 +60,18 @@
           {{ $t('footer.text') }}
         </p>
       </div>
-      <nav class="footer__bottom-legals">
-        <NuxtLink
-          v-for="link in legals"
-          :key="link.label"
-          :to="link.to"
-          class="footer__bottom-legal"
-        >
-          {{ link.label }}
-        </NuxtLink>
-      </nav>
+      <ClientOnly>
+        <nav class="footer__bottom-legals">
+          <NuxtLink
+            v-for="link in legals"
+            :key="link.label"
+            :to="$localePath(link.to)"
+            class="footer__bottom-legal"
+          >
+            {{ link.label }}
+          </NuxtLink>
+        </nav>
+      </ClientOnly>
     </div>
     <div class="footer__copyright">
       <span> © {{ new Date().getFullYear() }} {{ $t('footer.dev-by') }}</span>
@@ -113,8 +117,6 @@ Z
 <script setup>
 import { IconsDribble, IconsFacebook, IconsInstagram, IconsTwitter } from '#components';
 
-const { t } = useI18n();
-
 const socials = [
   {
     link: 'dribbble.com',
@@ -133,59 +135,36 @@ const socials = [
     icon: IconsInstagram
   }
 ];
-const navItems = computed(() => [
+const navItems = [
   {
-    label: t('company'),
+    label: 'company',
     links: [
-      {
-        label: t('about-self'),
-        to: '/about'
-      },
-      {
-        label: t('products-self'),
-        to: '/products'
-      },
-      {
-        label: t('membership-self'),
-        to: '/membership'
-      },
-      {
-        label: t('services-self'),
-        to: '/services'
-      }
+      { label: 'about-self', to: '/about' },
+      { label: 'products-self', to: '/products' },
+      { label: 'membership-self', to: '/membership' },
+      { label: 'services-self', to: '/services' }
     ]
   },
   {
-    label: t('products-self'),
-    links: Array.from({ length: 4 }, (_, i) => ({
-      label: `Item product ${String(i + 1).padStart(2, '0')}`,
+    label: 'products-self',
+    links: Array(4).fill({
+      label: 'product',
       to: '/product'
-    }))
+    })
   },
   {
-    label: t('customer'),
+    label: 'customer',
     links: [
-      {
-        label: t('client-sup'),
-        to: '/client'
-      },
-      {
-        label: t('help-center'),
-        to: '/help'
-      },
-      {
-        label: t('sys-status'),
-        to: '/system'
-      },
-      {
-        label: t('feedback'),
-        to: '/feedback'
-      }
+      { label: 'client-sup', to: '/client' },
+      { label: 'help-center', to: '/help' },
+      { label: 'sys-status', to: '/system' },
+      { label: 'feedback', to: '/feedback' }
     ]
   }
-]);
+];
+
 const legals = computed(() =>
-  useMapRt('footer.legals').map(el => ({
+  useMapRt('footer.legals')?.map(el => ({
     label: el,
     to: `/${el.trim().toLowerCase().split(' ').join('-')}`
   }))

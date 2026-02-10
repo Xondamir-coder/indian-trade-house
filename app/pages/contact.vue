@@ -68,7 +68,7 @@
     font-size: 2rem;
     font-weight: 500;
     line-height: 150%;
-    max-width: 40ch;
+    max-width: 45ch;
   }
 }
 .contact {

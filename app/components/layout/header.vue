@@ -6,8 +6,8 @@
     </NuxtLink>
     <nav class="header__nav">
       <NuxtLink
-        v-for="link in links"
-        :key="link.label"
+        v-for="(link, i) in links"
+        :key="i"
         :to="$localePath(link.to)"
         class="header__link"
         active-class="active"
@@ -26,7 +26,7 @@
 
 <script setup>
 const links = computed(() =>
-  useMapRt('header.nav').map(el => ({
+  useMapRt('header.nav')?.map(el => ({
     to: el === 'Home' ? '/' : `/${el.toLowerCase().split(' ').join('-')}`,
     label: el
   }))

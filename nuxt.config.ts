@@ -74,10 +74,10 @@ export default defineNuxtConfig({
         file: 'en.json'
       },
       {
-        code: 'ru',
-        language: 'ru-RU',
-        name: 'Русский',
-        file: 'ru.json'
+        code: 'hi',
+        language: 'hi-IN',
+        name: 'हिंदी',
+        file: 'hi.json'
       }
     ]
   }

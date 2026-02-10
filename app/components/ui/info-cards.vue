@@ -62,7 +62,7 @@ const cardsSupply = [
   }
 ];
 const infoCards = computed(() =>
-  useMapRt('info-cards').map((el, i) => ({
+  useMapRt('info-cards')?.map((el, i) => ({
     ...el,
     ...cardsSupply[i]
   }))

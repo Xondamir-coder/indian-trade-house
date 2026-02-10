@@ -102,6 +102,7 @@ Z
         :title="$t('membership.faq.title')"
         :subtitle="$t('membership.faq.subtitle')"
       />
+
       <div class="faq__accordions">
         <button
           v-for="(accordion, i) in useMapRt('membership.faq.accordions')"
@@ -133,7 +134,7 @@ const howSupply = [IconsAnalytics, IconsCart, IconsSlideshow];
 const activeAccordion = ref(null);
 
 const howItems = computed(() =>
-  useMapRt('membership.how.cards').map((el, i) => ({ ...el, icon: howSupply[i] }))
+  useMapRt('membership.how.cards')?.map((el, i) => ({ ...el, icon: howSupply[i] }))
 );
 
 const hideAccordions = e => {

@@ -22,6 +22,7 @@
         :title="$t('about.services.title')"
         :subtitle="$t('about.services.subtitle')"
       />
+
       <ul class="services__list">
         <li
           v-for="(item, i) in useMapRt('about.services.info')"
@@ -143,7 +144,7 @@ import 'swiper/css';
 
 const images = ['teamwork.jpg', 'men-at-office.jpg', 'teamwork.jpg'];
 const slideCards = computed(() =>
-  useMapRt('about.market.cards').map((el, i) => ({
+  useMapRt('about.market.cards')?.map((el, i) => ({
     ...el,
     image: images[i]
   }))
