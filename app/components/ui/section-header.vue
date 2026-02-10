@@ -32,7 +32,7 @@ defineProps({
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 48%;
+  max-width: 56%;
   align-self: center;
   &__icon {
     width: max(1.6rem, 14px);

@@ -2,7 +2,7 @@
   <main class="about">
     <section class="hero">
       <div class="hero__content">
-        <h1 class="hero__title">
+        <h1 class="heading-xl">
           {{ $t('about.hero.title') }}
         </h1>
         <p class="hero__subtitle">
@@ -432,6 +432,39 @@ const slideCards = computed(() =>
   position: relative;
   gap: 2.36rem;
   padding-top: 18.2rem;
+  h1 {
+    --text-clr: #fdf2e7;
+    font-weight: 600;
+  }
+  & > * {
+    z-index: 1;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, #f9d7b6 1.5px, transparent 1.5px);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-size: 25px 25px;
+
+    -webkit-mask-image: radial-gradient(
+      circle at 50% 0%,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.9) 25%,
+      rgba(0, 0, 0, 0.4) 45%,
+      rgba(0, 0, 0, 0.1) 60%,
+      rgba(0, 0, 0, 0) 75%
+    );
+    mask-image: radial-gradient(
+      circle at 50% 0%,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.9) 25%,
+      rgba(0, 0, 0, 0.4) 45%,
+      rgba(0, 0, 0, 0.1) 60%,
+      rgba(0, 0, 0, 0) 75%
+    );
+  }
   &::after {
     content: '';
     position: absolute;
@@ -463,12 +496,9 @@ const slideCards = computed(() =>
     max-width: 55.555%;
     text-align: center;
   }
-  &__title {
-    font-size: 5.4rem;
-    font-weight: 600;
-    line-height: 133%;
-  }
   &__subtitle {
+    color: #f8cba0;
+    letter-spacing: 0.3px;
     font-size: 2rem;
     line-height: 152%;
   }

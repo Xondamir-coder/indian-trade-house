@@ -138,25 +138,25 @@ const navItems = computed(() => [
     label: t('company'),
     links: [
       {
-        label: t('markets'),
-        to: '/markets'
-      },
-      {
-        label: t('services'),
-        to: '/services'
-      },
-      {
-        label: t('participation'),
-        to: '/participation'
-      },
-      {
         label: t('about-self'),
         to: '/about'
+      },
+      {
+        label: t('products-self'),
+        to: '/products'
+      },
+      {
+        label: t('membership-self'),
+        to: '/membership'
+      },
+      {
+        label: t('services-self'),
+        to: '/services'
       }
     ]
   },
   {
-    label: t('products'),
+    label: t('products-self'),
     links: Array.from({ length: 4 }, (_, i) => ({
       label: `Item product ${String(i + 1).padStart(2, '0')}`,
       to: '/product'
@@ -187,7 +187,7 @@ const navItems = computed(() => [
 const legals = computed(() =>
   useMapRt('footer.legals').map(el => ({
     label: el,
-    to: `/${el.toLowerCase().split(' ').join('-')}`
+    to: `/${el.trim().toLowerCase().split(' ').join('-')}`
   }))
 );
 </script>

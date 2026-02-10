@@ -8,13 +8,15 @@
   "enter-email": "Enter your email",
   "subscribe": "Subscribe",
   "company": "Company",
-  "products": "Products",
+  "products-self": "Products",
   "customer": "Customer",
   "explore-all-sectors": "Explore All Sectors",
   "markets": "Markets",
   "services": "Services",
   "participation": "Participation",
   "about-self": "About",
+  "membership-self": "Membership",
+  "services-self": "Services",
   "client-sup": "Client support",
   "help-center": "Help center",
   "sys-status": "System status",
@@ -22,8 +24,58 @@
   "uzbekistan": "Uzbekistan",
   "afghanistan": "Afghanistan",
 
+  "info-cards": [
+    {
+      "title": "Agriculture",
+      "subtitle": "Direct export pathways and structured market entry",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Healthcare",
+      "subtitle": "Pharmaceuticals, medical devices, and surgical equipment",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Industrial Machinery",
+      "subtitle": "Heavy machinery, tools, and plant equipment for manufacturing",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Textiles & Fabrics",
+      "subtitle": "Raw cotton, synthetic fabrics, and readymade garments of all styles",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Construction Materials",
+      "subtitle": "Cement, steel, tiles, and sustainable building solutions",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Automotive Parts",
+      "subtitle": "Spare parts, engines, and accessories for heavy & light",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Electronics",
+      "subtitle": "Consumer electronics, components, and networking hardware",
+      "label": "240+ Products"
+    },
+    {
+      "title": "Chemicals",
+      "subtitle": "Industrial chemicals, fertilizers, and raw materials",
+      "label": "240+ Products"
+    }
+  ],
+
+  "search-filter-bar": {
+    "search": "Search",
+    "placeholder": "Search product & category",
+    "filters-label": "Quick filters:",
+    "filters": ["Food & Agriculture", "Medical", "Industrial", "Textiles"]
+  },
+
   "header": {
-    "nav": ["Home", "Markets", "Products", "Services", "Participation", "About", "Contact"]
+    "nav": ["Home", "About", "Products", "Membership", "Services", "Contact"]
   },
 
   "footer": {
@@ -41,6 +93,18 @@
     "title": "Media Coverage & Partners",
     "subtitle": "Promoted through regional media channels and supported by retail partners.",
     "button-label": "Partner With Us"
+  },
+
+  "services-section": {
+    "label": "Trade Support",
+    "title": "Our Services",
+    "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure."
+  },
+
+  "subscriptions-section": {
+    "label": "Participation Packages",
+    "subtitle": "Select the participation package that best fits your export goals and product portfolio.",
+    "sign": "Sign Up for FREE"
   },
 
   "home": {
@@ -89,79 +153,32 @@
         }
       ]
     },
+    "services-cards": [
+      {
+        "title": "Export Assistance",
+        "subtitle": "Company registration, trademarking, accounting, and auditing.",
+        "labels": ["Multimodal Transport", "Real-time Tracking"]
+      },
+      {
+        "title": "Government Relations",
+        "subtitle": "Company registration, trademarking, accounting, and auditing.",
+        "labels": ["Documentation Support", "Regulatory Advisory"]
+      },
+      {
+        "title": "Business Support",
+        "subtitle": "Company registration, trademarking, accounting, and auditing.",
+        "labels": ["Supplier Audits", "Quality Control Checks"]
+      },
+      {
+        "title": "Logistics & Legal",
+        "subtitle": "Company registration, trademarking, accounting, and auditing.",
+        "labels": ["Supplier Audits", "Quality Control Checks"]
+      }
+    ],
     "demand": {
       "label": "Demand",
       "title": "Sectors in High Demand",
-      "subtitle": "Key export categories with strong and growing demand in Uzbekistan and Afghanistan.",
-      "cards": [
-        {
-          "title": "Agriculture",
-          "subtitle": "Direct export pathways and structured market entry",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Healthcare",
-          "subtitle": "Pharmaceuticals, medical devices, and surgical equipment",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Industrial Machinery",
-          "subtitle": "Heavy machinery, tools, and plant equipment for manufacturing",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Textiles & Fabrics",
-          "subtitle": "Raw cotton, synthetic fabrics, and readymade garments of all styles",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Construction Materials",
-          "subtitle": "Cement, steel, tiles, and sustainable building solutions",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Automotive Parts",
-          "subtitle": "Spare parts, engines, and accessories for heavy & light",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Electronics",
-          "subtitle": "Consumer electronics, components, and networking hardware",
-          "label": "240+ Products"
-        },
-        {
-          "title": "Chemicals",
-          "subtitle": "Industrial chemicals, fertilizers, and raw materials",
-          "label": "240+ Products"
-        }
-      ]
-    },
-    "trade": {
-      "label": "Trade Support",
-      "title": "Our Services",
-      "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure.",
-      "cards": [
-        {
-          "title": "Export Assistance",
-          "subtitle": "Company registration, trademarking, accounting, and auditing.",
-          "labels": ["Multimodal Transport", "Real-time Tracking"]
-        },
-        {
-          "title": "Government Relations",
-          "subtitle": "Company registration, trademarking, accounting, and auditing.",
-          "labels": ["Documentation Support", "Regulatory Advisory"]
-        },
-        {
-          "title": "Business Support",
-          "subtitle": "Company registration, trademarking, accounting, and auditing.",
-          "labels": ["Supplier Audits", "Quality Control Checks"]
-        },
-        {
-          "title": "Logistics & Legal",
-          "subtitle": "Company registration, trademarking, accounting, and auditing.",
-          "labels": ["Supplier Audits", "Quality Control Checks"]
-        }
-      ]
+      "subtitle": "Key export categories with strong and growing demand in Uzbekistan and Afghanistan."
     },
     "roadmap": {
       "label": "Timeline",
@@ -207,11 +224,8 @@
         }
       ]
     },
-    "tier": {
-      "label": "Participation Packages",
+    "subscriptions": {
       "title": "Choose Your Tier",
-      "subtitle": "Select the participation package that best fits your export goals and product portfolio.",
-      "sign": "Sign Up for FREE",
       "cards": [
         {
           "label": "Standard Participant",
@@ -225,7 +239,7 @@
           ]
         },
         {
-          "label": "Standard Participant",
+          "label": "Premium Participant",
           "amount": "$5,000",
           "subtitle": "Established brands and manufacturers",
           "amenities": [
@@ -322,6 +336,210 @@
         {
           "title": "Explore Opportunities",
           "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+        }
+      ]
+    }
+  },
+
+  "products": {
+    "hero": {
+      "title": "Explore Export-Ready Products",
+      "subtitle": "Discover certified, export-ready products across food, industrial, medical, and consumer sectors."
+    },
+    "categories": {
+      "explore": "Explore by Category",
+      "filters": [
+        {
+          "label": "Fresh and dried fruits",
+          "amount": 32
+        },
+        {
+          "label": "General food products",
+          "amount": 93
+        },
+        {
+          "label": "Building materials",
+          "amount": 45
+        },
+        {
+          "label": "Chemical products",
+          "amount": 24
+        },
+        {
+          "label": "Well-Being",
+          "amount": 8
+        },
+        {
+          "label": "Agricultural products and fertilizers",
+          "amount": 24
+        },
+        {
+          "label": "Fresh and dried fruits",
+          "amount": 32
+        },
+        {
+          "label": "Chemical products",
+          "amount": 24
+        },
+        {
+          "label": "General food products",
+          "amount": 93
+        },
+        {
+          "label": "Well-Being",
+          "amount": 8
+        },
+        {
+          "label": "Building materials",
+          "amount": 45
+        },
+        {
+          "label": "Chemical products",
+          "amount": 24
+        }
+      ],
+      "items": [
+        {
+          "category": "Chemical Products",
+          "image": "product-1.jpg",
+          "name": "Industrial Grade Sodium",
+          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+        },
+        {
+          "category": "Chemical Products",
+          "image": "product-2.jpg",
+          "name": "Organic Bio-Fertilizer",
+          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+        },
+        {
+          "category": "Chemical Products",
+          "image": "product-3.jpg",
+          "name": "Industrial Grade Sodium",
+          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+        },
+        {
+          "category": "Chemical Products",
+          "image": "product-4.jpg",
+          "name": "Organic Bio-Fertilizer",
+          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+        },
+        {
+          "category": "Chemical Products",
+          "image": "product-5.jpg",
+          "name": "Industrial Grade Sodium",
+          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+        },
+        {
+          "category": "Chemical Products",
+          "image": "product-6.jpg",
+          "name": "Organic Bio-Fertilizer",
+          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+        }
+      ]
+    }
+  },
+
+  "membership": {
+    "hero": {
+      "title": "Participation & Membership",
+      "subtitle": "Join our export program and showcase your products in certified international showrooms.",
+      "button": "Apply for Membership"
+    },
+    "services": [
+      {
+        "title": "Halal Certification",
+        "subtitle": "Mandatory for all food products"
+      },
+      {
+        "title": "Local Labeling",
+        "subtitle": "Packaging with Uzbek & Afghan labeling"
+      },
+      {
+        "title": "Shelf Life",
+        "subtitle": "Packaging with Uzbek & Afghan labeling"
+      },
+      {
+        "title": "SKU Limits",
+        "subtitle": "Standard: 10 SKUs & Premium: 30 SKUs"
+      }
+    ],
+    "subscriptions": {
+      "title": "Choose Your Participation Level",
+      "cards": [
+        {
+          "label": "Standard Participant",
+          "amount": "$3,500",
+          "subtitle": "Small and mid-size exporters",
+          "amenities": [
+            "Up to 5 product types",
+            "Meetings with retail chains",
+            "Product of the Month promotion",
+            "Launch and onboarding consultation"
+          ]
+        },
+        {
+          "label": "Premium Participant",
+          "amount": "$5,000",
+          "subtitle": "Established brands and manufacturers",
+          "amenities": [
+            "Up to 30 SKUs",
+            "Social media promotion",
+            "Participation in exhibitions and events",
+            "Product of the Day promotion",
+            "Customs and logistics consultation"
+          ]
+        }
+      ]
+    },
+    "trust": {
+      "label": "Market Strategy",
+      "title": "Trust Block  Trust & Credibility",
+      "subtitle": "Indian Trade House combines Uzbekistan’s stability and logistics capabilities with Afghanistan’s growth-driven demand to create a balanced and scalable export platform for Indian manufacturers and exporters.",
+      "incoop": "In cooperation with",
+      "image-title": "Trusted Export Platform",
+      "image-subtitle": "We work with verified partners, distributors, and retail networks to ensure transparent and compliant market entry.",
+      "help-title": "Need Help Choosing a Plan?",
+      "help-subtitle": "Our team is ready to guide you"
+    },
+    "how": {
+      "label": "How It Works",
+      "title": "How Participation Works",
+      "subtitle": "A simple and transparent process from application to showroom placement.",
+      "cards": [
+        {
+          "title": "Submit Application",
+          "desc": "Share basic information about your company and products. basic information"
+        },
+        {
+          "title": "Product Review",
+          "desc": "Our team evaluates compliance with export and quality requirements."
+        },
+        {
+          "title": "Showroom & Promotion",
+          "desc": "Products are placed in showrooms and included in promotional activities."
+        }
+      ]
+    },
+    "faq": {
+      "label": "FAQs",
+      "title": "Frequently Asked Questions",
+      "subtitle": "We work with verified partners, distributors, and retail networks to ensure transparent and compliant market entry.",
+      "accordions": [
+        {
+          "question": "Can I upgrade from Standard to Premium later?",
+          "answer": "Yes, you can upgrade to Premium at any time."
+        },
+        {
+          "question": "How long does the approval process take?",
+          "answer": "The approval process typically takes 2-3 business days."
+        },
+        {
+          "question": "Are non-food products allowed?",
+          "answer": "Yes, non-food categories can participate under applicable requirements. Typically 7–14 business days after application submission. Yes, participants can upgrade after initial approval. Customs consultation is included in the Premium package."
+        },
+        {
+          "question": "Do you provide customs support?",
+          "answer": "Yes, we provide customs support for  participants"
         }
       ]
     }

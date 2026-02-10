@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="hero__container">
       <div class="hero__content">
-        <h1 class="hero__title">
+        <h1 class="hero__title heading-xl">
           <span v-for="text in $tm('home.hero.title')" :key="text">
             {{ $rt(text) }}
           </span>
@@ -167,10 +167,6 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 5.4rem;
-    font-weight: 800;
-    line-height: 133%;
-    color: var(--orgn-900, #2f1904);
   }
   &__subtitle {
     font-size: 2rem;

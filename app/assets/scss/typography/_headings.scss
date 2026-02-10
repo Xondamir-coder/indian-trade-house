@@ -4,7 +4,12 @@
   color: var(--text-clr);
 }
 
-// section header title
+.heading-xl {
+  @extend %heading-base;
+  --text-clr: #2f1904;
+  font-size: 5.4rem;
+}
+
 .heading-lg {
   @extend %heading-base;
   --text-clr: #5f3207;

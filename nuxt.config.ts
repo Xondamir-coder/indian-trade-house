@@ -53,7 +53,7 @@ export default defineNuxtConfig({
       {
         name: 'Radio Canada Big',
         provider: 'google',
-        weights: [600]
+        weights: [500, 600]
       }
     ]
   },
