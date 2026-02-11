@@ -53,6 +53,7 @@ defineProps({
   }
   h2 {
     margin-bottom: 0.8rem;
+    text-align: inherit;
   }
 }
 </style>

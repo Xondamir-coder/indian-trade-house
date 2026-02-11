@@ -25,6 +25,8 @@
   "afghanistan": "Afghanistan",
   "apply-membership": "Apply for Membership",
   "product": "Product",
+  "send": "Send",
+  "tashkent": "Tashkent",
 
   "info-cards": [
     {
@@ -568,6 +570,48 @@
         "title": "SKU Limits",
         "subtitle": "Standard: 10 SKUs & Premium: 30 SKUs"
       }
-    ]
+    ],
+    "help": {
+      "label": "Trade Support",
+      "title": "How Can We Help You?",
+      "subtitle": "Choose the type of inquiry to help us route your message  to the right team.",
+      "next": "What happens next?",
+      "steps": ["We review your inquiry", "Route to the right team", "Response within 48h"],
+      "urgent": {
+        "title": "Urgent Inquiry?",
+        "subtitle": "For immediate assistance during business hours, you can reach our support team directly."
+      }
+    },
+    "map": {
+      "items": [
+        {
+          "name": "Kabul",
+          "locations": ["Afghanistan", "Central Business District, Kabu"]
+        },
+        {
+          "name": "Tashkent",
+          "locations": ["Uzbekistan", "Yunusabad District, Tashkent"]
+        },
+        {
+          "name": "Almaty",
+          "locations": ["Kazakhstan", "Trade Center, Almaty"]
+        }
+      ],
+      "view": "View larger map",
+      "address": "Uzbekistan, Yunusabad District, Tashkent"
+    }
+  },
+
+  "form": {
+    "full-name": "Full Name",
+    "company": "Company Name",
+    "country": "Country",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "partnership": "Partnership Type",
+    "message": "Message",
+    "message-placeholder": "Type your message here...",
+    "enter-your": "Enter your {label}",
+    "submit": "Submit"
   }
 }
