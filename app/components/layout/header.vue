@@ -57,6 +57,10 @@ const links = computed(() =>
       padding-inline: max(1.6rem, 10px);
       color: #686a75;
       font-weight: 500;
+      transition: color 0.4s;
+      &:hover {
+        color: #000;
+      }
     }
   }
   &__nav {
@@ -66,10 +70,16 @@ const links = computed(() =>
     @media screen and (max-width: 1100px) {
       display: none;
     }
+    &:has(> *:hover) > *:not(:hover) {
+      opacity: 0.5;
+      color: #9b9a9a;
+    }
   }
   &__link {
     font-weight: 500;
     color: var(--Neutral-Grey-200, #9b9a9a);
+    transition: all 0.4s;
+    &:hover,
     &.active {
       color: var(--Neutral-Grey-800, #141414);
     }
@@ -82,6 +92,10 @@ const links = computed(() =>
     font-weight: 600;
     font-family: vars.$font-inter;
     text-wrap: nowrap;
+    transition: all 0.4s;
+    &:hover {
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    }
     svg {
       flex-shrink: 0;
       width: 41px;

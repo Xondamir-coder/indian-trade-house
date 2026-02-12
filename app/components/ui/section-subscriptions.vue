@@ -114,7 +114,7 @@ defineProps({
       box-shadow:
         0 -1px 1px 1px rgba(48, 46, 43, 0.1) inset,
         0 8px 12px -6px rgba(44, 36, 26, 0.28);
-      .tier__item-label {
+      .subscriptions__item-label {
         color: #fff;
       }
     }
@@ -208,6 +208,22 @@ defineProps({
     box-shadow:
       0 -1px 1px 1px rgba(0, 0, 0, 0.1) inset,
       0 2px 2px -1px rgba(0, 0, 0, 0.08);
+    position: relative;
+    &:has(> *:last-child.active)::after {
+      translate: calc(100% + 0.8rem);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: red;
+      width: 10.4rem;
+      height: 3.6rem;
+      padding-inline: 2rem;
+      border-radius: 9.9rem;
+      background: var(--orgn-500, #ed7e17);
+      box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
+      transition: translate 0.4s;
+    }
   }
   &__header {
     align-items: flex-start;
@@ -215,10 +231,11 @@ defineProps({
     max-width: 100%;
   }
   &__button {
+    z-index: 2;
     display: flex;
     width: 10.4rem;
     height: 3.6rem;
-    padding: 0 2rem;
+    padding-inline: 2rem;
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
@@ -226,13 +243,9 @@ defineProps({
     font-family: vars.$font-inter;
     font-size: 1.4rem;
     font-weight: 600;
-    transition: all 0.4s;
     border-radius: 9.9rem;
+    transition: color 0.4s;
     &.active {
-      background: var(--orgn-500, #ed7e17);
-
-      /* InnerShad */
-      box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
       color: #fff;
     }
   }

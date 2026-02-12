@@ -40,6 +40,7 @@
                 "
                 required
                 class="help__form-input"
+                @input="cleanPhone"
               />
               <textarea
                 v-else
@@ -53,7 +54,7 @@
               ></textarea>
             </div>
           </div>
-          <button class="button--orange">Send</button>
+          <button class="help__form-button button--orange" :disabled="isDisabled">Send</button>
         </form>
       </div>
       <div class="help__box">
@@ -212,7 +213,20 @@ const fields = computed(() => [
     model: message
   }
 ]);
+const isDisabled = computed(
+  () =>
+    !name.value ||
+    !email.value ||
+    !company.value ||
+    !country.value ||
+    !phone.value ||
+    !message.value ||
+    !partnership.value
+);
 
+const cleanPhone = () => {
+  phone.value = phone.value.replace(/[^+\s\d]/g, '');
+};
 const submitForm = () => {
   console.log(
     name.value,
@@ -232,6 +246,7 @@ const submitForm = () => {
   flex-direction: column;
   position: relative;
   padding-top: 14rem;
+  margin-bottom: calc(9rem - 3.2rem);
   &__bg {
     aspect-ratio: 144/66.5;
     position: absolute;
@@ -468,6 +483,13 @@ const submitForm = () => {
     display: flex;
     flex-direction: column;
     gap: 6rem;
+    &-button {
+      transition: opacity 0.4s;
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
     &-textbox {
       resize: none;
     }
@@ -478,6 +500,10 @@ const submitForm = () => {
       border-radius: 0.8rem;
       border: 1px solid var(--Neutral-Grey-50, #e9e9e9);
       background: var(--Neutral-White-50, #fefefe);
+      transition: border 0.3s;
+      &:focus {
+        border-color: #ed7e17;
+      }
       &::placeholder {
         color: var(--Neutral-Grey-200, #9b9a9a);
       }
@@ -584,11 +610,16 @@ const submitForm = () => {
       border-radius: 3.2rem;
       border: 1px solid var(--orgn-200, #f8cba0);
       background: #fff;
+      color: var(--orgn-900, #2f1904);
 
       /* Drop Shadow */
       box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
+      transition: all 0.4s;
+      &:hover {
+        background: #bd630fa4;
+        color: #fff;
+      }
       span {
-        color: var(--orgn-900, #2f1904);
         font-family: vars.$font-inter;
         font-size: 2.4rem;
         font-weight: 600;

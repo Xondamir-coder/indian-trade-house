@@ -2,7 +2,9 @@
   <div class="layout">
     <LayoutHeader />
     <slot />
-    <UiSectionPartners />
+    <UiSectionPartners
+      v-if="!($route.name.includes('membership') || $route.name.includes('contact'))"
+    />
     <LayoutFooter />
   </div>
 </template>

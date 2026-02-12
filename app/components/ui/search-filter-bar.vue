@@ -100,6 +100,7 @@ const submitQuery = () => {
     &-input {
       flex: 1;
       font-size: 1.8rem;
+      color: #2f1904;
       &::placeholder {
         color: var(--Blue-100, var(--Neutral-Blue-100, #b8bbc2));
       }

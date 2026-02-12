@@ -30,11 +30,12 @@
           </button>
         </div>
       </div>
-      <ul class="categories__list">
-        <li
+      <div class="categories__list">
+        <NuxtLink
           v-for="(item, i) in useMapRt('products.categories.items')"
           :key="i"
           class="categories__item"
+          :to="$localePath(`/products/${i}`)"
         >
           <UiPicture :src="item.image" :alt="item.name" class="categories__item-pic" />
           <span class="categories__item-category">
@@ -50,8 +51,8 @@
               </span>
             </li>
           </ul>
-        </li>
-      </ul>
+        </NuxtLink>
+      </div>
     </section>
   </main>
 </template>
@@ -77,6 +78,13 @@
     gap: 1.6rem;
     font-size: 1.4rem;
     font-weight: 600;
+    transition: translate 0.4s;
+    &:hover {
+      translate: 0 -5px;
+      .categories__item-pic > * {
+        scale: 1.1;
+      }
+    }
     &-category {
       color: var(--orgn-600, var(--orgn-600, #bd630f));
     }
@@ -111,6 +119,9 @@
     &-pic {
       border-radius: 2rem;
       aspect-ratio: 39.6/28;
+      > * {
+        transition: scale 0.4s;
+      }
     }
   }
   &__sidebar {
@@ -142,6 +153,10 @@
       color: var(--orgn-900, var(--orgn-900, #2f1904));
       font-size: 1.4rem;
       font-weight: 600;
+      transition: background 0.4s;
+      &:hover {
+        background-color: var(--orgn-100, #fbe5d060);
+      }
       &-amount {
         @include mix.flex-center;
         width: 2.6rem;

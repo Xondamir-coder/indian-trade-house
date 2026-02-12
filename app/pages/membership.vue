@@ -162,6 +162,7 @@ onUnmounted(() => {
   border: 1px solid var(--orgn-100, #fbe5d0);
   background: #fff;
   box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
+  margin-bottom: calc(9rem - 3.2rem);
   &__accordion {
     display: flex;
     flex-direction: column;
@@ -172,10 +173,15 @@ onUnmounted(() => {
     gap: 0;
     transition:
       border 0.4s,
+      background 0.4s,
       gap 0.4s 0.5s;
+    &:not(.active):hover {
+      background-color: #ed7e1736;
+    }
     &.active {
       transition:
         border 0.4s,
+        background 0.4s,
         gap 0.4s;
       border-color: #ed7e17;
       gap: 8px;

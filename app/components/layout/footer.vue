@@ -252,6 +252,21 @@ const legals = computed(() =>
         width: 1px;
         background-color: #5a5a59;
       }
+      &:hover::before {
+        scale: 1;
+        transform-origin: left;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        top: calc(100% + 5px);
+        background-color: #fbe5d0;
+        height: 1px;
+        scale: 0 1;
+        transform-origin: right;
+        transition: scale 0.4s;
+      }
     }
     &-legals {
       display: flex;
@@ -290,6 +305,7 @@ const legals = computed(() =>
     }
     &-links {
       display: flex;
+      align-items: flex-start;
       flex-direction: column;
       gap: 2rem;
     }
@@ -298,6 +314,22 @@ const legals = computed(() =>
       color: var(--orgn-100, #fbe5d0);
       position: relative;
       padding-left: 12px;
+      position: relative;
+      &:hover::after {
+        scale: 1;
+        transform-origin: left;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        top: calc(100% + 5px);
+        background-color: #fbe5d0;
+        height: 1px;
+        scale: 0 1;
+        transform-origin: right;
+        transition: scale 0.4s;
+      }
       &::before {
         content: '';
         width: 4px;
