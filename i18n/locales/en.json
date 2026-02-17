@@ -12,7 +12,6 @@
   "customer": "Customer",
   "explore-all-sectors": "Explore All Sectors",
   "markets": "Markets",
-  "services": "Services",
   "participation": "Participation",
   "about-self": "About",
   "membership-self": "Membership",
@@ -27,6 +26,7 @@
   "product": "Product",
   "send": "Send",
   "tashkent": "Tashkent",
+  "details": "Details",
 
   "info-cards": [
     {
@@ -258,90 +258,92 @@
     }
   },
 
+  "section-advantages": {
+    "label": "Trade Support",
+    "title": "Our Services",
+    "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure.",
+    "info": [
+      {
+        "title": "78+ Million",
+        "subtitle": "Total population across Uzbekistan and Afghanistan"
+      },
+      {
+        "title": "3 Key Regions",
+        "subtitle": "Central Asia, South Asia, Middle East"
+      },
+      {
+        "title": "4+ Core Sectors",
+        "subtitle": "Agriculture, healthcare, industry, consumer goods"
+      },
+      {
+        "title": "3-Stage Roadmap",
+        "subtitle": "Increase in margins when companies improved"
+      }
+    ],
+    "cards": [
+      {
+        "title": "Uzbekistan Advantage",
+        "subtitle": "A gateway to Central Asian markets with robust infrastructure and growing demand.",
+        "tooltip": {
+          "title": "Geographic Hub",
+          "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
+        },
+        "items": [
+          {
+            "title": "Key Sectors",
+            "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
+          },
+          {
+            "title": "Growing Economy",
+            "subtitle": "High demand for Pharmaceuticals, Textiles, Automotive parts, and agricultural machinery."
+          }
+        ]
+      },
+      {
+        "title": "Afghanistan Advantage",
+        "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East.",
+        "tooltip": {
+          "title": "Resource Potential",
+          "subtitle": "Access to significant natural resources and emerging regional trade corridors."
+        },
+        "items": [
+          {
+            "title": "Strategic Position",
+            "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East."
+          },
+          {
+            "title": "Market Demand",
+            "subtitle": "Growing demand for goods and technology driven by reconstruction and development projects."
+          }
+        ]
+      }
+    ]
+  },
+
+  "section-market": {
+    "label": "Market Strategy",
+    "title": "Market Strategy Summary",
+    "subtitle": "Indian Trade House combines Uzbekistan’s stability and logistics capabilities with Afghanistan’s growth-driven demand to create a balanced and scalable export platform for Indian manufacturers and exporters.",
+    "cards": [
+      {
+        "title": "Explore Opportunities",
+        "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+      },
+      {
+        "title": "Explore Opportunities",
+        "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+      },
+      {
+        "title": "Explore Opportunities",
+        "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
+      }
+    ]
+  },
+
   "about": {
     "hero": {
       "title": "About the Market",
       "subtitle": "Indian Trade House focuses on strategically selected Central Asian markets, providing Indian exporters with structured access to high-potential regions based on logistics, demand, and long-term trade opportunities."
-    },
-    "services": {
-      "label": "Trade Support",
-      "title": "Our Services",
-      "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure.",
-      "info": [
-        {
-          "title": "78+ Million",
-          "subtitle": "Total population across Uzbekistan and Afghanistan"
-        },
-        {
-          "title": "3 Key Regions",
-          "subtitle": "Central Asia, South Asia, Middle East"
-        },
-        {
-          "title": "4+ Core Sectors",
-          "subtitle": "Agriculture, healthcare, industry, consumer goods"
-        },
-        {
-          "title": "3-Stage Roadmap",
-          "subtitle": "Increase in margins when companies improved"
-        }
-      ],
-      "cards": [
-        {
-          "title": "Uzbekistan Advantage",
-          "subtitle": "A gateway to Central Asian markets with robust infrastructure and growing demand.",
-          "tooltip": {
-            "title": "Geographic Hub",
-            "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
-          },
-          "items": [
-            {
-              "title": "Key Sectors",
-              "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
-            },
-            {
-              "title": "Growing Economy",
-              "subtitle": "High demand for Pharmaceuticals, Textiles, Automotive parts, and agricultural machinery."
-            }
-          ]
-        },
-        {
-          "title": "Afghanistan Advantage",
-          "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East.",
-          "tooltip": {
-            "title": "Resource Potential",
-            "subtitle": "Access to significant natural resources and emerging regional trade corridors."
-          },
-          "items": [
-            {
-              "title": "Strategic Position",
-              "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East."
-            },
-            {
-              "title": "Market Demand",
-              "subtitle": "Growing demand for goods and technology driven by reconstruction and development projects."
-            }
-          ]
-        }
-      ]
-    },
-    "market": {
-      "label": "Market Strategy",
-      "title": "Market Strategy Summary",
-      "subtitle": "Indian Trade House combines Uzbekistan’s stability and logistics capabilities with Afghanistan’s growth-driven demand to create a balanced and scalable export platform for Indian manufacturers and exporters.",
-      "cards": [
-        {
-          "title": "Explore Opportunities",
-          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
-        },
-        {
-          "title": "Explore Opportunities",
-          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
-        },
-        {
-          "title": "Explore Opportunities",
-          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
-        }
-      ]
     }
   },
 
@@ -599,6 +601,41 @@
       ],
       "view": "View larger map",
       "address": "Uzbekistan, Yunusabad District, Tashkent"
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Services & Support",
+      "text": "Comprehensive export and business support services for Uzbekistan and Afghanistan markets.",
+      "button": "Request Consultation",
+      "box": {
+        "title": "Your Export Ecosystem",
+        "text": "Join exporters already growing with our support ecosystem."
+      },
+      "card": {
+        "label": "Export Support Coverage",
+        "text": "Comprehensive support across trade, legal, logistics, and compliance."
+      }
+    },
+    "core": {
+      "title": "Core Trade Services you Can Rely On",
+      "subtitle": "Invisible infrastructure that makes export happen.",
+      "label": "Core Services",
+      "cards": [
+        {
+          "title": "Compliance & Government Coordination",
+          "text": "We handle permits, documentation, certification, and local authority coordination to ensure smooth"
+        },
+        {
+          "title": "End-to-End Trade Execution",
+          "text": "We handle permits, documentation, certification, and local authority coordination to ensure smooth"
+        },
+        {
+          "title": "Compliance & Government Coordination",
+          "text": "From customs clearance to retail distribution, we manage the operational flow that moves products from India"
+        }
+      ]
     }
   },
 

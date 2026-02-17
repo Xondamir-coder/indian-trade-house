@@ -20,5 +20,6 @@ const translate = val => {
  */
 export default name => {
   const { tm } = useI18n();
+  if (!tm(name)) return;
   return tm(name).map(translate);
 };
