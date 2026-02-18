@@ -2,9 +2,9 @@
   <section class="services">
     <UiSectionHeader
       class="services__header"
-      :label="$t('services-section.label')"
-      :title="$t('services-section.title')"
-      :subtitle="$t('services-section.subtitle')"
+      :label="label || $t('services-section.label')"
+      :title="title || $t('services-section.title')"
+      :subtitle="subtitle || $t('services-section.subtitle')"
     />
     <ul class="services__list">
       <li v-for="(item, i) in items" :key="i" class="services__item">
@@ -16,8 +16,8 @@
           <p class="body-md">{{ item.subtitle }}</p>
         </div>
         <ul v-if="item.labels" class="services__item-labels">
-          <li v-for="label in item.labels" :key="label" class="services__item-label">
-            {{ label }}
+          <li v-for="l in item.labels" :key="l" class="services__item-label">
+            {{ l }}
           </li>
         </ul>
       </li>
@@ -27,6 +27,18 @@
 
 <script setup>
 defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
+  subtitle: {
+    type: String,
+    default: ''
+  },
+  label: {
+    type: String,
+    default: ''
+  },
   items: {
     type: Array,
     required: true

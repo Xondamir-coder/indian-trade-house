@@ -636,6 +636,29 @@
           "text": "From customs clearance to retail distribution, we manage the operational flow that moves products from India"
         }
       ]
+    },
+    "services": {
+      "label": "Support Service",
+      "title": "Service Impact at a Glance",
+      "subtitle": "Trusted by exporters and businesses across markets.",
+      "cards": [
+        {
+          "title": "250+",
+          "subtitle": "Exporters Assisted"
+        },
+        {
+          "title": "180+",
+          "subtitle": "Residency Cases"
+        },
+        {
+          "title": "120+",
+          "subtitle": "Market Launches"
+        },
+        {
+          "title": "500+",
+          "subtitle": "Legal Consultations"
+        }
+      ]
     }
   },
 

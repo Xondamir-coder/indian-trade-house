@@ -134,8 +134,59 @@ Z"
         </defs>
       </svg>
     </section>
-    <UiSectionAdvantages />
-    <UiSectionMarket />
+    <section class="galaxy">
+      <div class="galaxy__label">
+        <IconsFlagUz class="galaxy__label-icon" />
+        <span>{{ $t('uzbekistan') }}</span>
+      </div>
+      <div class="galaxy__label">
+        <IconsFlagAf class="galaxy__label-icon" />
+        <span>{{ $t('afghanistan') }}</span>
+      </div>
+      <div class="galaxy__container">
+        <div class="galaxy__banner">
+          <img src="/images/galaxy-bg.png" alt="galaxy" class="galaxy__banner-image" />
+        </div>
+        <img src="/images/galaxy-items.png" alt="galaxy" class="galaxy__items" />
+      </div>
+      <div class="galaxy__box">
+        <SvgCentredLogo class="galaxy__box-logo" />
+      </div>
+      <svg width="0" height="0" aria-hidden="true">
+        <defs>
+          <clipPath id="galaxyClip" clipPathUnits="objectBoundingBox">
+            <path
+              d="M 1.00000 0.78402
+C 1.00000 0.81980 0.98931 0.84881 0.97612 0.84881
+H 0.86465
+C 0.85145 0.84881 0.84076 0.87782 0.84076 0.91361
+V 0.93520
+C 0.84076 0.97099 0.83006 1.00000 0.81688 1.00000
+H 0.02389
+C 0.01070 1.00000 0.00000 0.97099 0.00000 0.93520
+V 0.21663
+C 0.00000 0.18084 0.01070 0.15183 0.02389 0.15183
+H 0.13535
+C 0.14855 0.15183 0.15924 0.12282 0.15924 0.08704
+V 0.06479
+C 0.15924 0.02899 0.16994 0.00000 0.18312 0.00000
+H 0.97612
+C 0.98931 0.00000 1.00000 0.02899 1.00000 0.06479
+V 0.78402
+Z
+"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+    </section>
+    <UiSectionServices
+      class="services__services"
+      :title="$t('services.services.title')"
+      :subtitle="$t('services.services.subtitle')"
+      :label="$t('services.services.label')"
+      :items="useMapRt('services.services.cards')"
+    />
   </main>
 </template>
 
@@ -152,6 +203,92 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
 </script>
 
 <style lang="scss" scoped>
+.galaxy {
+  position: relative;
+  display: flex;
+  aspect-ratio: 125.6/46.3;
+  margin-inline: var(--spacing-inline);
+  margin-bottom: calc(24.8rem * 0.25);
+  & > * {
+    position: absolute;
+  }
+  & > *:not(.galaxy__container) {
+    z-index: 1;
+  }
+  &__banner {
+    position: relative;
+    &-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-position: bottom;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      // background: linear-gradient(to right, rgba(#903e0e, 0.7) 0%, rgba(#360d07, 0.3) 95%);
+      background: linear-gradient(to right, rgba(#903e0e, 0.7) 0%, rgba(rgb(57, 35, 32), 0.3) 95%);
+    }
+  }
+  &__items {
+    pointer-events: none;
+  }
+  &__container {
+    inset: 0;
+    clip-path: url('#galaxyClip');
+    & > * {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+  &__label {
+    display: flex;
+    padding: 1.6rem 2rem;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 4rem;
+    border: 1px solid #f8cba0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 12.29%,
+        var(--orgn-100, rgba(251, 229, 208, 0.4)) 107.11%
+      ),
+      var(--Color-1, #fff);
+    box-shadow: 0 23px 60px 0 rgba(189, 88, 0, 0.33);
+    color: var(--Neutral-Colors-Neutral-950, #000);
+    font-family: vars.$font-inter;
+    font-size: 2rem;
+    font-weight: 400;
+    &:nth-child(2) {
+      right: 0;
+      bottom: 0;
+    }
+    &-icon {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__box {
+    @include mix.flex-center;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 25%;
+    width: 24.8rem;
+    height: 24.8rem;
+    border-radius: 50%;
+    background:
+      linear-gradient(136deg, rgba(255, 255, 255, 0) 17.58%, var(--orgn-100, #fbe5d0) 83.01%),
+      var(--orgn-200, #f8cba0);
+    &-logo {
+      width: 49%;
+    }
+  }
+}
 .core {
   padding-inline: var(--spacing-inline);
   display: flex;
@@ -202,6 +339,7 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
       padding-left: 2.4rem;
     }
     &-title {
+      max-width: 20ch;
       color: var(--orgn-800, #5f3207);
       font-size: 2rem;
       font-weight: 700;
@@ -397,5 +535,16 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
   display: flex;
   flex-direction: column;
   gap: 6rem;
+  &__services {
+    & > *:last-child {
+      & > * {
+        & > *:last-child {
+          & > *:first-child {
+            font-size: 3.2rem;
+          }
+        }
+      }
+    }
+  }
 }
 </style>
