@@ -2,7 +2,6 @@
   <header class="header">
     <NuxtLink class="header__logo" :to="$localePath('/')">
       <SvgLogo />
-      <span>Indian Trade</span>
     </NuxtLink>
     <nav class="header__nav">
       <NuxtLink
@@ -12,11 +11,36 @@
         class="header__link"
         active-class="active"
       >
-        {{ link.label }}
+        <span>{{ link.label }}</span>
       </NuxtLink>
     </nav>
     <div class="header__right">
-      <button class="header__right-login">{{ $t('login') }}</button>
+      <button class="header__right-button">
+        <span>
+          {{ $i18n.locales.value.find(l => l.code === $i18n.locale).name }}
+        </span>
+        <svg
+          class="header__right-button-icon"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_507_1329)">
+            <path d="M5.25 7.5L9 11.25L12.75 7.5H5.25Z" fill="#8E4A0B" />
+          </g>
+          <defs>
+            <clipPath id="clip0_507_1329">
+              <rect width="18" height="18" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      <button class="header__right-button">
+        <IconsLogin class="header__right-button-icon" />
+        <span>
+          {{ $t('login') }}
+        </span>
+      </button>
       <button class="header__button button--orange">
         {{ $t('join-program') }}
       </button>
@@ -50,8 +74,30 @@ const links = computed(() =>
   inset-inline: 0;
   &__right {
     display: flex;
+    gap: 1rem;
     @media screen and (max-width: vars.$bp-sm) {
       display: none;
+    }
+    &-button {
+      display: flex;
+      height: max(4.8rem, 40px);
+      padding-inline: 1.4rem;
+      align-items: center;
+      gap: 0.8rem;
+      border-radius: 9.9rem;
+      border: 2px solid #fff;
+      background: var(--orgn-50, #fdf2e7);
+      box-shadow: 0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
+      color: var(--orgn-700, var(--orgn-700, #8e4a0b));
+      font-size: 1.4rem;
+      font-weight: 500;
+      transition: background 0.3s;
+      &:hover {
+        background: var(--orgn-100, #fbe5d0);
+      }
+      &-icon {
+        width: 1.8rem;
+      }
     }
     &-login {
       padding-inline: max(1.6rem, 10px);
@@ -66,40 +112,40 @@ const links = computed(() =>
   &__nav {
     display: flex;
     align-items: center;
-    gap: 2.8rem;
     @media screen and (max-width: 1100px) {
       display: none;
-    }
-    &:has(> *:hover) > *:not(:hover) {
-      opacity: 0.5;
-      color: #9b9a9a;
     }
   }
   &__link {
     font-weight: 500;
-    color: var(--Neutral-Grey-200, #9b9a9a);
-    transition: all 0.4s;
-    &:hover,
+    color: #5f3207;
+    transition: all 0.7s;
+    border-radius: 8rem;
+    padding: 1.35rem 1.2rem;
+    position: relative;
+    display: flex;
+    span {
+      z-index: 1;
+    }
     &.active {
-      color: var(--Neutral-Grey-800, #141414);
+      color: #fff;
+      &::after {
+        clip-path: inset(0% 0%);
+      }
+    }
+    &::after {
+      border-radius: 8rem;
+      transition: all 0.7s;
+      clip-path: inset(50% 0%);
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--orgn-500, #ed7e17);
+      box-shadow: 0 4.343px 10px 0 rgba(248, 203, 160, 0.5) inset;
     }
   }
   &__logo {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    font-size: max(2.4rem, 20px);
-    font-weight: 600;
-    font-family: vars.$font-inter;
-    text-wrap: nowrap;
-    transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-    }
-    svg {
-      flex-shrink: 0;
-      width: 41px;
-    }
+    width: 10.8231rem;
   }
 }
 </style>

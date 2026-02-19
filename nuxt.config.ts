@@ -70,14 +70,14 @@ export default defineNuxtConfig({
       {
         code: 'en',
         language: 'en-US',
-        name: 'English',
+        name: 'Eng',
         file: 'en.json'
       },
       {
-        code: 'hi',
-        language: 'hi-IN',
-        name: 'हिंदी',
-        file: 'hi.json'
+        code: 'uz',
+        language: 'uz-UZ',
+        name: "O'zb",
+        file: 'uz.json'
       }
     ]
   }

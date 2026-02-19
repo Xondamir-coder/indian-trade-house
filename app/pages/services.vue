@@ -36,7 +36,7 @@
             {{ $t('services.hero.card.text') }}
           </p>
         </div>
-        <UiPicture src="girl-portrait.jpg" alt="girl" class="hero__pic" />
+        <UiPicture src="man-handshake.jpg" alt="man" class="hero__pic" />
         <div class="hero__circles">
           <button
             v-for="i in 3"
@@ -187,6 +187,66 @@ Z
       :label="$t('services.services.label')"
       :items="useMapRt('services.services.cards')"
     />
+    <section class="start">
+      <img src="/images/start-gradient.png" alt="banner" class="start__banner" />
+      <div class="start__left">
+        <div class="start__left-box">
+          <span class="start__left-box-amount">180+</span>
+          <span class="start__left-box-text">{{ $t('services.start.residency') }}</span>
+        </div>
+        <div class="start__left-container">
+          <UiPicture src="start-pic.png" alt="pic" class="start__left-container-pic" />
+          <UiPicture src="start-bg.png" alt="bg" class="start__left-container-bg" />
+        </div>
+        <div class="start__left-content">
+          <div class="start__left-content-iconbox">
+            <IconsOfficeChair class="start__left-content-icon" />
+          </div>
+          <p>{{ $t('services.start.text') }}</p>
+        </div>
+      </div>
+      <div class="start__right">
+        <div class="start__right-label">
+          <IconsLightning class="start__right-label-icon" />
+          <span>{{ $t('services.start.label') }}</span>
+        </div>
+        <div class="start__right-box">
+          <h2 class="start__right-title">
+            {{ $t('services.start.title') }}
+          </h2>
+          <p>
+            {{ $t('services.start.subtitle') }}
+          </p>
+        </div>
+        <button class="start__right-button">
+          <span>{{ $t('services.start.button') }}</span>
+          <IconsArrowRight class="start__right-button-icon" />
+        </button>
+      </div>
+      <svg width="0" height="0" aria-hidden="true">
+        <defs>
+          <clipPath id="startClip" clipPathUnits="objectBoundingBox">
+            <path
+              d="M 0.09453 0
+L 0.41800 0
+C 0.47021 0 0.51253 0.05649 0.51253 0.12614
+L 0.51253 0.39058
+C 0.51253 0.46192 0.55687 0.51976 0.60934 0.51976
+L 0.90547 0.51976
+C 0.95768 0.51976 1.00000 0.57626 1.00000 0.64590
+L 1.00000 0.87462
+C 1.00000 0.94427 0.95768 1.00000 0.90547 1.00000
+L 0.09453 1.00000
+C 0.04232 1.00000 0.00000 0.94427 0.00000 0.87462
+L 0.00000 0.12614
+C 0.00000 0.05649 0.04232 0.00000 0.09453 0.00000
+Z
+"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+    </section>
   </main>
 </template>
 
@@ -203,6 +263,173 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
 </script>
 
 <style lang="scss" scoped>
+.start {
+  display: grid;
+  grid-template-columns: 1fr 1.72fr;
+  gap: 6rem;
+  padding-block: 9rem;
+  padding-inline: var(--spacing-inline);
+  position: relative;
+  overflow: hidden;
+  & > svg {
+    position: absolute;
+  }
+  & > *:not(img) {
+    z-index: 1;
+  }
+  &__banner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  &__left {
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 5rem;
+    grid-auto-columns: 1.12fr 1fr;
+    grid-template-areas:
+      'box pic'
+      'content content';
+    position: relative;
+    > * {
+      z-index: 1;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 243, 237, 0.7);
+      border: 1px solid #fefdf9;
+      box-shadow: 22px 26px 100px rgba(116, 60, 4, 0.4);
+      clip-path: url('#startClip');
+    }
+    &-container {
+      grid-area: pic;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+
+      &-bg {
+        position: absolute;
+        inset: 0;
+        border-radius: 4.2rem;
+      }
+      &-pic {
+        z-index: 1;
+        max-width: 90%;
+        translate: 0% -12%;
+      }
+    }
+    &-box {
+      grid-area: box;
+      color: var(--Primary-warmth, #fffefd);
+      display: flex;
+      padding: 3.2rem 3rem;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 4.2rem;
+      background: var(--Primary-vivid-green, #0cbb52);
+      box-shadow:
+        0 2px 0 0 rgba(255, 255, 255, 0.2) inset,
+        0 -1px 0 1px rgba(0, 0, 0, 0.05) inset,
+        0 4px 2.7px 0 rgba(0, 212, 126, 0.1);
+      &-amount {
+        font-size: 5.4rem;
+        font-weight: 800;
+      }
+      &-text {
+        font-weight: 500;
+      }
+    }
+
+    &-content {
+      padding-bottom: 4.7rem;
+      padding-inline: 3.3rem;
+      grid-area: content;
+      display: flex;
+      align-items: center;
+      gap: 2.4rem;
+      p {
+        color: var(--orgn-900, #2f1904);
+        font-family: vars.$font-inter;
+        font-size: 2.8rem;
+        font-weight: 600;
+        line-height: 130%;
+      }
+      &-icon {
+        width: 55%;
+        fill: none;
+      }
+      &-iconbox {
+        @include mix.flex-center;
+        flex-shrink: 0;
+        width: 8.4rem;
+        height: 8.4rem;
+        border-radius: 2.4rem;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        background-image: linear-gradient(to right, #fdf7f0 0%, rgba(255, 255, 255, 0) 100%);
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.2rem;
+    color: var(--Grayscale-White, #fff);
+    &-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+    &-title {
+      font-family: vars.$font-inter;
+      font-size: 5.4rem;
+      font-weight: 600;
+      line-height: 133%;
+      max-width: 15ch;
+    }
+    &-label {
+      display: flex;
+      padding: 0.8rem 1.6rem;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      border-radius: 1.2rem;
+      border: 1.2px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 1.6rem;
+      font-weight: 600;
+      &-icon {
+        width: 1.6rem;
+        fill: currentColor;
+      }
+    }
+    &-button {
+      display: flex;
+      height: 4.8rem;
+      padding-inline: 1.4rem;
+      align-items: center;
+      gap: 1rem;
+      border-radius: 9.9rem;
+      border: 2px solid #fff;
+      background: #fff;
+      box-shadow: 0 4.343px 16px 0 rgba(248, 203, 160, 0.3) inset;
+      color: #bd630f;
+      font-weight: 500;
+
+      &-icon {
+        fill: currentColor;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+}
 .galaxy {
   position: relative;
   display: flex;

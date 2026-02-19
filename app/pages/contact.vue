@@ -92,33 +92,6 @@
     <section class="map">
       <UiPicture src="sitting-at-table.jpg" alt="banner" class="map__bg" />
       <div class="map__container">
-        <div class="map__list">
-          <button
-            v-for="(item, i) in useMapRt('contact.map.items')"
-            :key="i"
-            class="map__item"
-            :class="{ active: i === activeLocation }"
-            @click="activeLocation = i"
-          >
-            <div class="map__item-iconbox">
-              <IconsPin class="map__item-icon" />
-            </div>
-            <div class="map__item-content">
-              <span class="map__item-content-name">
-                {{ item.name }}
-              </span>
-              <ul class="map__item-content-list">
-                <li
-                  v-for="location in item.locations"
-                  :key="location"
-                  class="map__item-content-item"
-                >
-                  {{ location }}
-                </li>
-              </ul>
-            </div>
-          </button>
-        </div>
         <div class="map__box">
           <UiPicture src="tashkent-map.jpg" alt="map" class="map__box-banner" />
           <div class="map__box-container">
@@ -173,8 +146,6 @@ const country = ref('');
 const phone = ref('');
 const partnership = ref('');
 const message = ref('');
-
-const activeLocation = ref(1);
 
 const fields = computed(() => [
   {
@@ -245,7 +216,7 @@ const submitForm = () => {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 14rem;
+  padding-top: 25rem;
   margin-bottom: calc(9rem - 3.2rem);
   &__bg {
     aspect-ratio: 144/66.5;

@@ -11,14 +11,20 @@
   font-family: vars.$font-jakarta;
   letter-spacing: 0.32px;
   font-weight: 500;
+  transition: background 0.4s;
 }
 
 .button--orange {
   @extend %button;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
-    var(--orgn-500, #ed7e17);
   color: #fff;
+  border: 0.9px solid #fff;
+  background: var(--orgn-500, #ed7e17);
+  box-shadow:
+    0 4.343px 10px 0 rgba(248, 203, 160, 0.5) inset,
+    0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
+  &:hover {
+    background: var(--orgn-600, #e26e0c);
+  }
 }
 .button--white {
   @extend %button;
@@ -31,4 +37,7 @@
     0 1px 1px 0 rgba(238, 197, 171, 0.1),
     0 4.343px 10px 0 rgba(248, 203, 160, 0.5) inset,
     0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
+  &:hover {
+    background: var(--Neutral-Neutral-20, #f7f4f0);
+  }
 }

@@ -659,6 +659,14 @@
           "subtitle": "Legal Consultations"
         }
       ]
+    },
+    "start": {
+      "label": "Get started",
+      "title": "Ready to Scale Your Export?",
+      "subtitle": "Join exporters already growing with our support ecosystem.",
+      "button": "Start Your Export",
+      "residency": "Residency Cases",
+      "text": "Need Personalized Support?"
     }
   },
 
