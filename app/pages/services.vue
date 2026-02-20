@@ -14,15 +14,20 @@
       </div>
       <div class="hero__container">
         <SvgServicesHeroArrow class="hero__container-arrow" />
-        <div class="hero__box">
+        <div
+          v-for="(box, i) in useMapRt('services.hero.boxes')"
+          :key="box.title"
+          class="hero__box"
+          :class="{ hidden: i !== activeItem }"
+        >
           <span class="hero__box-title">
-            {{ $t('services.hero.box.title') }}
+            {{ box.title }}
           </span>
           <p class="hero__box-text">
-            {{ $t('services.hero.box.text') }}
+            {{ box.text }}
           </p>
         </div>
-        <div class="hero__card">
+        <div :class="{ hidden: activeItem === 1 }" class="hero__card">
           <div class="hero__card-wrapper">
             <UiPicture src="arc.png" alt="arc" class="hero__card-pic" />
             <div class="hero__card-content">
@@ -36,13 +41,33 @@
             {{ $t('services.hero.card.text') }}
           </p>
         </div>
-        <UiPicture src="man-handshake.jpg" alt="man" class="hero__pic" />
+        <div :class="{ hidden: activeItem !== 1 }" class="hero__card">
+          <p class="hero__card-title">
+            {{ $t('services.hero.card-2.title') }}
+          </p>
+          <SvgColorfulGraph class="hero__card-graph" />
+          <div class="hero__card-bottom">
+            <span class="hero__card-bottom-label">{{ $t('services.hero.card-2.label') }}</span>
+            <span class="hero__card-bottom-percent">+24.6%</span>
+          </div>
+        </div>
+        <div class="hero__pics">
+          <UiPicture
+            v-for="i in 3"
+            :key="i"
+            :src="`services-${i}.jpg`"
+            alt="man"
+            class="hero__pic"
+            :class="{ hidden: i - 1 !== activeItem }"
+          />
+        </div>
         <div class="hero__circles">
           <button
             v-for="i in 3"
             :key="i"
             class="hero__circle"
             :class="{ active: i - 1 === activeItem }"
+            @click="activeItem = i - 1"
           />
         </div>
       </div>
@@ -260,6 +285,12 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
   ...el,
   icon: coreSupply[i]
 }));
+
+onMounted(() => {
+  setInterval(() => {
+    activeItem.value = (activeItem.value + 1) % 3;
+  }, 3000);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -421,7 +452,11 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
       box-shadow: 0 4.343px 16px 0 rgba(248, 203, 160, 0.3) inset;
       color: #bd630f;
       font-weight: 500;
-
+      transition: all 0.4s;
+      &:hover {
+        color: #fff;
+        background: transparent;
+      }
       &-icon {
         fill: currentColor;
         width: 3rem;
@@ -537,14 +572,28 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: box-shadow 0.3s;
+    &:hover {
+      box-shadow: 0 0 60px 0 var(--orgn-50, #fdf2e7) inset;
+      border-radius: 2rem;
+      &::after {
+        border-color: #fbe5d0;
+        box-shadow: 0 18px 44px 0 rgba(184, 98, 0, 0.2);
+      }
+      h3 {
+        color: #ed7e17;
+      }
+    }
     &::after {
+      border: 1px solid transparent;
       position: absolute;
       inset: 0;
       content: '';
-      border-radius: 1rem;
+      border-radius: 2rem;
       background-color: #fff;
       z-index: -1;
       clip-path: url('#coreClip');
+      transition: all 0.3s;
     }
     &-top {
       display: flex;
@@ -566,6 +615,7 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
       padding-left: 2.4rem;
     }
     &-title {
+      transition: color 0.3s;
       max-width: 20ch;
       color: var(--orgn-800, #5f3207);
       font-size: 2rem;
@@ -649,8 +699,50 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
     flex-direction: column;
     gap: 1rem;
     z-index: 1;
+    transition: all 0.6s;
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15%);
+    }
     & > *:not(picture) {
       z-index: 1;
+    }
+    &:nth-child(6) {
+      border: 1px solid #ed7e17;
+      background: #fefefe;
+      box-shadow: 0 2px 8px 0 rgba(81, 81, 81, 0.06);
+      gap: 2.4rem;
+    }
+    &-title {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #2f1904;
+    }
+    &-bottom {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--orgn-900, #2f1904);
+      &-label {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      &-percent {
+        display: flex;
+        padding: 0.4rem 0.8rem;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 10rem;
+        border: 1px solid var(--orgn-300, #f4b071);
+        background: var(--orgn-50, #fdf2e7);
+        font-family: vars.$font-inter;
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+    }
+    &-graph {
+      fill: none;
     }
     &-content {
       display: flex;
@@ -696,7 +788,7 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
     height: 12px;
     border-radius: 50%;
     background: #fff;
-    transition: all 0.3s;
+    transition: all 0.6s;
     &:hover {
       background-color: rgba(#ed7e17, 0.4);
     }
@@ -705,9 +797,20 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
       scale: 1.2;
     }
   }
+  &__pics {
+    display: grid;
+    & > * {
+      grid-area: 1/1/2/2;
+    }
+  }
   &__pic {
     clip-path: url('#cardClip');
     aspect-ratio: 48.3/55.7;
+    transition: all 0.6s;
+    &.hidden {
+      opacity: 0;
+      scale: 0.95;
+    }
   }
   &__box {
     font-family: vars.$font-inter;
@@ -731,6 +834,12 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
     box-shadow: 44px 36px 100px 0 rgba(183, 92, 7, 0.25);
     backdrop-filter: blur(35px);
     z-index: 1;
+    transition: all 0.6s;
+    &.hidden {
+      pointer-events: none;
+      transform: translateX(-20px);
+      opacity: 0;
+    }
     &-title {
       color: var(--orgn-800, #5f3207);
       font-size: 2.4rem;

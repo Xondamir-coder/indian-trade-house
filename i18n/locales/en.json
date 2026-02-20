@@ -609,13 +609,27 @@
       "title": "Services & Support",
       "text": "Comprehensive export and business support services for Uzbekistan and Afghanistan markets.",
       "button": "Request Consultation",
-      "box": {
-        "title": "Your Export Ecosystem",
-        "text": "Join exporters already growing with our support ecosystem."
-      },
+      "boxes": [
+        {
+          "title": "Your Export Ecosystem",
+          "text": "Join exporters already growing with our support ecosystem."
+        },
+        {
+          "title": "Core Trade Services ",
+          "text": "Use a horizontal scrolling or vertical cascading node system:"
+        },
+        {
+          "title": "Additional Business ",
+          "text": "Grid cards that transform into detailed panels with animated transitions"
+        }
+      ],
       "card": {
         "label": "Export Support Coverage",
         "text": "Comprehensive support across trade, legal, logistics, and compliance."
+      },
+      "card-2": {
+        "title": "Platform Growth Metrics",
+        "label": "Last Month"
       }
     },
     "core": {
