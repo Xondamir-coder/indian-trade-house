@@ -1,153 +1,156 @@
 {
-  "login": "Login",
-  "join-program": "Join Program",
-  "explore-opp": "Explore Opportunities",
-  "view-packages": "View Packages",
-  "monthly": "Monthly",
-  "yearly": "Yearly",
-  "enter-email": "Enter your email",
-  "subscribe": "Subscribe",
-  "company": "Company",
-  "products-self": "Products",
-  "customer": "Customer",
-  "explore-all-sectors": "Explore All Sectors",
-  "markets": "Markets",
-  "services": "Services",
-  "participation": "Participation",
-  "about-self": "About",
-  "membership-self": "Membership",
-  "services-self": "Services",
-  "client-sup": "Client support",
-  "help-center": "Help center",
-  "sys-status": "System status",
-  "feedback": "Feedback",
-  "uzbekistan": "Uzbekistan",
-  "afghanistan": "Afghanistan",
-  "apply-membership": "Apply for Membership",
+  "login": "Kirish",
+  "join-program": "Dasturga qo'shilish",
+  "explore-opp": "Imkoniyatlarni ko'rish",
+  "view-packages": "Paketlarni ko'rish",
+  "monthly": "Oylik",
+  "yearly": "Yillik",
+  "enter-email": "Emailingizni kiriting",
+  "subscribe": "Obuna bo'lish",
+  "company": "Kompaniya",
+  "products-self": "Mahsulotlar",
+  "customer": "Mijoz",
+  "explore-all-sectors": "Barcha sohalarni ko'rish",
+  "markets": "Bozorlar",
+  "participation": "Ishtirok",
+  "about-self": "Biz haqimizda",
+  "membership-self": "A’zolik",
+  "services-self": "Xizmatlar",
+  "client-sup": "Mijozlarni qo'llab-quvvatlash",
+  "help-center": "Yordam markazi",
+  "sys-status": "Tizim holati",
+  "feedback": "Fikr-mulohaza",
+  "uzbekistan": "O'zbekiston",
+  "afghanistan": "Afg'oniston",
+  "apply-membership": "A’zolik uchun ariza topshirish",
+  "product": "Mahsulot",
+  "send": "Yuborish",
+  "tashkent": "Toshkent",
+  "details": "Batafsil",
 
   "info-cards": [
     {
-      "title": "Agriculture",
-      "subtitle": "Direct export pathways and structured market entry",
-      "label": "240+ Products"
+      "title": "Qishloq xo'jaligi",
+      "subtitle": "To'g'ridan-to'g'ri eksport yo'llari va bozorga tizimli kirish",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Healthcare",
-      "subtitle": "Pharmaceuticals, medical devices, and surgical equipment",
-      "label": "240+ Products"
+      "title": "Sog'liqni saqlash",
+      "subtitle": "Farmatsevtika, tibbiy qurilmalar va jarrohlik uskunalari",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Industrial Machinery",
-      "subtitle": "Heavy machinery, tools, and plant equipment for manufacturing",
-      "label": "240+ Products"
+      "title": "Sanoat uskunalari",
+      "subtitle": "Ishlab chiqarish uchun og'ir texnika, asboblar va zavod jihozlari",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Textiles & Fabrics",
-      "subtitle": "Raw cotton, synthetic fabrics, and readymade garments of all styles",
-      "label": "240+ Products"
+      "title": "To'qimachilik va matolar",
+      "subtitle": "Xom paxta, sintetik matolar va barcha turdagi tayyor kiyimlar",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Construction Materials",
-      "subtitle": "Cement, steel, tiles, and sustainable building solutions",
-      "label": "240+ Products"
+      "title": "Qurilish materiallari",
+      "subtitle": "Sement, po'lat, plitkalar va barqaror qurilish yechimlari",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Automotive Parts",
-      "subtitle": "Spare parts, engines, and accessories for heavy & light",
-      "label": "240+ Products"
+      "title": "Avtomobil ehtiyot qismlari",
+      "subtitle": "Yengil va og'ir transport vositalari uchun ehtiyot qismlar, dvigatellar va aksessuarlar",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Electronics",
-      "subtitle": "Consumer electronics, components, and networking hardware",
-      "label": "240+ Products"
+      "title": "Elektronika",
+      "subtitle": "Maishiy elektronika, komponentlar va tarmoq uskunalari",
+      "label": "240+ Mahsulot"
     },
     {
-      "title": "Chemicals",
-      "subtitle": "Industrial chemicals, fertilizers, and raw materials",
-      "label": "240+ Products"
+      "title": "Kimyo sanoati",
+      "subtitle": "Sanoat kimyoviy moddalari, o'g'itlar va xomashyo",
+      "label": "240+ Mahsulot"
     }
   ],
 
   "search-filter-bar": {
-    "search": "Search",
-    "placeholder": "Search product & category",
-    "filters-label": "Quick filters:",
-    "filters": ["Food & Agriculture", "Medical", "Industrial", "Textiles"]
+    "search": "Qidirish",
+    "placeholder": "Mahsulot yoki kategoriyani qidiring",
+    "filters-label": "Tezkor filtrlar:",
+    "filters": ["Oziq-ovqat va qishloq xo'jaligi", "Tibbiyot", "Sanoat", "To'qimachilik"]
   },
 
   "header": {
-    "nav": ["Home", "About", "Products", "Membership", "Services", "Contact"]
+    "nav": ["Bosh sahifa", "Biz haqimizda", "Mahsulotlar", "A'zolik", "Xizmatlar", "Aloqa"]
   },
 
   "footer": {
-    "label": "Comprehensive Trade Support",
-    "title": "Indian Trade",
-    "sub": "Subscribe newsletter",
-    "sub-subtitle": "Subscribe our newsletter to get the latest news and updates!",
-    "text": "Gearing your company through an innovative strategy.",
-    "legals": ["Privacy policy", "Terms and conditions ", "Copyright"],
-    "dev-by": "Developed by"
+    "label": "Keng qamrovli savdo qo'llab-quvvatlovi",
+    "title": "Hindiston savdosi",
+    "sub": "Yangiliklarga obuna bo'ling",
+    "sub-subtitle": "So'nggi yangiliklar va yangilanishlarni olish uchun yangiliklar byulleteniga obuna bo'ling!",
+    "text": "Kompaniyangizni innovatsion strategiya orqali rivojlantiring.",
+    "legals": ["Maxfiylik siyosati", "Foydalanish shartlari", "Mualliflik huquqi"],
+    "dev-by": "Ishlab chiqdi"
   },
 
   "partners-section": {
-    "label": "Media & Promotion",
-    "title": "Media Coverage & Partners",
-    "subtitle": "Promoted through regional media channels and supported by retail partners.",
-    "button-label": "Partner With Us"
+    "label": "Media va targ'ibot",
+    "title": "Media yoritilishi va hamkorlar",
+    "subtitle": "Mintaqaviy media kanallari orqali targ'ib qilinadi va chakana savdo hamkorlari tomonidan qo'llab-quvvatlanadi.",
+    "button-label": "Biz bilan hamkorlik qiling"
   },
 
   "services-section": {
-    "label": "Trade Support",
-    "title": "Our Services",
-    "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure."
+    "label": "Savdoni qo‘llab-quvvatlash",
+    "title": "Bizning xizmatlarimiz",
+    "subtitle": "Indian Trade House strategik joylashuv va savdo infratuzilmasi orqali hind eksportchilarini tez rivojlanayotgan Markaziy Osiyo bozorlariga bog‘laydi."
   },
 
   "subscriptions-section": {
-    "label": "Participation Packages",
-    "subtitle": "Select the participation package that best fits your export goals and product portfolio.",
-    "sign": "Sign Up for FREE"
+    "label": "Ishtirok paketlari",
+    "subtitle": "Eksport maqsadlaringiz va mahsulot portfelingizga eng mos ishtirok paketini tanlang.",
+    "sign": "BEPUL ro‘yxatdan o‘ting"
   },
 
   "home": {
     "hero": {
-      "title": ["Showroom of Export", "Oriented Indian Foods and Goods"],
-      "subtitle": "A dedicated export platform providing Indian manufacturers and exporters with structured market entry, showroom placement, and business support in Uzbekistan and Afghanistan."
+      "title": ["Eksportga yo‘naltirilgan", "Hind oziq-ovqatlari va mahsulotlari shourumi"],
+      "subtitle": "Hind ishlab chiqaruvchilari va eksportchilari uchun O‘zbekiston va Afg‘onistonda tizimli bozorga kirish, shourum joylashuvi va biznes qo‘llab-quvvatlashni ta’minlovchi maxsus eksport platformasi."
     },
     "why": {
-      "label": "Market Opportunities",
-      "title": "Why This Region?",
-      "subtitle": "Connecting Indian exporters with high-potential Central Asian markets.",
+      "label": "Bozor imkoniyatlari",
+      "title": "Nega aynan shu mintaqa?",
+      "subtitle": "Hind eksportchilarini yuqori salohiyatli Markaziy Osiyo bozorlariga bog‘lash.",
       "cards": [
         {
           "image": "hilton.jpg",
-          "image-title": "Uzbekistan",
-          "image-subtitle": "Central Asia's Largest Consumer Market",
-          "title": "Heart of Central Asia",
-          "subtitle": "Modern infrastructure and gateway between East & West with a rapidly growing economy",
+          "image-title": "O‘zbekiston",
+          "image-subtitle": "Markaziy Osiyodagi eng yirik iste’mol bozori",
+          "title": "Markaziy Osiyoning yuragi",
+          "subtitle": "Zamonaviy infratuzilma, Sharq va G‘arbni bog‘lovchi darvoza hamda tez o‘sayotgan iqtisodiyot",
           "info": [
             {
-              "title": "GDP Growth",
+              "title": "YAIM o‘sishi",
               "amount": "+5.7%"
             },
             {
-              "title": "Population",
-              "amount": "35 Million"
+              "title": "Aholi",
+              "amount": "35 million"
             }
           ]
         },
         {
           "image": "afghanistan.jpg",
-          "image-title": "Afghanistan",
-          "image-subtitle": "Strategic Link to South Asia & Middle East",
-          "title": "Logistical Advantage",
-          "subtitle": "Growing demand for goods, technology, and reconstruction materials across multiple sectors",
+          "image-title": "Afg‘oniston",
+          "image-subtitle": "Janubiy Osiyo va Yaqin Sharqqa strategik bog‘lanish",
+          "title": "Logistik ustunlik",
+          "subtitle": "Ko‘plab sohalarda tovarlar, texnologiyalar va qayta qurilish materiallariga ortib borayotgan talab",
           "info": [
             {
-              "title": "Proximity",
-              "amount": "High"
+              "title": "Yaqinlik",
+              "amount": "Yuqori"
             },
             {
-              "title": "Import Reliance",
+              "title": "Importga qaramlik",
               "amount": "~80%"
             }
           ]
@@ -156,285 +159,287 @@
     },
     "services-cards": [
       {
-        "title": "Export Assistance",
-        "subtitle": "Company registration, trademarking, accounting, and auditing.",
-        "labels": ["Multimodal Transport", "Real-time Tracking"]
+        "title": "Eksport yordami",
+        "subtitle": "Kompaniyani ro‘yxatdan o‘tkazish, savdo belgisi, buxgalteriya va audit.",
+        "labels": ["Multimodal transport", "Real vaqt rejimida kuzatuv"]
       },
       {
-        "title": "Government Relations",
-        "subtitle": "Company registration, trademarking, accounting, and auditing.",
-        "labels": ["Documentation Support", "Regulatory Advisory"]
+        "title": "Davlat bilan aloqalar",
+        "subtitle": "Kompaniyani ro‘yxatdan o‘tkazish, savdo belgisi, buxgalteriya va audit.",
+        "labels": ["Hujjatlar bo‘yicha yordam", "Regulyativ maslahat"]
       },
       {
-        "title": "Business Support",
-        "subtitle": "Company registration, trademarking, accounting, and auditing.",
-        "labels": ["Supplier Audits", "Quality Control Checks"]
+        "title": "Biznesni qo‘llab-quvvatlash",
+        "subtitle": "Kompaniyani ro‘yxatdan o‘tkazish, savdo belgisi, buxgalteriya va audit.",
+        "labels": ["Yetkazib beruvchilar auditi", "Sifat nazorati"]
       },
       {
-        "title": "Logistics & Legal",
-        "subtitle": "Company registration, trademarking, accounting, and auditing.",
-        "labels": ["Supplier Audits", "Quality Control Checks"]
+        "title": "Logistika va huquqiy xizmatlar",
+        "subtitle": "Kompaniyani ro‘yxatdan o‘tkazish, savdo belgisi, buxgalteriya va audit.",
+        "labels": ["Yetkazib beruvchilar auditi", "Sifat nazorati"]
       }
     ],
     "demand": {
-      "label": "Demand",
-      "title": "Sectors in High Demand",
-      "subtitle": "Key export categories with strong and growing demand in Uzbekistan and Afghanistan."
+      "label": "Talab",
+      "title": "Yuqori talabdagi sohalar",
+      "subtitle": "O‘zbekiston va Afg‘onistonda kuchli va o‘sib borayotgan asosiy eksport yo‘nalishlari."
     },
     "roadmap": {
-      "label": "Timeline",
-      "title": "Project Roadmap",
-      "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets.",
+      "label": "Vaqt jadvali",
+      "title": "Loyiha yo‘l xaritasi",
+      "subtitle": "Indian Trade House’ning asosiy mintaqaviy bozorlardagi rivojlanishini ko‘rsatadigan bosqichma-bosqich reja.",
       "info": {
-        "title": "Product placement approval",
+        "title": "Mahsulot joylashtirish tasdig‘i",
         "items": [
           {
             "percent": "46%",
-            "title": "Last 90 days"
+            "title": "So‘nggi 90 kun"
           },
           {
             "percent": "32%",
-            "title": "Active showroom"
+            "title": "Faol shourum"
           }
         ]
       },
       "sections": [
         {
-          "label": "Stage 1 — 2025–2026",
-          "title": "Launch of Regional Showrooms",
-          "subtitle": "A phased development plan outlining the growth of Indian Trade House across key regional markets.",
+          "label": "1-bosqich — 2025–2026",
+          "title": "Mintaqaviy shourumlarni ishga tushirish",
+          "subtitle": "Indian Trade House’ning asosiy mintaqaviy bozorlardagi o‘sishini ko‘rsatadigan bosqichma-bosqich reja.",
           "images": ["stats.png"],
-          "card-title": "Initial Market Entry & Validation",
-          "card-text": "Validate demand and establish physical market presence."
+          "card-title": "Dastlabki bozorga kirish va tasdiqlash",
+          "card-text": "Talabni tasdiqlash va bozorga jismoniy kirishni yo‘lga qo‘yish."
         },
         {
-          "label": "Stage 2 — 2026–2027",
-          "title": "Launch of Regional Showrooms",
-          "subtitle": "Opening physical showrooms in Airitom, Shavat–Dashoguz, Bekabad, and Andarkhan to enable direct product placement and market entry.",
+          "label": "2-bosqich — 2026–2027",
+          "title": "Mintaqaviy shourumlarni ishga tushirish",
+          "subtitle": "Airitom, Shovot–Dashoguz, Bekobod va Andarxonda mahsulotlarni to‘g‘ridan-to‘g‘ri joylashtirish va bozorga kirishni ta’minlash uchun jismoniy shourumlar ochish.",
           "images": ["graph.png", "bars.png"],
-          "card-title": "Supporting text",
-          "card-text": "Scale participation and increase trade activity across regional centers."
+          "card-title": "Qo‘llab-quvvatlovchi matn",
+          "card-text": "Ishtirokni kengaytirish va mintaqaviy markazlarda savdo faolligini oshirish."
         },
         {
-          "label": "Stage 3 — 2026–2027",
-          "title": "Expansion to Trade Centers",
-          "subtitle": "Scaling operations into integrated showroom and trade centers to support higher volumes and expanded partnerships.",
+          "label": "3-bosqich — 2026–2027",
+          "title": "Savdo markazlariga kengayish",
+          "subtitle": "Katta hajmlar va kengaytirilgan hamkorlikni qo‘llab-quvvatlash uchun integratsiyalashgan shourum va savdo markazlariga o‘tish.",
           "images": ["stats.png"],
-          "card-title": "Initial Market Entry & Validation",
-          "card-text": "Validate demand and establish physical market presence."
+          "card-title": "Dastlabki bozorga kirish va tasdiqlash",
+          "card-text": "Talabni tasdiqlash va bozorga jismoniy kirishni yo‘lga qo‘yish."
         }
       ]
     },
     "subscriptions": {
-      "title": "Choose Your Tier",
+      "title": "O‘z tarifingizni tanlang",
       "cards": [
         {
-          "label": "Standard Participant",
+          "label": "Standart ishtirokchi",
           "amount": "$3,500",
-          "subtitle": "Small and mid-size exporters",
+          "subtitle": "Kichik va o‘rta eksportchilar",
           "amenities": [
-            "Up to 5 product types",
-            "Meetings with retail chains",
-            "Product of the Month promotion",
-            "Launch and onboarding consultation"
+            "5 tagacha mahsulot turi",
+            "Chakana savdo tarmoqlari bilan uchrashuvlar",
+            "Oy mahsuloti targ‘iboti",
+            "Ishga tushirish va onboarding bo‘yicha konsultatsiya"
           ]
         },
         {
-          "label": "Premium Participant",
+          "label": "Premium ishtirokchi",
           "amount": "$5,000",
-          "subtitle": "Established brands and manufacturers",
+          "subtitle": "Rivojlangan brendlar va ishlab chiqaruvchilar",
           "amenities": [
-            "Up to 30 SKUs",
-            "Social media promotion",
-            "Participation in exhibitions and events",
-            "Product of the Day promotion",
-            "Customs and logistics consultation"
+            "30 tagacha SKU",
+            "Ijtimoiy tarmoqlarda targ‘ibot",
+            "Ko‘rgazma va tadbirlarda ishtirok",
+            "Kun mahsuloti targ‘iboti",
+            "Bojxona va logistika bo‘yicha konsultatsiya"
           ]
         }
       ]
     }
   },
 
+  "section-advantages": {
+    "label": "Savdoni qo‘llab-quvvatlash",
+    "title": "Bizning xizmatlarimiz",
+    "subtitle": "Indian Trade House strategik joylashuv va savdo infratuzilmasi orqali hind eksportchilarini tez rivojlanayotgan Markaziy Osiyo bozorlariga bog‘laydi.",
+    "info": [
+      {
+        "title": "78+ million",
+        "subtitle": "O‘zbekiston va Afg‘oniston bo‘yicha umumiy aholi soni"
+      },
+      {
+        "title": "3 ta asosiy mintaqa",
+        "subtitle": "Markaziy Osiyo, Janubiy Osiyo, Yaqin Sharq"
+      },
+      {
+        "title": "4+ asosiy sektor",
+        "subtitle": "Qishloq xo‘jaligi, sog‘liqni saqlash, sanoat, iste’mol tovarlari"
+      },
+      {
+        "title": "3 bosqichli yo‘l xaritasi",
+        "subtitle": "Kompaniyalar rivojlanganda marjaning oshishi"
+      }
+    ],
+    "cards": [
+      {
+        "title": "O‘zbekiston ustunliklari",
+        "subtitle": "Kuchli infratuzilma va o‘sib borayotgan talabga ega Markaziy Osiyo bozorlariga kirish darvozasi.",
+        "tooltip": {
+          "title": "Geografik markaz",
+          "subtitle": "Zamonaviy transport va logistika infratuzilmasi bilan Sharq va G‘arbni bog‘lovchi muhim yo‘lak."
+        },
+        "items": [
+          {
+            "title": "Asosiy sohalar",
+            "subtitle": "Zamonaviy transport va logistika infratuzilmasi bilan Sharq va G‘arbni bog‘lovchi muhim yo‘lak."
+          },
+          {
+            "title": "O‘sib borayotgan iqtisodiyot",
+            "subtitle": "Farmatsevtika, to‘qimachilik, avtomobil ehtiyot qismlari va qishloq xo‘jaligi texnikasiga yuqori talab."
+          }
+        ]
+      },
+      {
+        "title": "Afg‘oniston ustunliklari",
+        "subtitle": "Janubiy Osiyo, Markaziy Osiyo va Yaqin Sharqni bog‘lovchi muhim bo‘g‘in.",
+        "tooltip": {
+          "title": "Resurs salohiyati",
+          "subtitle": "Muhim tabiiy resurslar va shakllanayotgan mintaqaviy savdo yo‘laklariga kirish imkoniyati."
+        },
+        "items": [
+          {
+            "title": "Strategik joylashuv",
+            "subtitle": "Janubiy Osiyo, Markaziy Osiyo va Yaqin Sharqni bog‘lovchi muhim bo‘g‘in."
+          },
+          {
+            "title": "Bozor talabi",
+            "subtitle": "Qayta qurish va rivojlanish loyihalari hisobiga tovarlar va texnologiyalarga ortib borayotgan talab."
+          }
+        ]
+      }
+    ]
+  },
+
+  "section-market": {
+    "label": "Bozor strategiyasi",
+    "title": "Bozor strategiyasi qisqacha",
+    "subtitle": "Indian Trade House O‘zbekistonning barqarorligi va logistika salohiyatini Afg‘onistonning o‘sishga yo‘naltirilgan talabi bilan birlashtirib, hind ishlab chiqaruvchilari va eksportchilari uchun muvozanatli va kengaytiriladigan eksport platformasini yaratadi.",
+    "cards": [
+      {
+        "title": "Imkoniyatlarni o‘rganish",
+        "text": "Indian Trade House O‘zbekistonning barqarorligi va logistikasini Afg‘onistonning"
+      },
+      {
+        "title": "Imkoniyatlarni o‘rganish",
+        "text": "Indian Trade House O‘zbekistonning barqarorligi va logistikasini Afg‘onistonning"
+      },
+      {
+        "title": "Imkoniyatlarni o‘rganish",
+        "text": "Indian Trade House O‘zbekistonning barqarorligi va logistikasini Afg‘onistonning"
+      }
+    ]
+  },
+
   "about": {
     "hero": {
-      "title": "About the Market",
-      "subtitle": "Indian Trade House focuses on strategically selected Central Asian markets, providing Indian exporters with structured access to high-potential regions based on logistics, demand, and long-term trade opportunities."
-    },
-    "services": {
-      "label": "Trade Support",
-      "title": "Our Services",
-      "subtitle": "Indian Trade House bridges Indian exporters with fast-growing Central Asian markets through strategic locations and trade infrastructure.",
-      "info": [
-        {
-          "title": "78+ Million",
-          "subtitle": "Total population across Uzbekistan and Afghanistan"
-        },
-        {
-          "title": "3 Key Regions",
-          "subtitle": "Central Asia, South Asia, Middle East"
-        },
-        {
-          "title": "4+ Core Sectors",
-          "subtitle": "Agriculture, healthcare, industry, consumer goods"
-        },
-        {
-          "title": "3-Stage Roadmap",
-          "subtitle": "Increase in margins when companies improved"
-        }
-      ],
-      "cards": [
-        {
-          "title": "Uzbekistan Advantage",
-          "subtitle": "A gateway to Central Asian markets with robust infrastructure and growing demand.",
-          "tooltip": {
-            "title": "Geographic Hub",
-            "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
-          },
-          "items": [
-            {
-              "title": "Key Sectors",
-              "subtitle": "A key gateway between East and West with modern transport and logistics infrastructure."
-            },
-            {
-              "title": "Growing Economy",
-              "subtitle": "High demand for Pharmaceuticals, Textiles, Automotive parts, and agricultural machinery."
-            }
-          ]
-        },
-        {
-          "title": "Afghanistan Advantage",
-          "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East.",
-          "tooltip": {
-            "title": "Resource Potential",
-            "subtitle": "Access to significant natural resources and emerging regional trade corridors."
-          },
-          "items": [
-            {
-              "title": "Strategic Position",
-              "subtitle": "A vital link connecting South Asia, Central Asia, and the Middle East."
-            },
-            {
-              "title": "Market Demand",
-              "subtitle": "Growing demand for goods and technology driven by reconstruction and development projects."
-            }
-          ]
-        }
-      ]
-    },
-    "market": {
-      "label": "Market Strategy",
-      "title": "Market Strategy Summary",
-      "subtitle": "Indian Trade House combines Uzbekistan’s stability and logistics capabilities with Afghanistan’s growth-driven demand to create a balanced and scalable export platform for Indian manufacturers and exporters.",
-      "cards": [
-        {
-          "title": "Explore Opportunities",
-          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
-        },
-        {
-          "title": "Explore Opportunities",
-          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
-        },
-        {
-          "title": "Explore Opportunities",
-          "text": "Indian Trade House combines Uzbekistan’s stability and logistics with Afghanistan’s"
-        }
-      ]
+      "title": "Bozor haqida",
+      "subtitle": "Indian Trade House logistika, talab va uzoq muddatli savdo imkoniyatlariga asoslanib, strategik tanlangan Markaziy Osiyo bozorlariga e’tibor qaratadi hamda hind eksportchilari uchun yuqori salohiyatli hududlarga tizimli kirishni ta’minlaydi."
     }
   },
 
   "products": {
     "hero": {
-      "title": "Explore Export-Ready Products",
-      "subtitle": "Discover certified, export-ready products across food, industrial, medical, and consumer sectors."
+      "title": "Eksportga tayyor mahsulotlarni kashf eting",
+      "subtitle": "Oziq-ovqat, sanoat, tibbiyot va iste’mol sektorlarida sertifikatlangan, eksportga tayyor mahsulotlar bilan tanishing."
     },
     "categories": {
-      "explore": "Explore by Category",
+      "explore": "Kategoriya bo‘yicha ko‘rish",
       "filters": [
         {
-          "label": "Fresh and dried fruits",
+          "label": "Yangi va quritilgan mevalar",
           "amount": 32
         },
         {
-          "label": "General food products",
+          "label": "Umumiy oziq-ovqat mahsulotlari",
           "amount": 93
         },
         {
-          "label": "Building materials",
+          "label": "Qurilish materiallari",
           "amount": 45
         },
         {
-          "label": "Chemical products",
+          "label": "Kimyo mahsulotlari",
           "amount": 24
         },
         {
-          "label": "Well-Being",
+          "label": "Sog‘lom turmush",
           "amount": 8
         },
         {
-          "label": "Agricultural products and fertilizers",
+          "label": "Qishloq xo‘jaligi mahsulotlari va o‘g‘itlar",
           "amount": 24
         },
         {
-          "label": "Fresh and dried fruits",
+          "label": "Yangi va quritilgan mevalar",
           "amount": 32
         },
         {
-          "label": "Chemical products",
+          "label": "Kimyo mahsulotlari",
           "amount": 24
         },
         {
-          "label": "General food products",
+          "label": "Umumiy oziq-ovqat mahsulotlari",
           "amount": 93
         },
         {
-          "label": "Well-Being",
+          "label": "Sog‘lom turmush",
           "amount": 8
         },
         {
-          "label": "Building materials",
+          "label": "Qurilish materiallari",
           "amount": 45
         },
         {
-          "label": "Chemical products",
+          "label": "Kimyo mahsulotlari",
           "amount": 24
         }
       ],
       "items": [
         {
-          "category": "Chemical Products",
+          "category": "Kimyo mahsulotlari",
           "image": "product-1.jpg",
           "name": "Industrial Grade Sodium",
-          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+          "labels": ["Mavjud: O‘zbekiston va Afg‘oniston uchun", "Qadoqlash: Sanoat bochkalari"]
         },
         {
-          "category": "Chemical Products",
+          "category": "Kimyo mahsulotlari",
           "image": "product-2.jpg",
           "name": "Organic Bio-Fertilizer",
-          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+          "labels": ["Mavjud: O‘zbekiston va Afg‘oniston uchun", "Qadoqlash: Sanoat bochkalari"]
         },
         {
-          "category": "Chemical Products",
+          "category": "Kimyo mahsulotlari",
           "image": "product-3.jpg",
           "name": "Industrial Grade Sodium",
-          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+          "labels": ["Mavjud: O‘zbekiston va Afg‘oniston uchun", "Qadoqlash: Sanoat bochkalari"]
         },
         {
-          "category": "Chemical Products",
+          "category": "Kimyo mahsulotlari",
           "image": "product-4.jpg",
           "name": "Organic Bio-Fertilizer",
-          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+          "labels": ["Mavjud: O‘zbekiston va Afg‘oniston uchun", "Qadoqlash: Sanoat bochkalari"]
         },
         {
-          "category": "Chemical Products",
+          "category": "Kimyo mahsulotlari",
           "image": "product-5.jpg",
           "name": "Industrial Grade Sodium",
-          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+          "labels": ["Mavjud: O‘zbekiston va Afg‘oniston uchun", "Qadoqlash: Sanoat bochkalari"]
         },
         {
-          "category": "Chemical Products",
+          "category": "Kimyo mahsulotlari",
           "image": "product-6.jpg",
           "name": "Organic Bio-Fertilizer",
-          "labels": ["Available for: Uzbekistan & Afghanistan", "Packaging: Industrial drums"]
+          "labels": ["Mavjud: O‘zbekiston va Afg‘oniston uchun", "Qadoqlash: Sanoat bochkalari"]
         }
       ]
     }
@@ -442,104 +447,104 @@
 
   "membership": {
     "hero": {
-      "title": "Participation & Membership",
-      "subtitle": "Join our export program and showcase your products in certified international showrooms."
+      "title": "Ishtirok va a’zolik",
+      "subtitle": "Eksport dasturimizga qo‘shiling va mahsulotlaringizni sertifikatlangan xalqaro shourumlarda namoyish eting."
     },
     "services": [
       {
-        "title": "Halal Certification",
-        "subtitle": "Mandatory for all food products"
+        "title": "Halol sertifikati",
+        "subtitle": "Barcha oziq-ovqat mahsulotlari uchun majburiy"
       },
       {
-        "title": "Local Labeling",
-        "subtitle": "Packaging with Uzbek & Afghan labeling"
+        "title": "Mahalliy yorliqlash",
+        "subtitle": "O‘zbek va afg‘on yorliqlari bilan qadoqlash"
       },
       {
-        "title": "Shelf Life",
-        "subtitle": "Packaging with Uzbek & Afghan labeling"
+        "title": "Yaroqlilik muddati",
+        "subtitle": "O‘zbek va afg‘on yorliqlari bilan qadoqlash"
       },
       {
-        "title": "SKU Limits",
-        "subtitle": "Standard: 10 SKUs & Premium: 30 SKUs"
+        "title": "SKU cheklovlari",
+        "subtitle": "Standart: 10 SKU va Premium: 30 SKU"
       }
     ],
     "subscriptions": {
-      "title": "Choose Your Participation Level",
+      "title": "Ishtirok darajangizni tanlang",
       "cards": [
         {
-          "label": "Standard Participant",
+          "label": "Standart ishtirokchi",
           "amount": "$3,500",
-          "subtitle": "Small and mid-size exporters",
+          "subtitle": "Kichik va o‘rta eksportchilar",
           "amenities": [
-            "Up to 5 product types",
-            "Meetings with retail chains",
-            "Product of the Month promotion",
-            "Launch and onboarding consultation"
+            "5 tagacha mahsulot turi",
+            "Chakana savdo tarmoqlari bilan uchrashuvlar",
+            "Oy mahsuloti targ‘iboti",
+            "Ishga tushirish va onboarding bo‘yicha konsultatsiya"
           ]
         },
         {
-          "label": "Premium Participant",
+          "label": "Premium ishtirokchi",
           "amount": "$5,000",
-          "subtitle": "Established brands and manufacturers",
+          "subtitle": "Rivojlangan brendlar va ishlab chiqaruvchilar",
           "amenities": [
-            "Up to 30 SKUs",
-            "Social media promotion",
-            "Participation in exhibitions and events",
-            "Product of the Day promotion",
-            "Customs and logistics consultation"
+            "30 tagacha SKU",
+            "Ijtimoiy tarmoqlarda targ‘ibot",
+            "Ko‘rgazma va tadbirlarda ishtirok",
+            "Kun mahsuloti targ‘iboti",
+            "Bojxona va logistika bo‘yicha konsultatsiya"
           ]
         }
       ]
     },
     "trust": {
-      "label": "Market Strategy",
-      "title": "Trust Block  Trust & Credibility",
-      "subtitle": "Indian Trade House combines Uzbekistan’s stability and logistics capabilities with Afghanistan’s growth-driven demand to create a balanced and scalable export platform for Indian manufacturers and exporters.",
-      "incoop": "In cooperation with",
-      "image-title": "Trusted Export Platform",
-      "image-subtitle": "We work with verified partners, distributors, and retail networks to ensure transparent and compliant market entry.",
-      "help-title": "Need Help Choosing a Plan?",
-      "help-subtitle": "Our team is ready to guide you"
+      "label": "Bozor strategiyasi",
+      "title": "Ishonch va ishonchlilik",
+      "subtitle": "Indian Trade House O‘zbekistonning barqarorligi va logistika salohiyatini Afg‘onistonning o‘sishga yo‘naltirilgan talabi bilan birlashtirib, hind ishlab chiqaruvchilari va eksportchilari uchun muvozanatli va kengaytiriladigan eksport platformasini yaratadi.",
+      "incoop": "Hamkorlikda",
+      "image-title": "Ishonchli eksport platformasi",
+      "image-subtitle": "Shaffof va talablarga mos bozorga kirishni ta’minlash uchun tasdiqlangan hamkorlar, distribyutorlar va chakana savdo tarmoqlari bilan ishlaymiz.",
+      "help-title": "Rejani tanlashda yordam kerakmi?",
+      "help-subtitle": "Jamoamiz sizga yo‘l-yo‘riq ko‘rsatishga tayyor"
     },
     "how": {
-      "label": "How It Works",
-      "title": "How Participation Works",
-      "subtitle": "A simple and transparent process from application to showroom placement.",
+      "label": "Qanday ishlaydi",
+      "title": "Ishtirok jarayoni",
+      "subtitle": "Ariza topshirishdan shourumga joylashtirishgacha bo‘lgan oddiy va shaffof jarayon.",
       "cards": [
         {
-          "title": "Submit Application",
-          "desc": "Share basic information about your company and products. basic information"
+          "title": "Ariza topshirish",
+          "desc": "Kompaniyangiz va mahsulotlaringiz haqida asosiy ma’lumotlarni yuboring."
         },
         {
-          "title": "Product Review",
-          "desc": "Our team evaluates compliance with export and quality requirements."
+          "title": "Mahsulotni ko‘rib chiqish",
+          "desc": "Jamoamiz eksport va sifat talablariga muvofiqligini baholaydi."
         },
         {
-          "title": "Showroom & Promotion",
-          "desc": "Products are placed in showrooms and included in promotional activities."
+          "title": "Shourum va targ‘ibot",
+          "desc": "Mahsulotlar shourumlarga joylashtiriladi va promo faoliyatlarga kiritiladi."
         }
       ]
     },
     "faq": {
-      "label": "FAQs",
-      "title": "Frequently Asked Questions",
-      "subtitle": "We work with verified partners, distributors, and retail networks to ensure transparent and compliant market entry.",
+      "label": "Ko‘p so‘raladigan savollar",
+      "title": "Ko‘p so‘raladigan savollar",
+      "subtitle": "Shaffof va talablarga mos bozorga kirishni ta’minlash uchun tasdiqlangan hamkorlar, distribyutorlar va chakana savdo tarmoqlari bilan ishlaymiz.",
       "accordions": [
         {
-          "question": "Can I upgrade from Standard to Premium later?",
-          "answer": "Yes, you can upgrade to Premium at any time."
+          "question": "Keyinchalik Standartdan Premiumga o‘tishim mumkinmi?",
+          "answer": "Ha, istalgan vaqtda Premium tarifiga o‘tishingiz mumkin."
         },
         {
-          "question": "How long does the approval process take?",
-          "answer": "The approval process typically takes 2-3 business days."
+          "question": "Tasdiqlash jarayoni qancha vaqt oladi?",
+          "answer": "Tasdiqlash jarayoni odatda 2–3 ish kunini oladi."
         },
         {
-          "question": "Are non-food products allowed?",
-          "answer": "Yes, non-food categories can participate under applicable requirements. Typically 7–14 business days after application submission. Yes, participants can upgrade after initial approval. Customs consultation is included in the Premium package."
+          "question": "Oziq-ovqatdan tashqari mahsulotlarga ruxsat beriladimi?",
+          "answer": "Ha, tegishli talablarga muvofiq nooziq-ovqat toifalari ham ishtirok etishi mumkin. Odatda ariza topshirilgandan so‘ng 7–14 ish kuni davom etadi. Ishtirokchilar dastlabki tasdiqdan keyin tarifni yangilashlari mumkin. Bojxona bo‘yicha konsultatsiya Premium paketga kiritilgan."
         },
         {
-          "question": "Do you provide customs support?",
-          "answer": "Yes, we provide customs support for  participants"
+          "question": "Bojxona bo‘yicha yordam berasizlarmi?",
+          "answer": "Ha, ishtirokchilar uchun bojxona yordamini taqdim etamiz."
         }
       ]
     }
@@ -547,26 +552,152 @@
 
   "contact": {
     "hero": {
-      "title": "Contact & Support",
-      "subtitle": "Get in touch with our team for export inquiries, partnership opportunities, and showroom information."
+      "title": "Aloqa va qo‘llab-quvvatlash",
+      "subtitle": "Eksport bo‘yicha so‘rovlar, hamkorlik imkoniyatlari va shourumlar haqida ma’lumot olish uchun jamoamiz bilan bog‘laning."
     },
     "services": [
       {
-        "title": "Halal Certification",
-        "subtitle": "Mandatory for all food products"
+        "title": "Halol sertifikati",
+        "subtitle": "Barcha oziq-ovqat mahsulotlari uchun majburiy"
       },
       {
-        "title": "Local Labeling",
-        "subtitle": "Packaging with Uzbek & Afghan labeling"
+        "title": "Mahalliy yorliqlash",
+        "subtitle": "O‘zbek va afg‘on yorliqlari bilan qadoqlash"
       },
       {
-        "title": "Shelf Life",
-        "subtitle": "Packaging with Uzbek & Afghan labeling"
+        "title": "Yaroqlilik muddati",
+        "subtitle": "O‘zbek va afg‘on yorliqlari bilan qadoqlash"
       },
       {
-        "title": "SKU Limits",
-        "subtitle": "Standard: 10 SKUs & Premium: 30 SKUs"
+        "title": "SKU cheklovlari",
+        "subtitle": "Standart: 10 SKU va Premium: 30 SKU"
       }
-    ]
+    ],
+    "help": {
+      "label": "Savdoni qo‘llab-quvvatlash",
+      "title": "Sizga qanday yordam bera olamiz?",
+      "subtitle": "Xabaringizni to‘g‘ri jamoaga yo‘naltirishimiz uchun so‘rov turini tanlang.",
+      "next": "Keyin nima bo‘ladi?",
+      "steps": [
+        "So‘rovingizni ko‘rib chiqamiz",
+        "Tegishli jamoaga yo‘naltiramiz",
+        "48 soat ichida javob beramiz"
+      ],
+      "urgent": {
+        "title": "Shoshilinch so‘rovmi?",
+        "subtitle": "Ish vaqtida tezkor yordam olish uchun qo‘llab-quvvatlash jamoamiz bilan bevosita bog‘lanishingiz mumkin."
+      }
+    },
+    "map": {
+      "items": [
+        {
+          "name": "Kobul",
+          "locations": ["Afg‘oniston", "Markaziy biznes tumani, Kobul"]
+        },
+        {
+          "name": "Toshkent",
+          "locations": ["O‘zbekiston", "Yunusobod tumani, Toshkent"]
+        },
+        {
+          "name": "Olmaota",
+          "locations": ["Qozog‘iston", "Savdo markazi, Olmaota"]
+        }
+      ],
+      "view": "Kattaroq xaritada ko‘rish",
+      "address": "O‘zbekiston, Yunusobod tumani, Toshkent"
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Xizmatlar va qo‘llab-quvvatlash",
+      "text": "O‘zbekiston va Afg‘oniston bozorlari uchun keng qamrovli eksport va biznes qo‘llab-quvvatlash xizmatlari.",
+      "button": "Konsultatsiya so‘rash",
+      "boxes": [
+        {
+          "title": "Sizning eksport ekotizimingiz",
+          "text": "Bizning qo‘llab-quvvatlash ekotizimimiz bilan rivojlanayotgan eksportchilarga qo‘shiling."
+        },
+        {
+          "title": "Asosiy savdo xizmatlari",
+          "text": "Gorizontal skroll yoki vertikal kaskadli tugun tizimidan foydalaning:"
+        },
+        {
+          "title": "Qo‘shimcha biznes xizmatlari",
+          "text": "Animatsiyali o‘tishlar bilan batafsil panellarga aylanuvchi grid kartalar"
+        }
+      ],
+      "card": {
+        "label": "Eksportni qo‘llab-quvvatlash qamrovi",
+        "text": "Savdo, huquqiy, logistika va muvofiqlik yo‘nalishlari bo‘yicha to‘liq qo‘llab-quvvatlash."
+      },
+      "card-2": {
+        "title": "Platforma o‘sish ko‘rsatkichlari",
+        "label": "So‘nggi oy"
+      }
+    },
+    "core": {
+      "title": "Ishonchli asosiy savdo xizmatlari",
+      "subtitle": "Eksportni amalga oshiradigan ko‘rinmas infratuzilma.",
+      "label": "Asosiy xizmatlar",
+      "cards": [
+        {
+          "title": "Muvofiqlik va davlat bilan muvofiqlashtirish",
+          "text": "Jarayonlar uzluksiz bo‘lishi uchun ruxsatnomalar, hujjatlar, sertifikatsiya va mahalliy idoralar bilan hamkorlikni ta’minlaymiz"
+        },
+        {
+          "title": "Savdoni to‘liq amalga oshirish",
+          "text": "Jarayonlar uzluksiz bo‘lishi uchun ruxsatnomalar, hujjatlar, sertifikatsiya va mahalliy idoralar bilan hamkorlikni ta’minlaymiz"
+        },
+        {
+          "title": "Boshidan oxirigacha savdo boshqaruvi",
+          "text": "Bojxona rasmiylashtiruvidan chakana savdogacha bo‘lgan operatsion jarayonlarni boshqarib, mahsulotlarning Hindistondan bozorga yetib borishini ta’minlaymiz"
+        }
+      ]
+    },
+    "services": {
+      "label": "Qo‘llab-quvvatlash xizmati",
+      "title": "Xizmatlar natijasi qisqacha",
+      "subtitle": "Turli bozorlardagi eksportchilar va kompaniyalar ishonchini qozongan.",
+      "cards": [
+        {
+          "title": "250+",
+          "subtitle": "Qo‘llab-quvvatlangan eksportchilar"
+        },
+        {
+          "title": "180+",
+          "subtitle": "Rezidentlik holatlari"
+        },
+        {
+          "title": "120+",
+          "subtitle": "Bozorga chiqishlar"
+        },
+        {
+          "title": "500+",
+          "subtitle": "Huquqiy konsultatsiyalar"
+        }
+      ]
+    },
+    "start": {
+      "label": "Boshlash",
+      "title": "Eksportingizni kengaytirishga tayyormisiz?",
+      "subtitle": "Bizning qo‘llab-quvvatlash ekotizimimiz bilan rivojlanayotgan eksportchilarga qo‘shiling.",
+      "button": "Eksportni boshlash",
+      "residency": "Rezidentlik holatlari",
+      "text": "Shaxsiy yondashuv kerakmi?"
+    }
+  },
+
+  "form": {
+    "full-name": "To‘liq ism",
+    "company": "Kompaniya nomi",
+    "country": "Mamlakat",
+    "email": "Email manzil",
+    "phone": "Telefon raqami",
+    "partnership": "Hamkorlik turi",
+    "message": "Xabar",
+    "message-placeholder": "Xabaringizni shu yerga yozing...",
+    "enter-your": "{label} kiriting",
+    "submit": "Yuborish"
   }
 }

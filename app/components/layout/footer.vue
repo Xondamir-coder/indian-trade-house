@@ -163,10 +163,12 @@ const navItems = [
   }
 ];
 
+const paths = ['/privacy-policy', '/terms-and-conditions', '/copyright'];
+
 const legals = computed(() =>
-  useMapRt('footer.legals')?.map(el => ({
+  useMapRt('footer.legals')?.map((el, i) => ({
     label: el,
-    to: `/${el.trim().toLowerCase().split(' ').join('-')}`
+    to: paths[i]
   }))
 );
 </script>

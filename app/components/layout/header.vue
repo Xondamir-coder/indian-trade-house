@@ -49,9 +49,11 @@
 </template>
 
 <script setup>
+const paths = ['', '/about', '/products', '/membership', '/services', '/contact'];
+
 const links = computed(() =>
-  useMapRt('header.nav')?.map(el => ({
-    to: el === 'Home' ? '/' : `/${el.toLowerCase().split(' ').join('-')}`,
+  useMapRt('header.nav')?.map((el, i) => ({
+    to: paths[i],
     label: el
   }))
 );
