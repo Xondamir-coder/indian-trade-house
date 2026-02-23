@@ -4,7 +4,7 @@
   --text-clr: #353849;
   color: var(--text-clr);
   font-family: vars.$font-inter;
-  font-size: max(2rem, 18px);
+  font-size: max(2rem, 16px);
   line-height: 152%;
   letter-spacing: -0.3px;
 }
@@ -12,13 +12,13 @@
 .body-l {
   --text-clr: #515050;
   color: var(--text-clr);
-  font-size: 1.8rem;
+  font-size: max(1.8rem, 16px);
   line-height: 155%;
 }
 
 .body-md {
   --text-clr: #666d80;
-  font-size: 1.4rem;
+  font-size: max(1.4rem, 14px);
   font-weight: 500;
   color: var(--text-clr);
 }

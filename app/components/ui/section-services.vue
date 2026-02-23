@@ -50,28 +50,37 @@ defineProps({
 .services {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: max(5rem, 30px);
   margin-inline: var(--spacing-inline);
-  border-radius: 2rem;
+  border-radius: 20px;
   border: 1px solid var(--orgn-100, #fbe5d0);
   background: #fefefe;
   box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
-  padding: 4rem;
+  padding-inline: max(4rem, 16px);
+  padding-block: max(4rem, 20px);
+  @media screen and (max-width: vars.$bp-sm) {
+    margin-inline: 0;
+  }
   &__header {
-    max-width: 57%;
+    @media screen and (min-width: vars.$bp-lg) {
+      max-width: 57%;
+    }
   }
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
+    gap: max(3rem, 20px);
+    @media screen and (max-width: vars.$bp-md) {
+      @include mix.grid-scroll(271px);
+    }
   }
   &__item {
     display: flex;
-    padding: 2rem;
+    padding: 20px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.4rem;
-    border-radius: 1.6rem;
+    gap: 14px;
+    border-radius: 16px;
     border: 1px solid var(--orgn-100, #fbe5d0);
     background: var(--orgn-50, #fdf2e7);
     box-shadow:
@@ -91,17 +100,17 @@ defineProps({
       gap: 6px;
     }
     &-label {
-      padding: 0.8rem 1.2rem;
-      border-radius: 1rem;
+      padding: 8px 12px;
+      border-radius: 10px;
       background: #fff;
       color: #ed7e17;
       font-family: vars.$font-inter;
-      font-size: 1.4rem;
+      font-size: 14px;
       font-weight: 500;
     }
     &-title {
       color: var(--orgn-800, #5f3207);
-      font-size: 1.8rem;
+      font-size: 18px;
       font-weight: 800;
       line-height: 130%;
     }
@@ -115,10 +124,10 @@ defineProps({
     }
     &-box {
       @include mix.flex-center;
-      width: 5.6rem;
-      height: 5.6rem;
+      width: 56px;
+      height: 56px;
       background-color: #ed7e17;
-      border-radius: 0.6rem;
+      border-radius: 6px;
       outline: 0.7px solid var(--Gray-50, #eeeff2);
       outline-offset: 4px;
       box-shadow: 0px 0px 0px 4px #fff;

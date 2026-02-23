@@ -44,6 +44,9 @@
       <button class="header__button button--orange">
         {{ $t('join-program') }}
       </button>
+      <button class="header__ham button--orange">
+        <div class="header__ham-item"></div>
+      </button>
     </div>
   </header>
 </template>
@@ -64,9 +67,9 @@ const links = computed(() =>
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-inline: var(--spacing-inline);
+  margin-inline: max(var(--spacing-inline), 25px);
   padding-inline: max(2.4rem, 12px);
-  padding-block: max(1.6rem, 10px);
+  padding-block: max(1.6rem, 12px);
   border-radius: max(1.6rem, 10px);
   background: #fff;
   box-shadow: 0 8px 60px 1px var(--orgn-50, #fdf2e7);
@@ -74,31 +77,67 @@ const links = computed(() =>
   position: fixed;
   top: 3.2rem;
   inset-inline: 0;
+  &__ham {
+    @include mix.flex-center;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 30%;
+      height: 1.5px;
+      background-color: #fff;
+    }
+    &::after {
+      translate: 0 calc(-100% - 2.5px);
+    }
+    &::before {
+      translate: 0 calc(100% + 2.5px);
+    }
+    &-item {
+      background-color: #fff;
+      width: 30%;
+      height: 1.5px;
+    }
+    @media screen and (min-width: 1100px) {
+      display: none;
+    }
+  }
+  &__button {
+    @media screen and (max-width: 1100px) {
+      display: none;
+    }
+  }
   &__right {
     display: flex;
     gap: 1rem;
-    @media screen and (max-width: vars.$bp-sm) {
-      display: none;
-    }
     &-button {
       display: flex;
-      height: max(4.8rem, 40px);
-      padding-inline: 1.4rem;
+      height: max(4.8rem, 48px);
+      padding-inline: 14px;
       align-items: center;
-      gap: 0.8rem;
-      border-radius: 9.9rem;
+      gap: 8px;
+      border-radius: 99px;
       border: 2px solid #fff;
       background: var(--orgn-50, #fdf2e7);
       box-shadow: 0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
       color: var(--orgn-700, var(--orgn-700, #8e4a0b));
-      font-size: 1.4rem;
+      font-size: 14px;
       font-weight: 500;
       transition: background 0.3s;
+      &:nth-child(2) {
+        @media screen and (max-width: 1100px) {
+          display: none;
+        }
+      }
       &:hover {
         background: var(--orgn-100, #fbe5d0);
       }
       &-icon {
-        width: 1.8rem;
+        width: 18px;
       }
     }
     &-login {
@@ -147,7 +186,7 @@ const links = computed(() =>
     }
   }
   &__logo {
-    width: 10.8231rem;
+    width: 108px;
   }
 }
 </style>

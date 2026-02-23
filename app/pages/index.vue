@@ -15,7 +15,7 @@
               {{ item['image-title'] }}
             </h3>
             <p class="why__item-top-text">
-              {{ item['image-title'] }}
+              {{ item['image-subtitle'] }}
             </p>
           </div>
           <div class="why__item-content">
@@ -123,14 +123,18 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
 .roadmap {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: max(3rem, 20px);
   margin-inline: var(--spacing-inline);
-  border-radius: 2rem;
+  border-radius: 20px;
   border: 1px solid var(--orgn-100, #fbe5d0);
   background: #fefefe;
   box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
-  padding: 4rem;
+  padding-inline: max(4rem, 16px);
+  padding-block: 40px;
   position: relative;
+  @media screen and (max-width: vars.$bp-sm) {
+    margin-inline: 0;
+  }
   & > *:not(.roadmap__patterns) {
     z-index: 1;
   }
@@ -142,18 +146,23 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
     translate: 0 -50%;
   }
   &__header {
-    max-width: 57%;
+    @media screen and (min-width: vars.$bp-lg) {
+      max-width: 57%;
+    }
   }
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: max(3rem, 20px);
   }
   &__item {
     font-family: vars.$font-inter;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 7.2rem;
+    gap: max(7.2rem, 20px);
+    @media screen and (max-width: vars.$bp-md) {
+      grid-template-columns: 1fr;
+    }
     &-container {
       position: absolute;
       inset: 0;
@@ -198,13 +207,13 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       flex-direction: column;
       gap: 8px;
       &-title {
-        color: var(--Neutral-Grey-800, #141414);
-        font-size: 1.8rem;
+        color: var(--Neutral-Grey-800, #0b2812);
+        font-size: max(1.8rem, 16px);
         font-weight: 600;
         line-height: 130%;
       }
       &-text {
-        color: #515050;
+        color: #165023;
       }
     }
     &-info {
@@ -213,9 +222,9 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       left: -15%;
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
-      padding: 1.2rem 1.6rem;
-      border-radius: 1.6rem;
+      gap: 16px;
+      padding: 12px 16px;
+      border-radius: 16px;
       border: 1px solid var(--Neutral-White-50, #fefefe);
       background: linear-gradient(
         134deg,
@@ -223,9 +232,13 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
         var(--grn-400, #5fd37a) 79.59%
       );
       box-shadow: 0 2px 8px 0 rgba(81, 81, 81, 0.06);
+      z-index: 1;
+      @media screen and (max-width: vars.$bp-md) {
+        left: -15%;
+      }
       h4 {
         color: var(--Neutral-White-50, #fefefe);
-        font-size: 1.4rem;
+        font-size: max(1.4rem, 14px);
         font-weight: 600;
         align-self: center;
         text-align: center;
@@ -233,7 +246,7 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       &-boxes {
         display: flex;
         justify-content: space-between;
-        gap: 3.8rem;
+        gap: 38px;
       }
       &-box {
         color: var(--Neutral-White-50, #fefefe);
@@ -241,21 +254,21 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
         flex-direction: column;
       }
       &-percent {
-        font-size: 3rem;
+        font-size: 30px;
         line-height: 130%;
         font-weight: 600;
       }
       &-title {
-        font-size: 1.2rem;
+        font-size: 12px;
         line-height: 150%;
       }
     }
     &-card {
-      padding: 2rem;
+      padding: max(2rem, 8px);
       display: flex;
       flex-direction: column;
-      gap: 4rem;
-      border-radius: 2rem;
+      gap: max(4rem, 20px);
+      border-radius: max(2rem, 14px);
       border: 8px solid var(--Neutral-White-50, #fefefe);
       background: #fbfaf9;
 
@@ -263,32 +276,36 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       box-shadow:
         0 0 0 1px rgba(3, 7, 18, 0.06),
         0 2px 4px 0 rgba(3, 7, 18, 0.04);
+
+      @media screen and (max-width: vars.$bp-md) {
+        margin-left: 0;
+      }
     }
     &-label {
       display: flex;
-      padding: 0.6rem 1.6rem;
+      padding: 6px 16px;
       align-items: center;
-      gap: 0.8rem;
-      border-radius: 10rem;
+      gap: 8px;
+      border-radius: 10px;
       border: 1px solid var(--orgn-100, #fbe5d0);
       background: #fefefe;
       box-shadow:
         0 0 0 1px #e5e3e0,
         0 2px 8px 0 rgba(81, 81, 81, 0.06);
-      font-size: 1.4rem;
+      font-size: 14px;
       font-weight: 500;
       color: var(--orgn-800, #5f3207);
     }
     &-title {
-      margin-top: 2.4rem;
+      margin-top: max(2.4rem, 16px);
       color: #141414;
-      font-size: 3.6rem;
+      font-size: max(3.6rem, 24px);
       font-weight: 600;
       line-height: 130%;
     }
     &-subtitle {
-      margin-top: 1.6rem;
-      font-size: 2rem;
+      margin-top: 16px;
+      font-size: max(2rem, 16px);
       line-height: 152%;
       letter-spacing: -0.3px;
       color: var(--Neutral-Grey-400, #515050);
@@ -307,11 +324,16 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       }
       .roadmap__item-card {
         margin-left: 3.6rem;
+        @media screen and (max-width: vars.$bp-md) {
+          margin-left: 0;
+        }
       }
     }
     &:nth-child(even) {
       .roadmap__item-right {
-        order: -1;
+        @media screen and (min-width: vars.$bp-md) {
+          order: -1;
+        }
       }
       .roadmap__item-box-pic {
         &:first-of-type {
@@ -320,10 +342,13 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
           width: 55%;
           filter: drop-shadow(0 2px 8px #afe9bcbc);
           z-index: 1;
+          @media screen and (max-width: vars.$bp-md) {
+            left: -10%;
+          }
         }
         &:last-of-type {
           inset-inline: 0;
-          bottom: 3rem;
+          bottom: max(3rem, 28px);
         }
       }
     }
@@ -332,24 +357,24 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
 .demand {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: max(3rem, 30px);
   padding-inline: var(--spacing-inline);
   &__button {
     align-self: center;
   }
 }
 .why {
-  margin-top: 3rem;
+  margin-top: max(3rem, 30px);
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: max(5rem, 20px);
   padding-inline: var(--spacing-inline);
   &__item {
     display: flex;
-    padding: 2rem;
+    padding: max(2rem, 10px);
     flex-direction: column;
-    gap: 1.6rem;
-    border-radius: 2rem;
+    gap: 16px;
+    border-radius: 20px;
     border: 2px solid var(--orgn-100, #fbe5d0);
     background: var(--Neutral-White-50, #fefefe);
     box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
@@ -357,7 +382,7 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       aspect-ratio: 57.3/36.6;
       position: relative;
       overflow: hidden;
-      border-radius: 1.4rem;
+      border-radius: 14px;
       border: 1px solid var(--orgn-100, #fbe5d0);
 
       box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
@@ -365,9 +390,12 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-end;
-      gap: 0.8rem;
-      padding: 3rem;
-
+      gap: max(0.8rem, 6px);
+      padding-block: max(3rem, 10px);
+      padding-inline: max(3rem, 16px);
+      @media screen and (max-width: vars.$bp-md) {
+        aspect-ratio: 32.3/22.3;
+      }
       & > *:not(.why__item-top-banner) {
         z-index: 1;
       }
@@ -375,6 +403,7 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
         font-family: vars.$font-inter;
         line-height: 130%;
         color: #e8e9eb;
+        font-size: max(1.6rem, 12px);
       }
       &-banner {
         position: absolute;
@@ -394,7 +423,7 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
       &-title {
         color: #5f3207;
         font-weight: 800;
-        font-size: 2rem;
+        font-size: max(2rem, 20px);
         line-height: 150%;
       }
     }
@@ -405,19 +434,19 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
     }
     &-item {
       display: flex;
-      padding: 2rem;
+      padding: max(2rem, 14px);
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      gap: 1.2rem;
-      border-radius: 1.4rem;
+      gap: max(1.2rem, 10px);
+      border-radius: max(1.4rem, 12px);
       background: var(--orgn-50, #fdf2e7);
       &-amount {
         --text-clr: #ed7e17;
       }
       &-title {
         color: #5f3207;
-        font-size: 1.8rem;
+        font-size: max(1.8rem, 16px);
         font-weight: 600;
         line-height: 130%;
       }
@@ -432,17 +461,26 @@ const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
 .home {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: max(6rem, 40px);
   overflow-x: clip;
   &__wrapper {
     position: relative;
     &-bg {
       position: absolute;
-      width: 123%;
-      left: 50%;
-      translate: -50%;
-      top: -8%;
       z-index: -1;
+
+      @media screen and (min-width: vars.$bp-lg) {
+        width: 123%;
+        left: 50%;
+        translate: -50%;
+        top: -8%;
+      }
+      @media screen and (max-width: vars.$bp-lg) {
+        width: 250%;
+        top: 0;
+        left: 50%;
+        translate: -50%;
+      }
     }
   }
 }

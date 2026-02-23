@@ -111,6 +111,38 @@ Z
         </clipPath>
       </defs>
     </svg>
+    <svg width="0" height="0" aria-hidden="true" class="footer__path">
+      <defs>
+        <clipPath id="tallPanel" clipPathUnits="objectBoundingBox">
+          <path
+            d="M 0.48185 0
+C 0.51983 0 0.55056 0.01268 0.55056 0.02833
+C 0.55056 0.04398 0.58129 0.05666 0.61927 0.05666
+H 0.80466
+C 0.87353 0.05666 0.90776 0.05666 0.93404 0.06216
+C 0.95707 0.06700 0.97667 0.07609 0.98811 0.08800
+C 1.00146 0.10100 1.00000 0.11563 1.00000 0.13743
+V 0.92788
+C 1.00000 0.94817 1.00000 0.95833 0.99299 0.96626
+C 0.98068 0.98166 0.95318 0.99416 0.91793 0.99717
+C 0.89837 1.00000 0.87353 1.00000 0.82507 1.00000
+H 0.73907
+C 0.69054 1.00000 0.65015 0.98358 0.65015 0.96334
+C 0.65015 0.94309 0.60977 0.92668 0.56123 0.92668
+H 0.19592
+C 0.12705 0.92668 0.09283 0.92668 0.06655 0.92118
+C 0.04352 0.91634 0.02392 0.90725 0.01248 0.89534
+C -0.00087 0.88234 0.00000 0.86771 0.00000 0.84591
+V 0.08077
+C 0.00000 0.05666 0.00000 0.04462 0.01248 0.03161
+C 0.02392 0.01970 0.04352 0.01061 0.06655 0.00577
+C 0.09283 0.00027 0.12705 0.00000 0.19592 0.00000
+H 0.48185
+Z"
+          />
+        </clipPath>
+      </defs>
+    </svg>
   </footer>
 </template>
 
@@ -146,13 +178,6 @@ const navItems = [
     ]
   },
   {
-    label: 'products-self',
-    links: Array(4).fill({
-      label: 'product',
-      to: '/product'
-    })
-  },
-  {
     label: 'customer',
     links: [
       { label: 'client-sup', to: '/client' },
@@ -178,13 +203,18 @@ const legals = computed(() =>
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2.5rem;
+  gap: max(2.5rem, 25px);
   color: #fff;
   position: relative;
-  padding-block: 3.2rem;
-  padding-inline: 7.5rem;
+  padding-top: 3.2rem;
+  padding-bottom: max(3.2rem, 20px);
+  padding-inline: max(7.5rem, 16px);
   & > *:not(.footer__bg):not(.footer__socials):not(.footer__copyright) {
-    margin-inline: 7.5rem;
+    margin-left: max(7.5rem, 24px);
+    margin-right: max(7.5rem, 10px);
+    @media screen and (max-width: vars.$bp-sm) {
+      margin-right: max(3rem, 10px);
+    }
   }
   & > *:not(.footer__bg) {
     z-index: 2;
@@ -197,6 +227,11 @@ const legals = computed(() =>
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 34px;
+    @media screen and (max-width: vars.$bp-md) {
+      margin-bottom: 0;
+    }
   }
   &__bg {
     position: absolute;
@@ -218,22 +253,25 @@ const legals = computed(() =>
       ),
       linear-gradient(135deg, var(--hot) 0%, var(--mid) 28%, var(--dark) 62%);
 
-    // background-color: #713700;
-    // &-banner {
-    //   position: absolute;
-    //   inset: 0;
-    // }
+    @media screen and (max-width: vars.$bp-lg) {
+      clip-path: url('#tallPanel');
+      background: linear-gradient(to bottom, #a72f0e 0%, #4c0c02 50%, #8f1702 100%);
+    }
   }
   &__copyright {
     margin-top: calc(6rem - 2.5rem);
     align-self: flex-start;
     color: #5f3207;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 500;
-    padding: 1.6rem 2.4rem;
-    border-radius: 6rem;
+    padding: max(1.6rem, 10px) max(2.4rem, 10px);
+    border-radius: 60px;
     background: #fffefd;
     box-shadow: 16px 20px 94px 0 rgba(29, 29, 29, 0.16);
+    @media screen and (max-width: vars.$bp-sm) {
+      max-width: 62%;
+      translate: 0 30%;
+    }
     a {
       text-decoration: underline;
     }
@@ -242,17 +280,22 @@ const legals = computed(() =>
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 34px;
     &-legal {
-      font-size: 1.4rem;
+      font-size: max(1.4rem, 12px);
       font-weight: 500;
       position: relative;
       &:not(:last-child)::after {
         content: '';
         position: absolute;
         inset-block: 0;
-        right: -2.5rem;
+        right: min(-2.5rem, -10px);
         width: 1px;
         background-color: #5a5a59;
+        @media screen and (max-width: vars.$bp-lg) {
+          background: rgba(255, 255, 255, 0.5);
+        }
       }
       &:hover::before {
         scale: 1;
@@ -272,7 +315,7 @@ const legals = computed(() =>
     }
     &-legals {
       display: flex;
-      gap: 2.5rem * 2;
+      gap: calc(max(2.5rem, 10px) * 2);
     }
     &-logo {
       display: flex;
@@ -286,30 +329,42 @@ const legals = computed(() =>
     &-left {
       display: flex;
       align-items: center;
-      gap: 3.2rem;
+      gap: max(3.2rem, 10px);
+      flex-wrap: wrap;
       p {
         max-width: 30ch;
       }
     }
   }
+  &__nav {
+    @media screen and (max-width: vars.$bp-lg) {
+      order: -1;
+    }
+    @media screen and (max-width: vars.$bp-sm) {
+      flex: 1;
+    }
+  }
   &__list {
     display: flex;
-    gap: 7.2rem;
+    gap: max(7.2rem, 32px);
+    @media screen and (max-width: vars.$bp-sm) {
+      justify-content: space-between;
+    }
     &-label {
       color: rgba(255, 255, 255, 0.5);
       font-weight: 500;
-      font-size: 1.6rem;
+      font-size: max(1.6rem, 16px);
     }
     &-item {
       display: flex;
       flex-direction: column;
-      gap: 3.2rem;
+      gap: max(3.2rem, 25px);
     }
     &-links {
       display: flex;
       align-items: flex-start;
       flex-direction: column;
-      gap: 2rem;
+      gap: max(2rem, 14px);
     }
     &-link {
       font-weight: 500;
@@ -317,6 +372,7 @@ const legals = computed(() =>
       position: relative;
       padding-left: 12px;
       position: relative;
+      font-size: max(1.6rem, 16px);
       &:hover::after {
         scale: 1;
         transform-origin: left;
@@ -349,24 +405,24 @@ const legals = computed(() =>
     display: flex;
     flex-direction: column;
     &-label {
-      font-size: 2rem;
+      font-size: 20px;
       font-weight: 500;
     }
     &-text {
       line-height: 130%;
-      margin-top: 1.4rem;
-      margin-bottom: 2.4rem;
+      margin-top: 14px;
+      margin-bottom: 24px;
       max-width: 33ch;
     }
   }
   &__socials {
     align-self: flex-end;
     display: flex;
-    gap: 1.2rem;
+    gap: max(1.2rem, 4px);
     &-link {
       @include mix.flex-center;
-      width: 4rem;
-      height: 4rem;
+      width: max(1.2rem, 32px);
+      height: max(1.2rem, 32px);
       border-radius: 50%;
       background: var(--orgn-900, #2f1904);
     }
@@ -376,20 +432,29 @@ const legals = computed(() =>
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.3rem;
+    gap: max(2.3rem, 16px);
+    @media screen and (max-width: vars.$bp-md) {
+      margin-bottom: 0;
+    }
     &-text {
       color: var(--orgn-50, #fdf2e7);
-      font-size: 3.6rem;
+      font-size: max(3.6rem, 18px);
       font-weight: 800;
+      @media screen and (max-width: vars.$bp-md) {
+        font-weight: 500;
+      }
     }
     &-title {
-      font-size: 10rem;
+      font-size: max(10rem, 50px);
       font-weight: 800;
       line-height: 84%;
       background: linear-gradient(92deg, #fdf2e7 39.76%, rgba(253, 242, 231, 0) 97.26%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      @media screen and (max-width: vars.$bp-md) {
+        font-weight: 700;
+      }
     }
   }
 }

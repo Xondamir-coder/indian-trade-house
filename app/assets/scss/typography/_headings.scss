@@ -1,5 +1,5 @@
 %heading-base {
-  font-weight: 800;
+  font-weight: 700;
   line-height: 130%;
   color: var(--text-clr);
 }
@@ -7,18 +7,18 @@
 .heading-xl {
   @extend %heading-base;
   --text-clr: #2f1904;
-  font-size: 5.4rem;
+  font-size: max(5.4rem, 24px);
 }
 
 .heading-lg {
   @extend %heading-base;
   --text-clr: #5f3207;
   text-align: center;
-  font-size: 4.4rem;
+  font-size: max(4.4rem, 28px);
 }
 
 .heading-md {
   @extend %heading-base;
   --text-clr: #e8e9eb;
-  font-size: 3.6rem;
+  font-size: max(3.6rem, 25px);
 }

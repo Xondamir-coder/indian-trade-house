@@ -32,19 +32,22 @@ defineProps({
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 56%;
   align-self: center;
+  @media screen and (min-width: vars.$bp-lg) {
+    max-width: 56%;
+  }
   &__icon {
     width: max(1.6rem, 14px);
     fill: #f09642;
+    flex-shrink: 0;
   }
   &__label {
-    margin-bottom: 1.6rem;
+    margin-bottom: max(1.6rem, 16px);
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 0.8rem 1.6rem;
-    border-radius: 1.2rem;
+    padding: 8px 16px;
+    border-radius: 12px;
     border-bottom: 1.2px solid #fbe5d0;
     background: var(--orgn-50, #fdf2e7);
     color: var(--orgn-400, #f09642);
@@ -52,8 +55,11 @@ defineProps({
     line-height: 100%;
   }
   h2 {
-    margin-bottom: 0.8rem;
+    margin-bottom: max(0.8rem, 8px);
     text-align: inherit;
+    @media screen and (max-width: vars.$bp-md) {
+      margin-bottom: 10px;
+    }
   }
 }
 </style>

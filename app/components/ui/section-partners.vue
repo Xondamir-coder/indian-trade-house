@@ -24,20 +24,28 @@ const partners = [SvgLogoipsum, SvgLogoipsum, SvgZendesk, SvgLogoipsum, SvgTeleg
 </script>
 
 <style lang="scss" scoped>
+@keyframes travel {
+  from {
+    translate: 200%;
+  }
+  to {
+    translate: -500%;
+  }
+}
 .partners {
-  margin-block: 6rem;
+  margin-block: max(6rem, 40px);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 45%),
     linear-gradient(90deg, #f66840 0%, #f66965 32%, #f9987e 72%, #fcbf97 100%);
-  padding: 6rem 2.4rem;
+  padding: max(6rem, 20px) max(2.4rem, 16px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: max(3rem, 16px);
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 8px;
     align-items: center;
     text-align: center;
 
@@ -46,31 +54,40 @@ const partners = [SvgLogoipsum, SvgLogoipsum, SvgZendesk, SvgLogoipsum, SvgTeleg
       --text-clr: #fff;
     }
     &-icon {
-      width: 1.6rem;
+      width: max(1.6rem, 16px);
       fill: #fff;
+      flex-shrink: 0;
     }
     &-label {
       display: flex;
-      padding: 0.8rem 1.6rem;
+      padding: 8px 16px;
       justify-content: center;
       align-items: center;
-      gap: 0.8rem;
-      border-radius: 1.2rem;
+      gap: 8px;
+      border-radius: 12px;
       border: 1.2px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.2);
       font-weight: 600;
       color: #fff;
-      margin-bottom: 3.2rem;
+      margin-bottom: max(3.2rem, 8px);
     }
   }
   &__list {
     display: grid;
-    grid-template-columns: repeat(6, 12rem);
-    gap: 1.6rem;
+    grid-template-columns: repeat(6, 120px);
+    gap: 16px;
+    overflow-x: scroll;
+    max-width: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   &__item {
     @include mix.flex-center;
-    padding: 2.9rem 1rem 2.9852rem 1rem;
+    padding: 29px 10px 29px 10px;
+    @media screen and (max-width: vars.$bp-lg) {
+      animation: travel 50s linear infinite alternate;
+    }
     &:nth-child(3) svg {
       width: 60%;
     }

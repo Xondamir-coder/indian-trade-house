@@ -75,18 +75,21 @@ defineProps({
   display: flex;
   padding-inline: var(--spacing-inline);
   flex-direction: column;
-  gap: 6rem;
+  gap: max(6rem, 40px);
   &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.4rem;
+    gap: 24px;
+    @media screen and (max-width: vars.$bp-md) {
+      grid-template-columns: 1fr;
+    }
   }
   &__item {
     display: flex;
-    padding: 1.6rem;
+    padding: max(1.6rem, 10px);
     flex-direction: column;
-    gap: 1.6rem;
-    border-radius: 4rem;
+    gap: max(1.6rem, 10px);
+    border-radius: 40px;
     border: 1px solid var(--orgn-200, #f8cba0);
     background: var(--orgn-100, #fbe5d0);
     box-shadow:
@@ -127,7 +130,7 @@ defineProps({
         inset-inline: 0;
         height: 2px;
         background-color: #fbe5d0;
-        top: calc(-3.6rem - 1px);
+        top: calc(-36px - 1px);
         left: 0;
         pointer-events: none;
       }
@@ -135,24 +138,25 @@ defineProps({
     &-content {
       z-index: 2;
       flex: 1;
-      padding: 3.2rem;
+      padding: max(3.2rem, 12px);
       display: flex;
       flex-direction: column;
-      gap: 3.6rem;
-      border-radius: 3.2rem;
+      gap: 36px;
+      border-radius: 32px;
       border: 1px solid var(--orgn-200, #f8cba0);
       background: #fff;
       box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
     }
     &-icon {
-      width: 2.2rem;
+      width: max(2.2rem, 18px);
+      flex-shrink: 0;
     }
     &-label {
       z-index: 2;
       align-self: center;
       font-family: vars.$font-radio;
       font-weight: 600;
-      font-size: 2rem;
+      font-size: 20px;
       color: var(--orgn-900, #2f1904);
       transition: color 0.4s;
     }
@@ -161,13 +165,13 @@ defineProps({
       font-weight: 600;
       text-align: center;
       span:first-child {
-        font-size: 5.3rem;
+        font-size: max(5.3rem, 36px);
         letter-spacing: -0.56px;
         color: var(--orgn-950, #180c02);
       }
       span:last-child {
-        font-size: 2rem;
-        margin-left: 1.2rem;
+        font-size: 20px;
+        margin-left: 12px;
         color: #636d7d;
       }
     }
@@ -175,34 +179,34 @@ defineProps({
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.6rem;
+      gap: max(1.6rem, 10px);
       &-text {
         color: #8e4a0b;
-        font-size: 1.7rem;
+        font-size: max(1.7rem, 16px);
         font-weight: 500;
       }
     }
     &-amenity {
       display: flex;
       align-items: center;
-      gap: 1.6rem;
-      font-size: 1.9rem;
+      gap: max(1.6rem, 10px);
+      font-size: max(1.9rem, 16px);
       font-weight: 600;
       font-family: vars.$font-inter;
     }
     &-amenities {
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
-      margin-bottom: 3.6rem;
+      gap: 16px;
+      margin-bottom: 36px;
     }
   }
   &__buttons {
     display: flex;
-    padding: 0.8rem 1rem;
+    padding: 8px 10px;
     align-items: center;
-    gap: 0.8rem;
-    border-radius: 4rem;
+    gap: 8px;
+    border-radius: 40px;
     border: 1px solid var(--orgn-100, #fbe5d0);
     background: #fff;
     box-shadow:
@@ -210,16 +214,16 @@ defineProps({
       0 2px 2px -1px rgba(0, 0, 0, 0.08);
     position: relative;
     &:has(> *:last-child.active)::after {
-      translate: calc(100% + 0.8rem);
+      translate: calc(100% + 8px);
     }
     &::after {
       content: '';
       position: absolute;
       background-color: red;
-      width: 10.4rem;
-      height: 3.6rem;
-      padding-inline: 2rem;
-      border-radius: 9.9rem;
+      width: 104px;
+      height: 36px;
+      padding-inline: 20px;
+      border-radius: 99px;
       background: var(--orgn-500, #ed7e17);
       box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
       transition: translate 0.4s;
@@ -233,17 +237,17 @@ defineProps({
   &__button {
     z-index: 2;
     display: flex;
-    width: 10.4rem;
-    height: 3.6rem;
+    width: 104px;
+    height: 36px;
     padding-inline: 2rem;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    gap: 8px;
     color: var(--orgn-900, #2f1904);
     font-family: vars.$font-inter;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 600;
-    border-radius: 9.9rem;
+    border-radius: 99px;
     transition: color 0.4s;
     &.active {
       color: #fff;
@@ -254,6 +258,7 @@ defineProps({
     align-items: flex-end;
     justify-content: space-between;
     gap: 12px;
+    flex-wrap: wrap;
   }
 }
 </style>

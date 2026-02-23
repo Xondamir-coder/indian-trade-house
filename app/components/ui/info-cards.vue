@@ -74,34 +74,40 @@ const infoCards = computed(() =>
   &-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 20px;
+    @media screen and (max-width: vars.$bp-md) {
+      @include mix.grid-scroll(300px);
+    }
   }
   &-card {
     display: flex;
     flex-direction: column;
-    border-radius: 2rem;
+    border-radius: 20px;
     border: 1px solid var(--orgn-100, #fbe5d0);
     background: #fff;
     box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
+    @media screen and (max-width: vars.$bp-md) {
+      box-shadow: none;
+    }
     &__top {
       display: flex;
-      padding: 2.4rem;
+      padding: 24px;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      gap: 1rem;
+      gap: 10px;
       align-self: stretch;
       border-bottom: 1px solid var(--Neutral-Blue-50, #e8e9eb);
       &-title {
         color: #5f3207;
-        font-size: 2rem;
+        font-size: 20px;
         font-family: vars.$font-inter;
       }
       &-box {
         @include mix.flex-center;
-        width: 5.2rem;
-        height: 5.2rem;
-        border-radius: 0.8rem;
+        width: 52px;
+        height: 52px;
+        border-radius: 8px;
         outline: 1px solid var(--orgn-100, #fbe5d0);
         outline-offset: 3px;
         background-color: var(--theme);
@@ -112,9 +118,9 @@ const infoCards = computed(() =>
       }
     }
     &__button {
-      padding-block: 1.6rem;
-      padding-bottom: calc(1.6rem + 0.76rem);
-      padding-inline: 2.4rem;
+      padding-block: 16px;
+      padding-bottom: calc(16px + 0.76px);
+      padding-inline: 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,6 +129,7 @@ const infoCards = computed(() =>
       color: #666c7a;
       border-bottom-left-radius: inherit;
       border-bottom-right-radius: inherit;
+      font-size: 16px;
       transition:
         background 0.4s,
         color 0.4s;
@@ -133,7 +140,7 @@ const infoCards = computed(() =>
     }
     &__arrow {
       fill: currentColor;
-      width: 2.4rem;
+      width: 24px;
     }
   }
 }

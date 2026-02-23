@@ -38,15 +38,18 @@
 
 <style lang="scss" scoped>
 .hero {
-  padding-inline: max(3.2rem, 20px);
+  padding-inline: max(3.2rem, 16px);
   display: flex;
   flex-direction: column;
   &__things {
     margin-top: -15%;
     align-self: center;
-    width: 23%;
+    width: max(23%, 260px);
     aspect-ratio: 1;
     position: relative;
+    @media screen and (max-width: 1020px) {
+      margin-top: -180px;
+    }
     &::after {
       content: '';
       position: absolute;
@@ -62,8 +65,8 @@
     }
     &-box {
       @include mix.flex-center;
-      width: 100px;
-      height: 100px;
+      width: max(10rem, 80px);
+      height: max(10rem, 80px);
       border-radius: 50%;
       background-color: #fff;
       box-shadow:
@@ -77,7 +80,7 @@
       translate: -50%;
     }
     &-pic {
-      width: 68px;
+      width: max(6.8rem, 55px);
       position: absolute;
       border-radius: 10rem;
       border: 2px solid var(--Neutral-White-50, #fefefe);
@@ -108,22 +111,25 @@
     position: relative;
     width: 60%;
     aspect-ratio: 2 / 1;
+    @media screen and (max-width: vars.$bp-lg) {
+      width: 140%;
+    }
     &::after {
       content: '';
       position: absolute;
-      inset: -40px;
+      inset: min(-4rem, -30px);
       aspect-ratio: 1;
       border-radius: 50%;
-      border: 4px solid #fff;
+      border: max(0.4rem, 2.5px) solid #fff;
       mix-blend-mode: lighten;
+      opacity: 0.5;
     }
   }
   &__container {
-    border-radius: 2.4rem;
+    border-radius: max(2.4rem, 14px);
     box-shadow: 0 0 0 1px #e5e3e0;
-    margin-top: 4rem + 3.2rem;
+    margin-top: calc(max(4rem, 20px) + max(3.2rem, 16px));
     padding-top: calc(max(4rem, 25px) + max(4rem, 30px));
-    min-height: 116vh;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -136,6 +142,10 @@
       var(--orgn-50, #fdf2e7) 209.4230818748474deg,
       var(--orgn-100, #fbe5d0) 360deg
     );
+    @media screen and (max-width: vars.$bp-md) {
+      padding-top: 110px;
+      aspect-ratio: 49/97;
+    }
     &::after {
       content: '';
       position: absolute;
@@ -144,23 +154,18 @@
       mix-blend-mode: multiply;
       pointer-events: none;
       background-size: 25px 25px;
-
-      -webkit-mask-image: radial-gradient(
-        circle at 50% 0%,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.9) 25%,
-        rgba(0, 0, 0, 0.4) 45%,
-        rgba(0, 0, 0, 0.1) 60%,
-        rgba(0, 0, 0, 0) 75%
-      );
       mask-image: radial-gradient(
         circle at 50% 0%,
         rgba(0, 0, 0, 1) 0%,
         rgba(0, 0, 0, 0.9) 25%,
         rgba(0, 0, 0, 0.4) 45%,
-        rgba(0, 0, 0, 0.1) 60%,
-        rgba(0, 0, 0, 0) 75%
+        rgba(0, 0, 0, 0.3) 60%,
+        rgba(0, 0, 0, 0.2) 75%
       );
+      @media screen and (max-width: vars.$bp-md) {
+        mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+        mix-blend-mode: darken;
+      }
     }
   }
   &__title {
@@ -169,7 +174,7 @@
     text-align: center;
   }
   &__subtitle {
-    font-size: 2rem;
+    font-size: max(2rem, 14px);
     font-family: vars.$font-inter;
     line-height: 152%;
     color: var(--Neutral-Grey-400, #515050);
@@ -178,15 +183,19 @@
     max-width: 63ch;
   }
   &__content {
+    padding-inline: 14px;
     z-index: 2;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 16px;
   }
   &__buttons {
+    margin-top: max(2.4rem, 4px);
     display: flex;
-    gap: 1.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: max(1.6rem, 10px);
   }
 }
 </style>

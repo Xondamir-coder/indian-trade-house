@@ -28,16 +28,16 @@ const submitForm = () => {
   align-self: flex-start;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  border-radius: 4.2rem;
+  gap: 12px;
+  border-radius: 42px;
   background: var(--orgn-800, #5f3207);
   display: flex;
-  padding: 0.8rem 0.8rem 0.8rem 2.4rem;
+  padding: 8px 8px 8px 24px;
   justify-content: center;
   align-items: center;
   &__input {
     color: #f4b071;
-    width: 15.2rem;
+    width: max(15.2rem, 118px);
     &::placeholder {
       color: rgba(#f4b071, 0.78);
       text-transform: lowercase;
@@ -50,11 +50,11 @@ const submitForm = () => {
   }
   &__button {
     display: flex;
-    height: 4rem;
-    padding: 0.8rem 1.6rem;
+    height: 40px;
+    padding: 8px 16px;
     align-items: center;
-    gap: 1.2rem;
-    border-radius: 9rem;
+    gap: 12px;
+    border-radius: 90px;
     background: var(--orgn-500, #ed7e17);
     font-weight: 500;
   }
