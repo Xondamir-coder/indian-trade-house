@@ -31,8 +31,12 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  gap: 2.36rem;
-  padding-top: 18.2rem;
+  gap: 23px;
+  padding-top: max(18.2rem, 150px);
+  @media screen and (max-width: vars.$bp-sm) {
+    overflow: hidden;
+    gap: 96px;
+  }
   h1 {
     --text-clr: #fdf2e7;
     font-weight: 600;
@@ -49,14 +53,6 @@
     pointer-events: none;
     background-size: 25px 25px;
 
-    -webkit-mask-image: radial-gradient(
-      circle at 50% 0%,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.9) 25%,
-      rgba(0, 0, 0, 0.4) 45%,
-      rgba(0, 0, 0, 0.1) 60%,
-      rgba(0, 0, 0, 0) 75%
-    );
     mask-image: radial-gradient(
       circle at 50% 0%,
       rgba(0, 0, 0, 1) 0%,
@@ -65,6 +61,15 @@
       rgba(0, 0, 0, 0.1) 60%,
       rgba(0, 0, 0, 0) 75%
     );
+
+    @media screen and (max-width: vars.$bp-sm) {
+      mask-image: radial-gradient(
+        circle at 50% 0%,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.9) 70%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+    }
   }
   &::after {
     content: '';
@@ -72,35 +77,51 @@
     inset: 0;
     height: 80%;
     z-index: -1;
-    border-radius: 0 0 2.6rem 2.6rem;
+    border-radius: 0 0 max(2.6rem, 20px) max(2.6rem, 20px);
     background:
       radial-gradient(600px 500px at 20% 40%, #b65a2b 0%, transparent 70%),
       radial-gradient(500px 500px at 55% 20%, #f3b77d 0%, transparent 65%),
       radial-gradient(700px 600px at 75% 70%, #e6b3b8 0%, transparent 70%),
       linear-gradient(135deg, #a5532b 0%, #d98c5f 45%, #e9c2b0 70%, #b06a50 100%);
+
+    @media screen and (max-width: vars.$bp-sm) {
+      height: 90%;
+    }
   }
   &__container {
     display: flex;
     align-items: flex-start;
   }
   &__arrow {
-    width: 23.9535rem;
+    width: max(23.9535rem, 100px);
     margin-top: 5%;
+    @media screen and (max-width: vars.$bp-sm) {
+      display: none;
+    }
   }
   &__pic {
-    width: 35rem;
+    width: max(35rem, 226px);
   }
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
-    max-width: 55.555%;
+    gap: 16px;
+
     text-align: center;
+    @media screen and (max-width: vars.$bp-sm) {
+      padding-inline: 30px;
+      h1 {
+        font-size: 28px;
+      }
+    }
+    @media screen and (min-width: vars.$bp-sm) {
+      max-width: 55.555%;
+    }
   }
   &__subtitle {
-    color: #f8cba0;
+    color: #e8e9eb;
     letter-spacing: 0.3px;
-    font-size: 2rem;
+    font-size: max(2rem, 14px);
     line-height: 152%;
   }
 }

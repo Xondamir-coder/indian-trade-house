@@ -6,7 +6,6 @@
       :title="$t('section-advantages.title')"
       :subtitle="$t('section-advantages.subtitle')"
     />
-
     <ul class="advantages__list">
       <li
         v-for="(item, i) in useMapRt('section-advantages.info')"
@@ -71,17 +70,20 @@
 <style scoped lang="scss">
 .advantages {
   display: flex;
-  padding: 6rem;
+  padding-inline: max(6rem, 16px);
+  padding-block: max(6rem, 20px);
   flex-direction: column;
-  gap: 6rem;
-  border-radius: 2.4rem;
+  gap: max(6rem, 20px);
+  border-radius: 24px;
   border: 1px solid var(--orgn-100, #fbe5d0);
   background: #fff;
   margin-inline: var(--spacing-inline);
   position: relative;
-
-  /* Drop Shadow */
   box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
+
+  @media screen and (max-width: vars.$bp-sm) {
+    margin-inline: 0;
+  }
   & > *:not(.advantages__bg) {
     z-index: 1;
   }
@@ -89,43 +91,55 @@
     position: absolute;
     inset-inline: 0;
     bottom: 0;
+    @media screen and (max-width: vars.$bp-md) {
+      display: none;
+    }
   }
   &__card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6.7rem;
-    &:nth-child(even) {
-      & > *:first-child {
-        order: 1;
-        justify-content: flex-start;
-        picture {
-          right: 0;
-          left: auto;
+    gap: max(6.7rem, 30px);
+    @media screen and (max-width: vars.$bp-md) {
+      grid-template-columns: 1fr;
+    }
+    @media screen and (min-width: vars.$bp-md) {
+      &:nth-child(even) {
+        & > *:first-child {
+          order: 1;
+          justify-content: flex-start;
+          picture {
+            right: 0;
+            left: auto;
+          }
         }
+      }
+    }
+    @media screen and (max-width: vars.$bp-md) {
+      &:nth-child(even) .advantages__card-left-box {
+        left: 0;
       }
     }
     &-content {
       display: flex;
       flex-direction: column;
-      gap: 2.4rem;
+      gap: max(2.4rem, 16px);
       &-title {
         color: var(--orgn-800, var(--orgn-800, #5f3207));
-        font-family: Manrope;
-        font-size: 3.6rem;
+        font-size: max(3.6rem, 24px);
         font-weight: 800;
         line-height: 130%;
       }
       &-subtitle {
-        font-size: 2rem;
+        font-size: max(2rem, 16px);
         color: var(--orgn-950, var(--orgn-950, #180c02));
         line-height: 152%;
         letter-spacing: -0.3px;
       }
       &-item {
-        padding: 1.2rem 1.6rem;
+        padding: max(1.2rem, 12px) max(1.6rem, 12px);
         display: flex;
-        gap: 1.6rem;
-        border-radius: 1.6rem;
+        gap: 16px;
+        border-radius: 16px;
         border: 1px solid #ffb566;
         background: var(--Neutral-White-50, #fefefe);
 
@@ -137,24 +151,25 @@
           gap: 4px;
         }
         &-title {
-          font-size: 2rem;
+          font-size: max(2rem, 18px);
           font-weight: 800;
           color: var(--orgn-500, var(--orgn-500, #ed7e17));
         }
         &-subtitle {
           color: var(--orgn-900, var(--orgn-900, #2f1904));
           line-height: 130%;
+          font-size: max(1.6rem, 12px);
         }
         &-iconbox {
           @include mix.flex-center;
           flex-shrink: 0;
-          width: 4rem;
-          height: 4rem;
-          border-radius: 0.8rem;
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
           background: var(--orgn-500, #ed7e17);
         }
         &-icon {
-          width: 1.8333rem;
+          width: 45.75%;
         }
       }
     }
@@ -171,32 +186,33 @@
         gap: 6px;
       }
       &-title {
-        font-size: 1.4rem;
+        font-size: 14px;
         font-weight: 600;
       }
       &-subtitle {
-        font-size: 1.2rem;
+        font-size: 12px;
       }
       &-iconbox {
         @include mix.flex-center;
         flex-shrink: 0;
-        width: 3.2rem;
-        height: 3.2rem;
-        border-radius: 0.64rem;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
         border: 0.6px solid #daade3;
         background: var(--Neutral-White-50, #fefefe);
       }
       &-icon {
-        width: 1.32rem;
+        width: 41.25%;
       }
       &-box {
         position: absolute;
         translate: 0 30%;
-        max-width: 48%;
-        padding: 1.6rem;
+        max-width: max(48%, 240px);
+        padding: 16px;
+        padding-bottom: max(1.6rem, 8px);
         display: flex;
-        gap: 1.2rem;
-        border-radius: 1.6rem;
+        gap: 12px;
+        border-radius: 16px;
         border: 1px solid #ffb166;
         background: linear-gradient(
           102deg,
@@ -206,46 +222,63 @@
         box-shadow: 0 2px 60px 0 rgba(94, 38, 0, 0.04);
         backdrop-filter: blur(10px);
         z-index: 1;
+        @media screen and (max-width: vars.$bp-md) {
+          translate: none;
+        }
       }
       &-banner {
-        position: absolute;
-        inset: 0;
-        max-width: 93%;
-        border-radius: 2rem;
+        border-radius: 20px;
         box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
+        @media screen and (min-width: vars.$bp-md) {
+          position: absolute;
+          inset: 0;
+          max-width: 93%;
+        }
+        @media screen and (max-width: vars.$bp-md) {
+          max-height: 92%;
+          align-self: flex-start;
+          aspect-ratio: 34.3/34;
+        }
       }
     }
   }
   &__cards {
     display: flex;
     flex-direction: column;
-    gap: 9rem;
+    gap: max(9rem, 30px);
   }
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     &-item {
       display: flex;
-      padding: 2.4rem;
+      padding-inline: 2.4rem;
+      padding-block: max(2.4rem, 16px);
       flex-direction: column;
       align-items: center;
-      gap: 1.6rem;
+      gap: 16px;
       text-align: center;
+      @media screen and (max-width: vars.$bp-sm) {
+        padding-inline: 0;
+      }
       p {
         font-weight: 500;
         line-height: 130%;
         color: #2f1904;
+        font-size: max(1.6rem, 16px);
       }
       &-title {
         color: var(--orgn-500, var(--orgn-500, #ed7e17));
-        font-size: 3.2rem;
+        font-size: max(3.2rem, 32px);
         font-weight: 800;
         line-height: 130%;
       }
     }
   }
   &__header {
-    max-width: 62%;
+    @media screen and (min-width: vars.$bp-lg) {
+      max-width: 62%;
+    }
   }
 }
 </style>
