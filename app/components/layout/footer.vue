@@ -209,6 +209,7 @@ const legals = computed(() =>
   padding-top: 3.2rem;
   padding-bottom: max(3.2rem, 20px);
   padding-inline: max(7.5rem, 16px);
+  margin-top: max(6rem, 50px);
   & > *:not(.footer__bg):not(.footer__socials):not(.footer__copyright) {
     margin-left: max(7.5rem, 24px);
     margin-right: max(7.5rem, 10px);

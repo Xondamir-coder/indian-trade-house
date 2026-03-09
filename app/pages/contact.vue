@@ -2,6 +2,7 @@
   <main class="contact">
     <section class="hero">
       <UiPicture src="contacts-hero.png" class="hero__bg" alt="bg" />
+      <UiPicture src="contacts-hero-mobile.png" class="hero__bg" alt="bg" />
       <h1 class="heading-xl">
         {{ $t('contact.hero.title') }}
       </h1>
@@ -12,7 +13,11 @@
         {{ $t('apply-membership') }}
       </button>
     </section>
-    <UiSectionServices :items="useMapRt('contact.services')" />
+    <UiSectionServices
+      :items="useMapRt('contact.services')"
+      :title="$t('contact.help.title')"
+      :subtitle="$t('contact.help.subtitle')"
+    />
     <section class="help">
       <div class="help__container">
         <UiSectionHeader
@@ -216,109 +221,23 @@ const submitForm = () => {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 25rem;
+  padding-top: max(25rem, 210px);
   margin-bottom: calc(9rem - 3.2rem);
   &__bg {
     aspect-ratio: 144/66.5;
     position: absolute;
     top: 0;
     inset-inline: 0;
-  }
-  &__list {
-    display: flex;
-    gap: 2rem;
-    &:has(> *:hover) > *:not(:hover) {
-      opacity: 0.5;
-    }
-  }
-  &__item {
-    display: flex;
-    padding: 2.2rem;
-    gap: 1.6rem;
-    border-radius: 1.2rem;
-    background: #fff;
-    box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
-    transition: all 0.4s;
-
-    &.active {
-      background: var(--orgn-500, #ed7e17);
-      box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
-      .map__item-iconbox {
-        background-color: #bd630f;
-      }
-      .map__item-icon {
-        stroke: #fff;
-      }
-      .map__item-content-item:first-child::after {
-        background-color: #f8cba0;
-      }
-      .map__item-content {
-        &-name {
-          color: #fff;
-        }
-        &-item {
-          color: #fbe5d0;
-        }
-      }
-    }
-    &-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      &-list {
-        display: flex;
-        gap: 1.2rem;
-      }
-      &-name {
-        transition: color 0.4s;
-        color: var(--orgn-800, var(--orgn-800, #5f3207));
-        font-weight: 800;
-        line-height: 130%;
-      }
-      &-item {
-        transition: color 0.4s;
-        color: var(--Blue-300, var(--Neutral-Blue-300, #666c7a));
-        font-size: 1.2rem;
-        font-weight: 500;
-        position: relative;
-        &:first-child::after {
-          $gap: 6;
-          $dimensions: 4;
-          content: '';
-          position: absolute;
-          right: calc(($gap + ($dimensions / 2)) * -1px);
-          top: 50%;
-          translate: 0 -50%;
-          width: #{$dimensions}px;
-          height: #{$dimensions}px;
-          border-radius: 50%;
-          background-color: #b9becc;
-          transition: background 0.4s;
-        }
-      }
-    }
-    &-iconbox {
-      @include mix.flex-center;
-      width: 4.2rem;
-      height: 4.2rem;
-      border-radius: 50%;
-      background: var(--orgn-50, #fdf2e7);
-      transition: background 0.4s;
-    }
-    &-icon {
-      fill: none;
-      width: 52.3%;
-      stroke: #bd630f;
-      transition: stroke 0.4s;
+    @media screen and (max-width: vars.$bp-lg) {
+      aspect-ratio: 37.5/26;
     }
   }
   &__container {
-    display: flex;
-    flex-direction: column;
     padding-inline: var(--spacing-inline);
-    gap: 2rem;
     z-index: 2;
+    @media screen and (max-width: vars.$bp-sm) {
+      padding-inline: 0;
+    }
   }
   &__svg {
     position: absolute;
@@ -331,8 +250,8 @@ const submitForm = () => {
     box-shadow: 0 21px 100px -7px rgba(124, 62, 12, 0.3);
     overflow: hidden;
     &-dot {
-      width: 2.8rem;
-      height: 2.8rem;
+      width: max(2.8rem, 28px);
+      height: max(2.8rem, 28px);
       background-color: #8e4a0b;
       border-radius: 50%;
       align-self: center;
@@ -355,19 +274,20 @@ const submitForm = () => {
     }
     &-container {
       margin-bottom: 4%;
-      min-width: 28.4rem;
       place-self: center;
       display: flex;
       flex-direction: column;
-      gap: 2.2rem;
+      gap: max(2.2rem, 22px);
     }
     &-button {
       display: flex;
-      padding: 1.2rem 1.6rem 1.2rem 2.387rem;
+      padding-left: max(2.39rem, 16px);
+      padding-right: max(1.6rem, 10px);
+      height: max(4.8rem, 40px);
       justify-content: space-between;
       align-items: center;
-      gap: 0.7957rem;
-      border-radius: 6.1rem;
+      gap: max(0.7957rem, 8px);
+      border-radius: max(6.1rem, 61px);
       background: var(--orgn-50, #fdf2e7);
       transition: background 0.4s;
       &:hover {
@@ -383,19 +303,19 @@ const submitForm = () => {
       display: flex;
       align-items: center;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: max(1.2rem, 12px);
       text-align: center;
       span {
         &:first-child {
           color: var(--orgn-900, var(--orgn-900, #2f1904));
           text-align: center;
-          font-size: 2rem;
+          font-size: max(2rem, 20px);
           font-weight: 700;
           line-height: 120%;
         }
         &:last-child {
           color: var(--Blue-400, var(--Neutral-Blue-400, #494f61));
-          font-size: 1.6rem;
+          font-size: max(1.6rem, 16px);
           font-weight: 500;
           line-height: 130%;
           max-width: 20ch;
@@ -404,22 +324,24 @@ const submitForm = () => {
     }
     &-item {
       z-index: 1;
-      border-radius: 2rem;
-      padding: 1.6rem;
-      padding-bottom: 4.82rem;
+      padding: max(1.6rem, 16px);
+      padding-bottom: max(4.82rem, 48px);
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: max(2rem, 20px);
       background: var(--Primary-warmth, #fffefd);
       box-shadow: 16px 22px 140px rgba(35, 35, 35, 0.1);
       clip-path: url('#bubbleClip');
     }
     &-arrow {
-      width: 2.4rem;
+      width: max(2.4rem, 20px);
       fill: #8e4a0b;
     }
     &-banner {
       aspect-ratio: 125.6/64.7;
+      @media screen and (max-width: vars.$bp-lg) {
+        aspect-ratio: 37.5/42;
+      }
     }
     & > * {
       grid-area: 1/1/2/2;
@@ -429,21 +351,30 @@ const submitForm = () => {
 .help {
   display: grid;
   grid-template-columns: 1.92fr 1fr;
-  gap: 3rem;
+  gap: max(3rem, 20px);
   padding-inline: var(--spacing-inline);
+  @media screen and (max-width: vars.$bp-lg) {
+    grid-template-columns: 1fr;
+  }
+  @media screen and (max-width: vars.$bp-md) {
+    padding-inline: 0;
+  }
   &__header {
     align-self: flex-start;
-    max-width: 80%;
     text-align: start;
     align-items: flex-start;
+    @media screen and (min-width: vars.$bp-lg) {
+      max-width: 80%;
+    }
   }
   &__container {
     grid-row: span 3;
-    padding: 6rem;
+    padding-block: max(6rem, 20px);
+    padding-inline: max(6rem, 16px);
     display: flex;
-    gap: 6rem;
+    gap: max(6rem, 20px);
     flex-direction: column;
-    border-radius: 2.4rem;
+    border-radius: max(2.4rem, 24px);
     border: 1px solid var(--orgn-100, #fbe5d0);
     background: #fff;
 
@@ -453,7 +384,7 @@ const submitForm = () => {
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 6rem;
+    gap: max(6rem, 20px);
     &-button {
       transition: opacity 0.4s;
       &:disabled {
@@ -466,12 +397,13 @@ const submitForm = () => {
     }
     &-textbox,
     &-input {
-      padding-inline: 1.6rem;
-      padding-block: 1.35rem;
-      border-radius: 0.8rem;
+      padding-inline: max(1.6rem, 16px);
+      padding-block: max(1.35rem, 13px);
+      border-radius: max(0.8rem, 8px);
       border: 1px solid var(--Neutral-Grey-50, #e9e9e9);
       background: var(--Neutral-White-50, #fefefe);
       transition: border 0.3s;
+      font-size: max(1.6rem, 16px);
       &:focus {
         border-color: #ed7e17;
       }
@@ -483,38 +415,43 @@ const submitForm = () => {
       display: flex;
       flex-direction: column;
       font-family: vars.$font-inter;
-      gap: 0.8rem;
-      &:has(textarea) {
-        grid-column: span 2;
+      gap: max(0.8rem, 8px);
+      @media screen and (min-width: vars.$bp-md) {
+        &:has(textarea) {
+          grid-column: span 2;
+        }
       }
       label {
         color: var(--Neutral-Grey-800, #141414);
-        font-size: 1.6rem;
+        font-size: max(1.6rem, 16px);
         font-weight: 500;
         line-height: 130%;
       }
     }
     &-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      gap: max(2rem, 20px);
     }
   }
   &__box {
     display: flex;
-    padding: 1.6rem;
+    padding: max(1.6rem, 10px);
     flex-direction: column;
-    gap: 1.6rem;
-    border-radius: 2.4rem;
+    gap: max(1.6rem, 10px);
+    border-radius: max(2.4rem, 20px);
     border: 1px solid var(--orgn-200, #f8cba0);
     background: var(--orgn-100, #fbe5d0);
 
     /* Drop Shadow */
     box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
+
+    @media screen and (max-width: vars.$bp-md) {
+      margin-inline: var(--spacing-inline);
+    }
     &-label {
       color: var(--orgn-800, var(--orgn-800, #5f3207));
       font-family: vars.$font-radio;
-      font-size: 2.4rem;
+      font-size: max(2.4rem, 20px);
       font-weight: 600;
       line-height: 133%;
       letter-spacing: -0.24px;
@@ -524,15 +461,15 @@ const submitForm = () => {
       line-height: 130%;
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: max(1.6rem, 16px);
       z-index: 1;
 
       & > *:first-child {
         @include mix.flex-center;
-        width: 3.2rem;
-        height: 3.2rem;
+        width: max(3.2rem, 28px);
+        height: max(3.2rem, 28px);
         color: #fff;
-        font-size: 1.4rem;
+        font-size: max(1.4rem, 12px);
         font-weight: 800;
         border-radius: 50%;
         background: var(--orgn-400, #f09642);
@@ -540,16 +477,16 @@ const submitForm = () => {
       }
       & > *:last-child {
         font-family: vars.$font-inter;
-        font-size: 2.4rem;
+        font-size: max(2.4rem, 18px);
         font-weight: 600;
       }
     }
     &-steps {
       display: flex;
-      padding: 3.2rem;
+      padding: max(3.2rem, 16px);
       flex-direction: column;
-      gap: 2rem;
-      border-radius: 3.2rem;
+      gap: max(2rem, 20px);
+      border-radius: max(3.2rem, 22px);
       border: 1px solid var(--orgn-200, #f8cba0);
       background: #fff;
 
@@ -563,22 +500,22 @@ const submitForm = () => {
         width: 1px;
         height: 60%;
         background: var(--orgn-200, #f8cba0);
-        left: calc(3.2rem + (3.2 / 2) * 1rem);
-        top: 3.2rem;
+        left: calc(max(3.2rem, 24px) + (3.2 / 2) * 1rem);
+        top: max(3.2rem, 28px);
       }
     }
     &-subtitle {
       color: var(--orgn-800, var(--orgn-800, #5f3207));
-      font-size: 1.8rem;
+      font-size: max(1.8rem, 16px);
       font-weight: 600;
       line-height: 130%;
     }
     &-cta {
       display: flex;
-      padding: 1.6rem;
+      padding: max(1.6rem, 12px);
       align-items: center;
-      gap: 1rem;
-      border-radius: 3.2rem;
+      gap: max(1rem, 10px);
+      border-radius: max(3.2rem, 26px);
       border: 1px solid var(--orgn-200, #f8cba0);
       background: #fff;
       color: var(--orgn-900, #2f1904);
@@ -592,16 +529,15 @@ const submitForm = () => {
       }
       span {
         font-family: vars.$font-inter;
-        font-size: 2.4rem;
+        font-size: max(2.4rem, 20px);
         font-weight: 600;
         line-height: 130%;
       }
       &-iconbox {
         @include mix.flex-center;
-        width: 5.2rem;
-        height: 5.2rem;
+        width: max(5.2rem, 52px);
+        height: max(5.2rem, 52px);
         border-radius: 50%;
-        border-radius: 99.8rem;
         border: 0.833px solid var(--orgn-100, #fbe5d0);
         background: var(--orgn-100, #fbe5d0);
       }
@@ -614,10 +550,12 @@ const submitForm = () => {
 }
 .hero {
   @include mix.flex-center;
-  padding-block: 25rem;
+  padding-top: max(25rem, 160px);
+  padding-bottom: max(25rem, 250px);
+  padding-inline: 30px;
   flex-direction: column;
-  gap: 1.6rem;
-  border-radius: 0 0 2.4rem 2.4rem;
+  gap: max(1.6rem, 16px);
+  border-radius: 0 0 max(1.6rem, 24px) max(1.6rem, 24px);
   position: relative;
   background: linear-gradient(180deg, var(--orgn-50, #fdf2e7) 72.27%, #fed4ac 100%);
   overflow: hidden;
@@ -654,19 +592,28 @@ const submitForm = () => {
   &__bg {
     position: absolute;
     inset: 0;
+    mix-blend-mode: multiply;
+    &:first-of-type {
+      @media screen and (max-width: vars.$bp-lg) {
+        display: none;
+      }
+    }
+    &:last-of-type {
+      @media screen and (min-width: vars.$bp-lg) {
+        display: none;
+      }
+    }
   }
   &__subtitle {
     color: var(--orgn-950, var(--orgn-950, #180c02));
     text-align: center;
-    font-size: 2rem;
+    font-size: max(2rem, 14px);
     font-weight: 500;
     line-height: 150%;
     max-width: 45ch;
   }
 }
 .contact {
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
+  @include mix.container-style;
 }
 </style>

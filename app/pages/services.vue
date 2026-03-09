@@ -9,7 +9,20 @@
           {{ $t('services.hero.text') }}
         </p>
         <button class="button--orange">
-          {{ $t('services.hero.button') }}
+          <span>{{ $t('services.hero.button') }}</span>
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_704_2246)">
+              <path
+                d="M4.40991 3.09L10.3199 9L4.40991 14.91L5.99991 16.5L13.4999 9L5.99991 1.5L4.40991 3.09Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_704_2246">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
         </button>
       </div>
       <div class="hero__container">
@@ -133,7 +146,8 @@ Z"
           </button>
         </li>
       </ul>
-      <button class="button--white">
+      <button class="core__button">
+        <IconsLogin />
         <span>{{ $t('explore-all-sectors') }}</span>
       </button>
       <svg width="0" height="0" aria-hidden="true">
@@ -172,7 +186,14 @@ Z"
         <div class="galaxy__banner">
           <img src="/images/galaxy-bg.png" alt="galaxy" class="galaxy__banner-image" />
         </div>
-        <img src="/images/galaxy-items.png" alt="galaxy" class="galaxy__items" />
+        <picture class="galaxy__items">
+          <source
+            srcset="/images/galaxy-items-mobile.png"
+            type="image/png"
+            media="(max-width: 768px)"
+          />
+          <img src="/images/galaxy-items.png" alt="galaxy" class="galaxy__items-img" />
+        </picture>
       </div>
       <div class="galaxy__box">
         <SvgCentredLogo class="galaxy__box-logo" />
@@ -297,11 +318,20 @@ onMounted(() => {
 .start {
   display: grid;
   grid-template-columns: 1fr 1.72fr;
-  gap: 6rem;
-  padding-block: 9rem;
+  gap: max(6rem, 30px);
+  padding-block: max(9rem, 30px);
   padding-inline: var(--spacing-inline);
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: vars.$bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: vars.$bp-md) {
+    grid-template-columns: 1fr;
+    .start__right {
+      order: -1;
+    }
+  }
   & > svg {
     position: absolute;
   }
@@ -312,16 +342,22 @@ onMounted(() => {
     position: absolute;
     height: 100%;
     width: 100%;
+    pointer-events: none;
+    @media screen and (max-width: vars.$bp-md) {
+      height: 100%;
+      width: auto;
+    }
   }
   &__left {
     display: grid;
-    column-gap: 1rem;
-    row-gap: 5rem;
+    column-gap: max(1rem, 8px);
+    row-gap: max(5rem, 40px);
     grid-auto-columns: 1.12fr 1fr;
     grid-template-areas:
       'box pic'
       'content content';
     position: relative;
+
     > * {
       z-index: 1;
     }
@@ -343,11 +379,11 @@ onMounted(() => {
       &-bg {
         position: absolute;
         inset: 0;
-        border-radius: 4.2rem;
+        border-radius: max(4.2rem, 30px);
       }
       &-pic {
         z-index: 1;
-        max-width: 90%;
+        width: 90%;
         translate: 0% -12%;
       }
     }
@@ -355,35 +391,35 @@ onMounted(() => {
       grid-area: box;
       color: var(--Primary-warmth, #fffefd);
       display: flex;
-      padding: 3.2rem 3rem;
+      padding: max(3.2rem, 20px) max(3rem, 20px);
       flex-direction: column;
       align-items: flex-start;
-      border-radius: 4.2rem;
+      border-radius: max(4.2rem, 30px);
       background: var(--Primary-vivid-green, #0cbb52);
       box-shadow:
         0 2px 0 0 rgba(255, 255, 255, 0.2) inset,
         0 -1px 0 1px rgba(0, 0, 0, 0.05) inset,
         0 4px 2.7px 0 rgba(0, 212, 126, 0.1);
       &-amount {
-        font-size: 5.4rem;
+        font-size: max(5.4rem, 42px);
         font-weight: 800;
       }
       &-text {
+        font-size: max(1.6rem, 12px);
         font-weight: 500;
       }
     }
-
     &-content {
-      padding-bottom: 4.7rem;
-      padding-inline: 3.3rem;
+      padding-bottom: max(4.7rem, 37px);
+      padding-inline: max(3.3rem, 20px);
       grid-area: content;
       display: flex;
       align-items: center;
-      gap: 2.4rem;
+      gap: max(2.4rem, 20px);
       p {
         color: var(--orgn-900, #2f1904);
         font-family: vars.$font-inter;
-        font-size: 2.8rem;
+        font-size: max(2.8rem, 20px);
         font-weight: 600;
         line-height: 130%;
       }
@@ -394,9 +430,9 @@ onMounted(() => {
       &-iconbox {
         @include mix.flex-center;
         flex-shrink: 0;
-        width: 8.4rem;
-        height: 8.4rem;
-        border-radius: 2.4rem;
+        width: max(8.4rem, 64px);
+        height: max(8.4rem, 64px);
+        border-radius: max(2.4rem, 18px);
         border-right: 1px solid #fff;
         border-bottom: 1px solid #fff;
         background-image: linear-gradient(to right, #fdf7f0 0%, rgba(255, 255, 255, 0) 100%);
@@ -407,7 +443,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 3.2rem;
+    gap: max(3.2rem, 16px);
     color: var(--Grayscale-White, #fff);
     &-box {
       display: flex;
@@ -415,52 +451,52 @@ onMounted(() => {
       gap: 0.8rem;
     }
     p {
-      font-size: 1.8rem;
+      font-size: max(1.8rem, 18px);
     }
     &-title {
       font-family: vars.$font-inter;
-      font-size: 5.4rem;
+      font-size: max(5.4rem, 32px);
       font-weight: 600;
       line-height: 133%;
       max-width: 15ch;
     }
     &-label {
       display: flex;
-      padding: 0.8rem 1.6rem;
+      padding: max(0.8rem, 6px) max(1.6rem, 16px);
       justify-content: center;
       align-items: center;
-      gap: 0.8rem;
-      border-radius: 1.2rem;
+      gap: max(0.8rem, 8px);
+      border-radius: max(1.2rem, 12px);
       border: 1.2px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.2);
-      font-size: 1.6rem;
       font-weight: 600;
       &-icon {
-        width: 1.6rem;
+        width: max(1.6rem, 13px);
         fill: currentColor;
       }
     }
     &-button {
       display: flex;
-      height: 4.8rem;
-      padding-inline: 1.4rem;
+      height: max(4.8rem, 48px);
+      padding-inline: max(1.4rem, 14px);
       align-items: center;
-      gap: 1rem;
-      border-radius: 9.9rem;
+      gap: max(0.5rem, 5px);
+      border-radius: max(9.9rem, 99px);
       border: 2px solid #fff;
       background: #fff;
       box-shadow: 0 4.343px 16px 0 rgba(248, 203, 160, 0.3) inset;
       color: #bd630f;
       font-weight: 500;
       transition: all 0.4s;
+      font-size: max(1.6rem, 16px);
       &:hover {
         color: #fff;
         background: transparent;
       }
       &-icon {
         fill: currentColor;
-        width: 3rem;
-        height: 3rem;
+        width: max(2.7rem, 25px);
+        height: max(2.7rem, 25px);
       }
     }
   }
@@ -470,12 +506,17 @@ onMounted(() => {
   display: flex;
   aspect-ratio: 125.6/46.3;
   margin-inline: var(--spacing-inline);
-  margin-bottom: calc(24.8rem * 0.25);
+  margin-bottom: calc(max(24.8rem, 149px) * 0.25);
+  @media screen and (max-width: vars.$bp-md) {
+    aspect-ratio: 37.5/36;
+    margin-inline: 0;
+    margin-bottom: calc(max(24.8rem, 149px) * 0.5);
+  }
   & > * {
     position: absolute;
   }
   & > *:not(.galaxy__container) {
-    z-index: 1;
+    z-index: 2;
   }
   &__banner {
     position: relative;
@@ -499,6 +540,9 @@ onMounted(() => {
   &__container {
     inset: 0;
     clip-path: url('#galaxyClip');
+    @media screen and (max-width: 1100px) {
+      clip-path: none;
+    }
     & > * {
       position: absolute;
       width: 100%;
@@ -508,10 +552,10 @@ onMounted(() => {
   }
   &__label {
     display: flex;
-    padding: 1.6rem 2rem;
+    padding: max(1.6rem, 12px) max(2rem, 12px);
     align-items: center;
-    gap: 1rem;
-    border-radius: 4rem;
+    gap: max(1rem, 10px);
+    border-radius: max(4rem, 40px);
     border: 1px solid #f8cba0;
     background:
       linear-gradient(
@@ -523,29 +567,41 @@ onMounted(() => {
     box-shadow: 0 23px 60px 0 rgba(189, 88, 0, 0.33);
     color: var(--Neutral-Colors-Neutral-950, #000);
     font-family: vars.$font-inter;
-    font-size: 2rem;
+    font-size: max(2rem, 16px);
     font-weight: 400;
+    @media screen and (max-width: vars.$bp-md) {
+      position: static;
+      align-self: flex-start;
+      margin-top: 16px;
+      margin-left: 16px;
+      font-weight: 600;
+      &:nth-child(2) {
+        margin-left: 16px + 15px;
+      }
+    }
     &:nth-child(2) {
       right: 0;
       bottom: 0;
     }
     &-icon {
-      width: 3rem;
-      height: 3rem;
+      width: max(2rem, 24px);
+      height: max(2rem, 24px);
     }
   }
-
   &__box {
     @include mix.flex-center;
     bottom: 0;
     left: 50%;
     translate: -50% 25%;
-    width: 24.8rem;
-    height: 24.8rem;
+    width: max(24.9rem, 149px);
+    height: max(24.9rem, 149px);
     border-radius: 50%;
     background:
       linear-gradient(136deg, rgba(255, 255, 255, 0) 17.58%, var(--orgn-100, #fbe5d0) 83.01%),
       var(--orgn-200, #f8cba0);
+    @media screen and (max-width: vars.$bp-md) {
+      translate: -50% 50%;
+    }
     &-logo {
       width: 49%;
     }
@@ -555,9 +611,25 @@ onMounted(() => {
   padding-inline: var(--spacing-inline);
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  & > button {
+  gap: max(3rem, 16px);
+  &__button {
+    display: flex;
+    height: 48px;
+    padding: 11px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     align-self: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #bd630f;
+    border-radius: 99px;
+    border: 2px solid #fef7f0;
+    background: #fff;
+    box-shadow: 0 4.343px 16px 0 rgba(248, 203, 160, 0.3) inset;
+    svg {
+      width: 18px;
+    }
   }
   & > svg {
     position: absolute;
@@ -565,7 +637,10 @@ onMounted(() => {
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    gap: max(3rem, 10px);
+    @media screen and (max-width: 1100px) {
+      @include mix.grid-scroll(340px);
+    }
   }
   &__item {
     padding-right: 1rem;
@@ -573,6 +648,9 @@ onMounted(() => {
     flex-direction: column;
     position: relative;
     transition: box-shadow 0.3s;
+    @media screen and (max-width: vars.$bp-sm) {
+      padding-right: 0;
+    }
     &:hover {
       box-shadow: 0 0 60px 0 var(--orgn-50, #fdf2e7) inset;
       border-radius: 2rem;
@@ -598,36 +676,41 @@ onMounted(() => {
     &-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 1.8rem;
-      padding-top: 2.4rem;
-      padding-left: 2.4rem;
+      margin-bottom: max(1.8rem, 10px);
+      padding-top: max(2.4rem, 16px);
+      padding-left: max(2.4rem, 16px);
+      gap: 15px;
+      @media screen and (max-width: vars.$bp-sm) {
+        padding-right: 20px;
+      }
     }
     button {
       align-self: flex-start;
       margin-left: auto;
+      margin-top: auto;
     }
     &-text {
       color: var(--Neutral-500, #666d80);
-      font-size: 1.6rem;
+      font-size: max(1.6rem, 12px);
       font-weight: 500;
       line-height: 130%;
       max-width: 70%;
-      padding-left: 2.4rem;
+      padding-left: max(2.4rem, 16px);
     }
     &-title {
       transition: color 0.3s;
       max-width: 20ch;
       color: var(--orgn-800, #5f3207);
-      font-size: 2rem;
+      font-size: max(2rem, 18px);
       font-weight: 700;
       line-height: 120%;
     }
     &-iconbox {
       @include mix.flex-center;
       flex-shrink: 0;
-      width: 5.2rem;
-      height: 5.2rem;
-      border-radius: 0.8rem;
+      width: max(5.2rem, 48px);
+      height: max(5.2rem, 48px);
+      border-radius: max(0.8rem, 8px);
       background: var(--orgn-400, #f09642);
       box-shadow:
         0 4.421px 4.421px 0 rgba(255, 255, 255, 0.25) inset,
@@ -642,13 +725,16 @@ onMounted(() => {
   }
 }
 .hero {
-  padding-top: 17.3rem;
+  padding-top: max(17.3rem, 167px);
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1.08fr;
-  gap: 18rem;
+  gap: max(18rem, 50px);
   padding-inline: var(--spacing-inline);
-  > * {
+  @media screen and (max-width: vars.$bp-lg) {
+    grid-template-columns: 1fr;
+  }
+  & > * {
     z-index: 1;
   }
   &::after,
@@ -659,9 +745,12 @@ onMounted(() => {
   &::before {
     inset: 0;
     background-color: #fbe5d0;
-    border-radius: 0 0 2.4rem 2.4rem;
+    border-radius: 0 0 max(2rem, 24px) max(2rem, 24px);
     width: 100%;
     height: calc(100% - 7rem);
+    @media screen and (max-width: vars.$bp-md) {
+      height: 75%;
+    }
   }
   &::after {
     inset: 0;
@@ -673,17 +762,23 @@ onMounted(() => {
       circle at 50% 0%,
       rgba(0, 0, 0, 1) 0%,
       rgba(0, 0, 0, 0.9) 25%,
-      rgba(0, 0, 0, 0.2) 45%,
-      rgba(0, 0, 0, 0.4) 60%,
-      rgba(0, 0, 0, 0) 70%
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.1) 70%,
+      rgba(0, 0, 0, 0) 100%
     );
   }
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: max(1.6rem, 16px);
     align-items: flex-start;
-    margin-top: 25%;
+    @media screen and (min-width: vars.$bp-lg) {
+      margin-top: 25%;
+    }
+    @media screen and (max-width: vars.$bp-lg) {
+      align-items: center;
+      text-align: center;
+    }
   }
   &__card {
     position: absolute;
@@ -691,15 +786,21 @@ onMounted(() => {
     bottom: 4.55rem;
     translate: 30%;
     width: 46%;
-    border-radius: 1rem;
+    border-radius: max(1rem, 8px);
     border: 0.518px solid var(--orgn-50, #fdf2e7);
     background: #fff;
-    padding: 1.53rem;
+    padding: max(1.53rem, 12px);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: max(1rem, 10px);
     z-index: 1;
     transition: all 0.6s;
+    @media screen and (max-width: vars.$bp-lg) {
+      width: 168px;
+      translate: none;
+      bottom: 16px;
+      right: 16px;
+    }
     &.hidden {
       opacity: 0;
       pointer-events: none;
@@ -712,32 +813,31 @@ onMounted(() => {
       border: 1px solid #ed7e17;
       background: #fefefe;
       box-shadow: 0 2px 8px 0 rgba(81, 81, 81, 0.06);
-      gap: 2.4rem;
+      gap: max(2.4rem, 10px);
     }
     &-title {
       font-weight: 600;
-      font-size: 1.4rem;
+      font-size: max(1.4rem, 10px);
       color: #2f1904;
     }
     &-bottom {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: max(0.8rem, 8px);
       color: var(--orgn-900, #2f1904);
+      font-size: max(1.2rem, 10px);
       &-label {
-        font-size: 1.2rem;
         font-weight: 600;
       }
       &-percent {
         display: flex;
-        padding: 0.4rem 0.8rem;
+        padding: max(0.4rem, 4px) max(0.8rem, 8px);
         align-items: center;
-        gap: 1rem;
-        border-radius: 10rem;
+        gap: max(1rem, 10px);
+        border-radius: max(10rem, 100px);
         border: 1px solid var(--orgn-300, #f4b071);
         background: var(--orgn-50, #fdf2e7);
         font-family: vars.$font-inter;
-        font-size: 1.2rem;
         font-weight: 400;
       }
     }
@@ -753,17 +853,17 @@ onMounted(() => {
     }
     &-label {
       color: var(--orgn-900, var(--orgn-900, #2f1904));
-      font-size: 0.7649rem;
+      font-size: max(0.7649rem, 7px);
       font-weight: 500;
     }
     &-number {
       color: var(--orgn-800, #5f3207);
-      font-size: 1.7849rem;
+      font-size: max(1.7849rem, 14px);
       font-weight: 800;
     }
     &-text {
       color: var(--Blue-300, #666c7a);
-      font-size: 1.0199rem;
+      font-size: max(1.0199rem, 8px);
       font-weight: 500;
       line-height: 130%; /* 1.3259rem */
     }
@@ -780,8 +880,11 @@ onMounted(() => {
     gap: 10px;
     z-index: 1;
     position: absolute;
-    top: 2rem;
-    right: 3rem;
+    top: max(2rem, 10px);
+    right: max(3rem, 10px);
+    @media screen and (max-width: vars.$bp-lg) {
+      right: 0;
+    }
   }
   &__circle {
     width: 12px;
@@ -807,6 +910,9 @@ onMounted(() => {
     clip-path: url('#cardClip');
     aspect-ratio: 48.3/55.7;
     transition: all 0.6s;
+    @media screen and (max-width: vars.$bp-lg) {
+      aspect-ratio: 34.3/42;
+    }
     &.hidden {
       opacity: 0;
       scale: 0.95;
@@ -819,12 +925,12 @@ onMounted(() => {
     top: 58%;
     translate: -100% -50%;
     display: flex;
-    max-width: 31.6rem;
-    padding: 1.6rem;
+    max-width: max(31.6rem, 210px);
+    padding: max(1.6rem, 10px);
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.2rem;
-    border-radius: 1.6rem;
+    gap: max(1.2rem, 10px);
+    border-radius: max(1.6rem, 10px);
     border: 1px solid rgba(253, 242, 231, 0.1);
     background: linear-gradient(
       99deg,
@@ -835,6 +941,12 @@ onMounted(() => {
     backdrop-filter: blur(35px);
     z-index: 1;
     transition: all 0.6s;
+    @media screen and (max-width: vars.$bp-lg) {
+      translate: none;
+      left: 16px;
+      top: 40%;
+    }
+
     &.hidden {
       pointer-events: none;
       transform: translateX(-20px);
@@ -842,13 +954,13 @@ onMounted(() => {
     }
     &-title {
       color: var(--orgn-800, #5f3207);
-      font-size: 2.4rem;
+      font-size: max(2.4rem, 16px);
       font-weight: 600;
       line-height: 130%; /* 3.12rem */
     }
     &-text {
       color: var(--orgn-700, #8e4a0b);
-      font-size: 1.4rem;
+      font-size: max(1.4rem, 10px);
       font-weight: 500;
     }
   }
@@ -864,19 +976,27 @@ onMounted(() => {
       left: -1.65rem;
       top: 40%;
       translate: -100% -50%;
+      @media screen and (max-width: vars.$bp-lg) {
+        display: none;
+      }
+    }
+  }
+  button {
+    svg {
+      @media screen and (max-width: vars.$bp-sm) {
+        display: none;
+      }
     }
   }
 }
 .services {
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
+  @include mix.container-style;
   &__services {
     & > *:last-child {
       & > * {
         & > *:last-child {
           & > *:first-child {
-            font-size: 3.2rem;
+            font-size: max(3.2rem, 32px);
           }
         }
       }

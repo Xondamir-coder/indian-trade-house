@@ -1,5 +1,11 @@
 @use './variables' as vars;
 
+@mixin container-style {
+  display: flex;
+  flex-direction: column;
+  gap: max(6rem, 20px);
+}
+
 // Layout related
 @mixin grid-center {
   display: grid;

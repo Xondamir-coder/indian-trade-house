@@ -5,13 +5,17 @@
   justify-content: center;
   align-items: center;
   gap: 1.2rem;
-  height: max(4.8rem, 36px);
+  height: max(4.8rem, 40px);
   padding-inline: 14px;
   border-radius: 99px;
   font-family: vars.$font-jakarta;
   letter-spacing: 0.32px;
   font-weight: 500;
   transition: background 0.4s;
+  svg {
+    width: max(1.8rem, 18px);
+    fill: #fff;
+  }
 }
 
 .button--orange {

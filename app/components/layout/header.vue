@@ -67,7 +67,7 @@ const links = computed(() =>
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-inline: max(var(--spacing-inline), 25px);
+  margin-inline: var(--spacing-inline);
   padding-inline: max(2.4rem, 12px);
   padding-block: max(1.6rem, 12px);
   border-radius: max(1.6rem, 10px);
@@ -75,7 +75,7 @@ const links = computed(() =>
   box-shadow: 0 8px 60px 1px var(--orgn-50, #fdf2e7);
   z-index: 5;
   position: fixed;
-  top: 3.2rem;
+  top: max(3.2rem, 20px);
   inset-inline: 0;
   &__ham {
     @include mix.flex-center;

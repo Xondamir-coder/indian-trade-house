@@ -239,8 +239,6 @@
   }
 }
 .products {
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
+  @include mix.container-style;
 }
 </style>
