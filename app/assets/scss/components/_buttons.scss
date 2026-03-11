@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
+  gap: max(0.8rem, 6px);
   height: max(4.8rem, 40px);
   padding-inline: 14px;
   border-radius: 99px;
@@ -13,7 +13,7 @@
   font-weight: 500;
   transition: background 0.4s;
   svg {
-    width: max(1.8rem, 18px);
+    width: max(1.8rem, 15px);
     fill: #fff;
   }
 }
