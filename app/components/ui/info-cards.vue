@@ -140,7 +140,7 @@ const infoCards = computed(() =>
     }
     &__arrow {
       fill: currentColor;
-      width: 24px;
+      width: max(1.4rem, 14px);
     }
   }
 }

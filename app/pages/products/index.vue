@@ -12,177 +12,26 @@
     <section class="cards">
       <UiInfoCards />
     </section>
-    <section class="categories">
-      <div class="categories__sidebar">
-        <h4 class="categories__sidebar-label">
-          {{ $t('products.categories.explore') }}
-        </h4>
-        <div class="categories__sidebar-buttons">
-          <button
-            v-for="button in useMapRt('products.categories.filters')"
-            :key="button.label"
-            class="categories__sidebar-button"
-          >
-            <span>{{ button.label }}</span>
-            <div class="categories__sidebar-button-amount">
-              {{ button.amount.toString().padStart(2, '0') }}
-            </div>
-          </button>
-        </div>
-      </div>
-      <div class="categories__list">
-        <NuxtLink
-          v-for="(item, i) in useMapRt('products.categories.items')"
-          :key="i"
-          class="categories__item"
-          :to="$localePath(`/products/${i}`)"
-        >
-          <UiPicture :src="item.image" :alt="item.name" class="categories__item-pic" />
-          <span class="categories__item-category">
-            {{ item.category }}
-          </span>
-          <span class="categories__item-name">
-            {{ item.name }}
-          </span>
-          <ul class="categories__item-labels">
-            <li v-for="label in item.labels" :key="label" class="categories__item-label">
-              <span v-for="(el, index) in label.split(': ')" :key="el">
-                {{ index === 0 ? `${el}:` : el }}
-              </span>
-            </li>
-          </ul>
-        </NuxtLink>
-      </div>
-    </section>
+    <UiProductsList />
   </main>
 </template>
 
 <script setup></script>
 
 <style lang="scss" scoped>
-.categories {
-  display: grid;
-  grid-template-columns: 1fr 2.04fr;
-  gap: 4rem;
-  padding-inline: var(--spacing-inline);
-  align-items: flex-start;
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    row-gap: 4rem;
-    column-gap: 2.4rem;
-  }
-  &__item {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    transition: translate 0.4s;
-    &:hover {
-      translate: 0 -5px;
-      .categories__item-pic > * {
-        scale: 1.1;
-      }
-    }
-    &-category {
-      color: var(--orgn-600, var(--orgn-600, #bd630f));
-    }
-    &-name {
-      color: var(--orgn-900, var(--orgn-900, #2f1904));
-      font-size: 1.8rem;
-      font-weight: 800;
-      line-height: 130%;
-    }
-    &-labels {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-    }
-    &-label {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      border-radius: 10rem;
-      border: 1px solid var(--orgn-100, #fbe5d0);
-      background: #fff;
-      display: flex;
-      padding: 0.8rem 1.2rem;
-      & > *:first-child {
-        color: #2f1904;
-      }
-      & > *:last-child {
-        color: #ed7e17;
-      }
-    }
-    &-pic {
-      border-radius: 2rem;
-      aspect-ratio: 39.6/28;
-      > * {
-        transition: scale 0.4s;
-      }
-    }
-  }
-  &__sidebar {
-    display: flex;
-    padding: 2.4rem 1.6rem;
-    flex-direction: column;
-    gap: 1.6rem;
-    border-radius: 2rem;
-    border: 1px solid var(--orgn-100, #fbe5d0);
-    background: #fefefe;
-    box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
-    &-label {
-      color: var(--orgn-800, var(--orgn-800, #5f3207));
-      font-family: Manrope;
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 120%;
-    }
-    &-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    &-button {
-      display: flex;
-      padding: 1rem 1.6rem;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--orgn-900, var(--orgn-900, #2f1904));
-      font-size: 1.4rem;
-      font-weight: 600;
-      transition: background 0.4s;
-      &:hover {
-        background-color: var(--orgn-100, #fbe5d060);
-      }
-      &-amount {
-        @include mix.flex-center;
-        width: 2.6rem;
-        height: 2.6rem;
-        padding: 0.2rem 0.4rem;
-        border-radius: 0.4rem;
-        background: var(--orgn-100, #fbe5d0);
-        color: var(--orgn-700, var(--orgn-700, #8e4a0b));
-        font-weight: 500;
-      }
-    }
-  }
-}
 .cards {
   padding-inline: var(--spacing-inline);
 }
 .hero {
   padding-inline: var(--spacing-inline);
-  padding-top: 19rem;
-  padding-bottom: 6rem;
+  padding-top: max(19rem, 183px);
+  padding-bottom: max(6rem, 20px);
   display: flex;
-  gap: 1.6rem;
+  gap: max(1.6rem, 16px);
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-radius: 0 0 2.6rem 2.6rem;
+  border-radius: 0 0 max(2.6rem, 26px) max(2.6rem, 26px);
   background:
     radial-gradient(
       65% 50% at 52% 18%,
@@ -193,6 +42,10 @@
       rgba(90, 30, 12, 0) 78%
     ),
     linear-gradient(135deg, #8f3a14 0%, #b8673f 38%, #ddb79f 68%, #c6929d 100%);
+
+  @media screen and (max-width: vars.$bp-md) {
+    background: linear-gradient(to bottom, #954327 0%, #772407 50%, #ecc3b5 100%);
+  }
 
   & > * {
     z-index: 1;
@@ -230,9 +83,8 @@
   }
   &__subtitle {
     text-align: center;
-    margin-bottom: 3.6rem - 1.6rem;
     color: #fdf2e7;
-    font-size: 2rem;
+    font-size: max(2rem, 14px);
     font-weight: 600;
     line-height: 120%;
     max-width: 60ch;
