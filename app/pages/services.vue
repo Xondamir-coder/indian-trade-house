@@ -10,19 +10,7 @@
         </p>
         <button class="button--orange">
           <span>{{ $t('services.hero.button') }}</span>
-          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_704_2246)">
-              <path
-                d="M4.40991 3.09L10.3199 9L4.40991 14.91L5.99991 16.5L13.4999 9L5.99991 1.5L4.40991 3.09Z"
-                fill="white"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_704_2246">
-                <rect width="18" height="18" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
+          <IconsArrowRight />
         </button>
       </div>
       <div class="hero__container">
@@ -31,7 +19,7 @@
           v-for="(box, i) in useMapRt('services.hero.boxes')"
           :key="box.title"
           class="hero__box"
-          :class="{ hidden: i !== activeItem }"
+          :class="{ hidden: i !== activeHeroItem }"
         >
           <span class="hero__box-title">
             {{ box.title }}
@@ -40,7 +28,7 @@
             {{ box.text }}
           </p>
         </div>
-        <div :class="{ hidden: activeItem === 1 }" class="hero__card">
+        <div :class="{ hidden: activeHeroItem === 1 }" class="hero__card">
           <div class="hero__card-wrapper">
             <UiPicture src="arc.png" alt="arc" class="hero__card-pic" />
             <div class="hero__card-content">
@@ -54,7 +42,7 @@
             {{ $t('services.hero.card.text') }}
           </p>
         </div>
-        <div :class="{ hidden: activeItem !== 1 }" class="hero__card">
+        <div :class="{ hidden: activeHeroItem !== 1 }" class="hero__card">
           <p class="hero__card-title">
             {{ $t('services.hero.card-2.title') }}
           </p>
@@ -71,7 +59,7 @@
             :src="`services-${i}.jpg`"
             alt="man"
             class="hero__pic"
-            :class="{ hidden: i - 1 !== activeItem }"
+            :class="{ hidden: i - 1 !== activeHeroItem }"
           />
         </div>
         <div class="hero__circles">
@@ -79,8 +67,8 @@
             v-for="i in 3"
             :key="i"
             class="hero__circle"
-            :class="{ active: i - 1 === activeItem }"
-            @click="activeItem = i - 1"
+            :class="{ active: i - 1 === activeHeroItem }"
+            @click="activeHeroItem = i - 1"
           />
         </div>
       </div>
@@ -113,7 +101,7 @@ Z"
         :subtitle="$t('services.core.subtitle')"
       />
       <ul class="core__list">
-        <li v-for="item in coreItems" :key="item.title" class="core__item">
+        <li v-for="(item, i) in coreItems" :key="item.title" class="core__item">
           <div class="core__item-top">
             <h3 class="core__item-title">
               {{ item.title }}
@@ -125,14 +113,8 @@ Z"
           <p class="core__item-text">
             {{ item.text }}
           </p>
-          <button class="button--orange">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+          <button class="button--orange" @click="toggleModal(i)">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_453_317)">
                 <path d="M5.83325 8.33337L9.99992 12.5L14.1666 8.33337H5.83325Z" fill="white" />
               </g>
@@ -264,10 +246,10 @@ Z
             {{ $t('services.start.subtitle') }}
           </p>
         </div>
-        <button class="start__right-button">
+        <NuxtLink :to="$localePath('/contact')" class="start__right-button">
           <span>{{ $t('services.start.button') }}</span>
           <IconsArrowRight class="start__right-button-icon" />
-        </button>
+        </NuxtLink>
       </div>
       <svg width="0" height="0" aria-hidden="true">
         <defs>
@@ -293,13 +275,54 @@ Z
         </defs>
       </svg>
     </section>
+    <UiBaseModal
+      v-model="showModal"
+      :button-text="$t('message-us')"
+      @action="$router.push('/contact')"
+    >
+      <div class="modal-content">
+        <div class="modal-content__top">
+          <div class="modal-content__logos">
+            <div class="modal-content__logo">
+              <div class="modal-content__logo-container">
+                <component :is="coreSupply[activeCoreItem]" class="modal-content__logo-icon" />
+              </div>
+            </div>
+            <div class="modal-content__logo">
+              <SvgIndiaLogo class="modal-content__logo-icon" />
+            </div>
+          </div>
+          <h3 class="modal-content__top-title">
+            {{ modalData.title }}
+          </h3>
+          <p class="modal-content__top-text">
+            {{ modalData.text }}
+          </p>
+        </div>
+        <ul class="modal-content__items">
+          <li v-for="item in modalData.items" :key="item" class="modal-content__item">
+            <IconsBrownCheck class="modal-content__item-icon" />
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+    </UiBaseModal>
   </main>
 </template>
 
 <script setup>
 import { IconsCarWash, IconsFire, IconsUploadFile } from '#components';
 
-const activeItem = ref(0);
+const activeHeroItem = ref(0);
+const activeCoreItem = ref(0);
+const showModal = ref(false);
+
+const modalData = computed(() => useMapRt('service-modal')[activeCoreItem.value]);
+
+const toggleModal = idx => {
+  activeCoreItem.value = idx;
+  showModal.value = true;
+};
 
 const coreSupply = [IconsFire, IconsUploadFile, IconsCarWash];
 const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
@@ -309,12 +332,107 @@ const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
 
 onMounted(() => {
   setInterval(() => {
-    activeItem.value = (activeItem.value + 1) % 3;
+    activeHeroItem.value = (activeHeroItem.value + 1) % 3;
   }, 3000);
 });
 </script>
 
 <style lang="scss" scoped>
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: max(4.5rem, 22px);
+  &__logo {
+    width: max(7.2rem, 72px);
+    height: max(7.2rem, 72px);
+    &-container {
+      @include mix.flex-center;
+      z-index: 1;
+      flex: 1;
+      background: linear-gradient(
+        180deg,
+        var(--orgn-300, #f4b071) 0%,
+        var(--orgn-600, #bd630f) 100%
+      );
+
+      border-radius: max(1.44rem, 14px);
+      & > * {
+        width: max(3.2rem, 32px);
+      }
+    }
+    &:first-child {
+      display: flex;
+      transform: rotate(-15deg);
+      position: relative;
+      z-index: 1;
+      box-shadow:
+        0 7.2px 7.2px 0 rgba(255, 255, 255, 0.45) inset,
+        0 3.6px 10.8px 0 rgba(200, 145, 77, 0.5);
+      border-radius: max(1.44rem, 14px);
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -2.7px;
+        background-image: linear-gradient(to bottom, #ed7e17 0%, #fffffe 100%);
+        border-radius: max(1.6rem, 16px);
+      }
+    }
+    &:last-child {
+      @include mix.flex-center;
+      transform: rotate(15deg);
+      border-radius: max(1.2rem, 12px);
+      background: #fff;
+      box-shadow:
+        0 3.6px 10.8px 0 rgba(75, 46, 21, 0.4),
+        0 7.2px 7.2px 0 rgba(255, 255, 255, 0.45) inset;
+      & > * {
+        width: max(4.2rem, 42px);
+      }
+    }
+  }
+  &__logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: max(2rem, 20px);
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: max(0.8rem, 8px);
+    color: var(--orgn-700, #8e4a0b);
+    font-weight: 500;
+    &-icon {
+      width: max(2rem, 20px);
+      fill: none;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: max(1.6rem, 16px);
+    padding: max(1.6rem, 16px);
+    border-radius: max(0.8rem, 8px);
+    border: 1px solid var(--orgn-100, #fbe5d0);
+    background: var(--orgn-50, #fdf2e7);
+  }
+  &__top {
+    display: flex;
+    flex-direction: column;
+    &-title {
+      color: var(--orgn-800, #5f3207);
+      text-align: center;
+      font-size: max(2rem, 20px);
+      font-weight: 700;
+      margin-bottom: max(0.4rem, 4px);
+    }
+    &-text {
+      color: var(--Blue-400, #494f61);
+      text-align: center;
+      font-size: max(1.4rem, 12px);
+      line-height: 150%;
+    }
+  }
+}
 .start {
   display: grid;
   grid-template-columns: 1fr 1.72fr;
@@ -495,8 +613,8 @@ onMounted(() => {
       }
       &-icon {
         fill: currentColor;
-        width: max(2.7rem, 25px);
-        height: max(2.7rem, 25px);
+        width: max(1.8rem, 15px);
+        height: max(1.8rem, 15px);
       }
     }
   }
@@ -651,7 +769,7 @@ onMounted(() => {
     @media screen and (max-width: vars.$bp-sm) {
       padding-right: 0;
     }
-    &:hover {
+    &:has(button:hover) {
       box-shadow: 0 0 60px 0 var(--orgn-50, #fdf2e7) inset;
       border-radius: 2rem;
       &::after {

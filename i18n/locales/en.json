@@ -2,9 +2,11 @@
   "login": "Login",
   "join-program": "Join Program",
   "explore-opp": "Explore Opportunities",
+  "explore-catalog": "Explore Catalog",
   "view-packages": "View Packages",
   "monthly": "Monthly",
   "yearly": "Yearly",
+  "quarterly": "Quarterly",
   "enter-email": "Enter your email",
   "subscribe": "Subscribe",
   "company": "Company",
@@ -27,6 +29,7 @@
   "send": "Send",
   "tashkent": "Tashkent",
   "details": "Details",
+  "message-us": "Message us",
 
   "info-cards": [
     {
@@ -79,7 +82,7 @@
   },
 
   "header": {
-    "nav": ["Home", "About", "Products", "Membership", "Services", "Contact"]
+    "nav": ["Home", "About Markets", "Products", "Membership", "Services", "Contact"]
   },
 
   "footer": {
@@ -551,6 +554,10 @@
   },
 
   "contact": {
+    "success": {
+      "title": "We’ve received your inquiry.",
+      "text": "Our team will contact you within 24–48 hours."
+    },
     "hero": {
       "title": "Contact & Support",
       "subtitle": "Get in touch with our team for export inquiries, partnership opportunities, and showroom information."
@@ -695,5 +702,40 @@
     "message-placeholder": "Type your message here...",
     "enter-your": "Enter your {label}",
     "submit": "Submit"
-  }
+  },
+
+  "service-modal": [
+    {
+      "title": "Compliance & Government Coordination",
+      "text": "Market entry strategy and planning  documentation and compliance control and standards certification",
+      "items": [
+        "Market entry strategy and planning",
+        "Export documentation and compliance",
+        "Supply chain coordination",
+        "Quality control and standards certification",
+        "Shipping and logistics management"
+      ]
+    },
+    {
+      "title": "End-to-End Trade Execution",
+      "text": "Market entry strategy and planning  documentation and compliance control and standards certification",
+      "items": [
+        "Business residency applications",
+        "Government liaison and representation",
+        "Regulatory compliance guidance",
+        "Permit and license acquisition",
+        "Local authority coordination"
+      ]
+    },
+    {
+      "title": "Compliance & Government Coordination",
+      "text": "Market entry strategy and planning  documentation and compliance control and standards certification",
+      "items": [
+        "Market research and analysis",
+        "Export documentation and compliance",
+        "Brand positioning for target markets",
+        "B2B marketing campaigns"
+      ]
+    }
+  ]
 }

@@ -36,28 +36,10 @@
             </defs>
           </svg>
         </button>
-        <button class="header__right-button">
-          <IconsLogin class="header__right-button-icon" />
-          <span>
-            {{ $t('login') }}
-          </span>
-        </button>
-        <button class="header__button button--orange">
+        <NuxtLink :to="$localePath('/contact')" class="header__button button--orange">
           <span>{{ $t('join-program') }}</span>
-          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_727_782)">
-              <path
-                d="M4.41003 3.09L10.32 9L4.41003 14.91L6.00003 16.5L13.5 9L6.00003 1.5L4.41003 3.09Z"
-                fill="white"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_727_782">
-                <rect width="18" height="18" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </button>
+          <IconsArrowRight />
+        </NuxtLink>
         <button class="header__ham button--orange" @click="showMenu = !showMenu">
           <div class="header__ham-item"></div>
         </button>
@@ -84,22 +66,10 @@
               {{ $t('login') }}
             </span>
           </button>
-          <button class="header__button button--orange">
+          <NuxtLink :to="$localePath('/contact')" class="header__button button--orange">
             <span>{{ $t('join-program') }}</span>
-            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_727_782)">
-                <path
-                  d="M4.41003 3.09L10.32 9L4.41003 14.91L6.00003 16.5L13.5 9L6.00003 1.5L4.41003 3.09Z"
-                  fill="white"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_727_782">
-                  <rect width="18" height="18" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </button>
+            <IconsArrowRight />
+          </NuxtLink>
         </div>
       </div>
     </Transition>
@@ -173,7 +143,6 @@ const links = computed(() =>
   }
   &__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     transition: border 0.4s;
     border-bottom: 1px solid transparent;
@@ -206,6 +175,7 @@ const links = computed(() =>
         }
         &:last-child {
           animation-name: slide-from-right-20;
+          font-family: vars.$font-base;
         }
       }
       button {
@@ -286,6 +256,8 @@ const links = computed(() =>
       }
     }
     .header__button {
+      font-family: vars.$font-base;
+      font-size: max(1.4rem, 14px);
       @media screen and (max-width: 1110px) {
         display: none;
       }
@@ -323,7 +295,6 @@ const links = computed(() =>
   }
   &__nav {
     display: flex;
-    align-items: center;
     @media screen and (max-width: 1100px) {
       display: none;
     }
@@ -333,9 +304,10 @@ const links = computed(() =>
     color: #5f3207;
     transition: all 0.7s;
     border-radius: 8rem;
-    padding: 1.35rem 1.2rem;
+    padding: 0 1.2rem;
     position: relative;
     display: flex;
+    align-items: center;
     span {
       z-index: 1;
     }
@@ -357,6 +329,7 @@ const links = computed(() =>
     }
   }
   &__logo {
+    align-self: center;
     width: 108px;
   }
 }

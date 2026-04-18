@@ -11,9 +11,9 @@
           {{ $t('home.hero.subtitle') }}
         </p>
         <div class="hero__buttons">
-          <button class="button--orange">
+          <NuxtLink :to="$localePath('/products')" class="button--orange">
             {{ $t('explore-opp') }}
-          </button>
+          </NuxtLink>
           <button class="button--white">
             {{ $t('view-packages') }}
           </button>

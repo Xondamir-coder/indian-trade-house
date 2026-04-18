@@ -6,6 +6,7 @@
       v-model="mail"
       type="email"
       name="mail"
+      required
       class="signup__input"
       :placeholder="$t('enter-email')"
     />
@@ -57,6 +58,10 @@ const submitForm = () => {
     border-radius: 90px;
     background: var(--orgn-500, #ed7e17);
     font-weight: 500;
+    transition: background 0.3s;
+    &:not(:disabled):hover {
+      background: #d06807;
+    }
   }
 }
 </style>

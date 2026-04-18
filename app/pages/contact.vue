@@ -26,41 +26,7 @@
           :title="$t('contact.help.title')"
           :subtitle="$t('contact.help.subtitle')"
         />
-        <form class="help__form" @submit.prevent="submitForm">
-          <div class="help__form-container">
-            <div v-for="field in fields" :key="field.name" class="help__form-row">
-              <label :for="field.name">
-                {{ $t(`form.${field.name}`) }}
-              </label>
-              <input
-                v-if="field.type !== 'message'"
-                :id="field.name"
-                v-model="field.model.value"
-                :name="field.name"
-                :type="field.type"
-                :placeholder="
-                  $t('form.enter-your', {
-                    label: $t(`form.${field.name}`).toLowerCase()
-                  })
-                "
-                required
-                class="help__form-input"
-                @input="cleanPhone"
-              />
-              <textarea
-                v-else
-                :id="field.name"
-                v-model="field.model.value"
-                :name="field.name"
-                :placeholder="$t('form.message-placeholder')"
-                required
-                rows="4"
-                class="help__form-textbox"
-              ></textarea>
-            </div>
-          </div>
-          <button class="help__form-button button--orange" :disabled="isDisabled">Send</button>
-        </form>
+        <UiForm />
       </div>
       <div class="help__box">
         <h3 class="help__box-label">
@@ -143,78 +109,7 @@ Z
   </main>
 </template>
 
-<script setup>
-const name = ref('');
-const company = ref('');
-const email = ref('');
-const country = ref('');
-const phone = ref('');
-const partnership = ref('');
-const message = ref('');
-
-const fields = computed(() => [
-  {
-    name: 'full-name',
-    type: 'text',
-    model: name
-  },
-  {
-    name: 'company',
-    type: 'text',
-    model: company
-  },
-  {
-    name: 'email',
-    type: 'email',
-    model: email
-  },
-  {
-    name: 'country',
-    type: 'text',
-    model: country
-  },
-  {
-    name: 'phone',
-    type: 'tel',
-    model: phone
-  },
-  {
-    name: 'partnership',
-    type: 'text',
-    model: partnership
-  },
-  {
-    name: 'message',
-    type: 'message',
-    model: message
-  }
-]);
-const isDisabled = computed(
-  () =>
-    !name.value ||
-    !email.value ||
-    !company.value ||
-    !country.value ||
-    !phone.value ||
-    !message.value ||
-    !partnership.value
-);
-
-const cleanPhone = () => {
-  phone.value = phone.value.replace(/[^+\s\d]/g, '');
-};
-const submitForm = () => {
-  console.log(
-    name.value,
-    company.value,
-    email.value,
-    country.value,
-    phone.value,
-    partnership.value,
-    message.value
-  );
-};
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .map {
@@ -381,58 +276,7 @@ const submitForm = () => {
     /* Drop Shadow */
     box-shadow: 0 21px 60px -1px rgba(124, 62, 12, 0.1);
   }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: max(6rem, 20px);
-    &-button {
-      transition: opacity 0.4s;
-      &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-    }
-    &-textbox {
-      resize: none;
-    }
-    &-textbox,
-    &-input {
-      padding-inline: max(1.6rem, 16px);
-      padding-block: max(1.35rem, 13px);
-      border-radius: max(0.8rem, 8px);
-      border: 1px solid var(--Neutral-Grey-50, #e9e9e9);
-      background: var(--Neutral-White-50, #fefefe);
-      transition: border 0.3s;
-      font-size: max(1.6rem, 16px);
-      &:focus {
-        border-color: #ed7e17;
-      }
-      &::placeholder {
-        color: var(--Neutral-Grey-200, #9b9a9a);
-      }
-    }
-    &-row {
-      display: flex;
-      flex-direction: column;
-      font-family: vars.$font-inter;
-      gap: max(0.8rem, 8px);
-      @media screen and (min-width: vars.$bp-md) {
-        &:has(textarea) {
-          grid-column: span 2;
-        }
-      }
-      label {
-        color: var(--Neutral-Grey-800, #141414);
-        font-size: max(1.6rem, 16px);
-        font-weight: 500;
-        line-height: 130%;
-      }
-    }
-    &-container {
-      display: grid;
-      gap: max(2rem, 20px);
-    }
-  }
+
   &__box {
     display: flex;
     padding: max(1.6rem, 10px);

@@ -56,7 +56,7 @@ const { t } = useI18n();
 
 const activeButton = ref(0);
 
-const buttons = computed(() => [t('monthly'), t('yearly')]);
+const buttons = computed(() => [t('quarterly'), t('yearly')]);
 
 defineProps({
   title: {

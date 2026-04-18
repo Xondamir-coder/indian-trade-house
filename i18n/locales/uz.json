@@ -5,6 +5,7 @@
   "view-packages": "Paketlarni ko'rish",
   "monthly": "Oylik",
   "yearly": "Yillik",
+  "quarterly": "Choraklik",
   "enter-email": "Emailingizni kiriting",
   "subscribe": "Obuna bo'lish",
   "company": "Kompaniya",
@@ -79,7 +80,7 @@
   },
 
   "header": {
-    "nav": ["Bosh sahifa", "Biz haqimizda", "Mahsulotlar", "A'zolik", "Xizmatlar", "Aloqa"]
+    "nav": ["Bosh sahifa", "Bozorlar haqida", "Mahsulotlar", "A'zolik", "Xizmatlar", "Aloqa"]
   },
 
   "footer": {

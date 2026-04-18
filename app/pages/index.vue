@@ -44,9 +44,9 @@
         :subtitle="$t('home.demand.subtitle')"
       />
       <UiInfoCards />
-      <button class="demand__button button--white">
+      <NuxtLink :to="$localePath('/products')" class="demand__button button--white">
         {{ $t('explore-all-sectors') }}
-      </button>
+      </NuxtLink>
     </section>
     <div class="home__wrapper">
       <UiPicture src="background-splash.png" alt="splash" class="home__wrapper-bg" />
