@@ -61,12 +61,13 @@ const cardsSupply = [
     color: '#DB34F2'
   }
 ];
-const infoCards = computed(() =>
-  useMapRt('info-cards')?.map((el, i) => ({
-    ...el,
-    ...cardsSupply[i]
-  }))
-);
+
+const { tm, rt } = useI18n();
+
+const infoCards = mapRt(tm('info-cards'), rt).map((el, i) => ({
+  ...el,
+  ...cardsSupply[i]
+}));
 </script>
 
 <style lang="scss" scoped>

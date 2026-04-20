@@ -81,16 +81,17 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 
+const { tm, rt } = useI18n();
+
 const activeSlide = ref(0);
 
 const images = ['teamwork.jpg', 'men-at-office.jpg', 'teamwork.jpg'];
-const slideCards = computed(() =>
-  useMapRt('section-market.cards')?.map((el, i) => ({
-    ...el,
-    image: images[i]
-  }))
-);
-const text = computed(() => slideCards.value[activeSlide.value].text);
+const slideCards = mapRt(tm('section-market.cards'), rt).map((el, i) => ({
+  ...el,
+  image: images[i]
+}));
+
+const text = computed(() => slideCards[activeSlide.value].text);
 
 function onSlideChange(swiper) {
   activeSlide.value = swiper.activeIndex;

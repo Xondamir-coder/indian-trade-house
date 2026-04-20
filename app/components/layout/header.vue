@@ -16,25 +16,8 @@
         </NuxtLink>
       </nav>
       <div class="header__right">
-        <button class="header__right-button">
-          <span>
-            {{ $i18n.locales.value.find(l => l.code === $i18n.locale).name }}
-          </span>
-          <svg
-            class="header__right-button-icon"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_507_1329)">
-              <path d="M5.25 7.5L9 11.25L12.75 7.5H5.25Z" fill="#8E4A0B" />
-            </g>
-            <defs>
-              <clipPath id="clip0_507_1329">
-                <rect width="18" height="18" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
+        <button class="header__right-button" @click="changeLang">
+          {{ $i18n.locales.value.find(l => l.code === $i18n.locale).name }}
         </button>
         <NuxtLink :to="$localePath('/contact')" class="header__button button--orange">
           <span>{{ $t('join-program') }}</span>
@@ -77,12 +60,19 @@
 </template>
 
 <script setup>
+const { setLocale, locale } = useI18n();
 const paths = ['/', '/about', '/products', '/membership', '/services', '/contact'];
 
 const showMenu = ref(false);
 
+const { tm, rt } = useI18n();
+
+const changeLang = () => {
+  setLocale(locale.value === 'en' ? 'uz' : 'en');
+};
+
 const links = computed(() =>
-  useMapRt('header.nav')?.map((el, i) => ({
+  mapRt(tm('header.nav'), rt).map((el, i) => ({
     to: paths[i],
     label: el
   }))
@@ -107,14 +97,14 @@ const links = computed(() =>
     height 0.5s,
     box-shadow 0.5s;
   transition-delay: 0.6s;
-  height: 77px;
+  height: max(7.7rem, 77px);
   @media screen and (max-width: 1110px) {
     padding-bottom: 0;
   }
   &.shown {
     transition-delay: 0s;
     $spacing: 30px;
-    $header-container-height: 77px;
+    $header-container-height: max(7.7rem, 77px);
     $menu-height: 382px;
     height: calc($header-container-height + $menu-height + $spacing);
     box-shadow: 0 55px 100px 0 #630;
@@ -180,7 +170,7 @@ const links = computed(() =>
       }
       button {
         justify-content: center;
-        height: 48px;
+        height: initial;
       }
     }
     &-nav {
@@ -313,19 +303,20 @@ const links = computed(() =>
     }
     &.active {
       color: #fff;
+      box-shadow: 0 13px 20px -9px rgba(237, 126, 23, 0.4);
       &::after {
-        clip-path: inset(0% 0%);
+        clip-path: inset(0%);
       }
     }
     &::after {
-      border-radius: 8rem;
       transition: all 0.7s;
-      clip-path: inset(50% 0%);
+      clip-path: inset(100% 0% 0%);
       content: '';
       position: absolute;
       inset: 0;
+      border-radius: max(9.9rem, 99px);
       background: var(--orgn-500, #ed7e17);
-      box-shadow: 0 4.343px 10px 0 rgba(248, 203, 160, 0.5) inset;
+      box-shadow: 0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
     }
   }
   &__logo {

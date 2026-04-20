@@ -60,7 +60,7 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: 'en',
-    // baseUrl: 'https://www.tifw.uz/',
+    // baseUrl: 'https://indiatradehouse.uz/',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',

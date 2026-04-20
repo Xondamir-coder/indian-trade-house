@@ -11,9 +11,9 @@
         {{ $t('apply-membership') }}
       </button>
     </section>
-    <UiSectionServices :items="useMapRt('membership.services')" />
+    <UiSectionServices :items="mapRt(tm('membership.services'), rt)" />
     <UiSectionSubscriptions
-      :cards="useMapRt('membership.subscriptions.cards')"
+      :cards="mapRt(tm('membership.subscriptions.cards'), rt)"
       :title="$t('membership.subscriptions.title')"
     />
     <section class="trust">
@@ -135,7 +135,7 @@ Z"
 
       <div class="faq__accordions">
         <button
-          v-for="(accordion, i) in useMapRt('membership.faq.accordions')"
+          v-for="(accordion, i) in mapRt(tm('membership.faq.accordions'), rt)"
           :key="accordion.question"
           class="faq__accordion"
           :class="{ active: activeAccordion === i }"
@@ -161,11 +161,14 @@ import { IconsFileCopy, IconsBigCheck, IconsResetTv } from '#components';
 
 const howSupply = [IconsFileCopy, IconsBigCheck, IconsResetTv];
 
+const { tm, rt } = useI18n();
+
 const activeAccordion = ref(null);
 
-const howItems = computed(() =>
-  useMapRt('membership.how.cards')?.map((el, i) => ({ ...el, icon: howSupply[i] }))
-);
+const howItems = mapRt(tm('membership.how.cards'), rt).map((el, i) => ({
+  ...el,
+  icon: howSupply[i]
+}));
 
 const hideAccordions = e => {
   if (e.target.closest('.faq__accordion')) return;

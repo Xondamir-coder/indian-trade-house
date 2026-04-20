@@ -16,7 +16,7 @@
       <div class="hero__container">
         <SvgServicesHeroArrow class="hero__container-arrow" />
         <div
-          v-for="(box, i) in useMapRt('services.hero.boxes')"
+          v-for="(box, i) in mapRt(tm('services.hero.boxes'), rt)"
           :key="box.title"
           class="hero__box"
           :class="{ hidden: i !== activeHeroItem }"
@@ -213,7 +213,7 @@ Z
       :title="$t('services.services.title')"
       :subtitle="$t('services.services.subtitle')"
       :label="$t('services.services.label')"
-      :items="useMapRt('services.services.cards')"
+      :items="mapRt(tm('services.services.cards'), rt)"
     />
     <section class="start">
       <img src="/images/start-gradient.png" alt="banner" class="start__banner" />
@@ -313,11 +313,13 @@ Z
 <script setup>
 import { IconsCarWash, IconsFire, IconsUploadFile } from '#components';
 
+const { tm, rt } = useI18n();
+
 const activeHeroItem = ref(0);
 const activeCoreItem = ref(0);
 const showModal = ref(false);
 
-const modalData = computed(() => useMapRt('service-modal')[activeCoreItem.value]);
+const modalData = computed(() => mapRt(tm('service-modal'), rt)[activeCoreItem.value]);
 
 const toggleModal = idx => {
   activeCoreItem.value = idx;
@@ -325,7 +327,7 @@ const toggleModal = idx => {
 };
 
 const coreSupply = [IconsFire, IconsUploadFile, IconsCarWash];
-const coreItems = useMapRt('services.core.cards')?.map((el, i) => ({
+const coreItems = mapRt(tm('services.core.cards'), rt).map((el, i) => ({
   ...el,
   icon: coreSupply[i]
 }));

@@ -28,6 +28,8 @@
   "send": "Yuborish",
   "tashkent": "Toshkent",
   "details": "Batafsil",
+  "message-us": "Bog'laning",
+  "explore-catalog": "Katalogni ko'rish",
 
   "info-cards": [
     {
@@ -552,6 +554,10 @@
   },
 
   "contact": {
+    "success": {
+      "title": "Biz sizning so'rovingizni qabul qildik",
+      "text": "Jamoamiz siz bilan 24–48 soat ichida bog'lanadi"
+    },
     "hero": {
       "title": "Aloqa va qo‘llab-quvvatlash",
       "subtitle": "Eksport bo‘yicha so‘rovlar, hamkorlik imkoniyatlari va shourumlar haqida ma’lumot olish uchun jamoamiz bilan bog‘laning."
@@ -700,5 +706,40 @@
     "message-placeholder": "Xabaringizni shu yerga yozing...",
     "enter-your": "{label} kiriting",
     "submit": "Yuborish"
-  }
+  },
+
+  "service-modal": [
+    {
+      "title": "Muvofiqlik va hukumat bilan hamkorlik",
+      "text": "Bozorga kirish strategiyasi va rejalashtirish, hujjatlashtirish va muvofiqlik nazorati, standartlar sertifikatsiyasi",
+      "items": [
+        "Bozorga kirish strategiyasi va rejalashtirish",
+        "Eksport hujjatlari va muvofiqlik",
+        "Ta’minot zanjirini muvofiqlashtirish",
+        "Sifat nazorati va standartlar sertifikatsiyasi",
+        "Yuk tashish va logistika boshqaruvi"
+      ]
+    },
+    {
+      "title": "Savdo jarayonini to‘liq amalga oshirish",
+      "text": "Bozorga kirish strategiyasi va rejalashtirish, hujjatlashtirish va muvofiqlik nazorati, standartlar sertifikatsiyasi",
+      "items": [
+        "Biznes rezidentligi uchun arizalar",
+        "Hukumat bilan aloqa va vakillik",
+        "Regulyator talablarga muvofiqlik bo‘yicha maslahat",
+        "Ruxsatnomalar va litsenziyalarni olish",
+        "Mahalliy organlar bilan muvofiqlashtirish"
+      ]
+    },
+    {
+      "title": "Muvofiqlik va hukumat bilan hamkorlik",
+      "text": "Bozor tahlili va strategiya, hujjatlashtirish va muvofiqlik nazorati, standartlar sertifikatsiyasi",
+      "items": [
+        "Bozor tadqiqoti va tahlili",
+        "Eksport hujjatlari va muvofiqlik",
+        "Maqsadli bozorlar uchun brend pozitsiyalash",
+        "B2B marketing kampaniyalari"
+      ]
+    }
+  ]
 }

@@ -6,7 +6,7 @@
       </h4>
       <div class="products-list__sidebar-buttons">
         <button
-          v-for="button in useMapRt('products.categories.filters')"
+          v-for="button in mapRt($tm('products.categories.filters'), $rt)"
           :key="button.label"
           class="products-list__sidebar-button"
         >
@@ -19,7 +19,7 @@
     </div>
     <div class="products-list__list">
       <NuxtLink
-        v-for="(item, i) in useMapRt('products.categories.items')"
+        v-for="(item, i) in mapRt($tm('products.categories.items'), $rt)"
         :key="i"
         class="products-list__item"
         :to="$localePath(`/products/${i}`)"

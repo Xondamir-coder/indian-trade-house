@@ -21,7 +21,7 @@
     <div class="bar__bottom">
       <span class="bar__bottom-label">{{ $t('search-filter-bar.filters-label') }}</span>
       <button
-        v-for="filter in useMapRt('search-filter-bar.filters')"
+        v-for="filter in mapRt($tm('search-filter-bar.filters'), $rt)"
         :key="filter"
         class="bar__bottom-filter"
       >

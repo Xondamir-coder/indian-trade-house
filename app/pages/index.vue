@@ -50,7 +50,7 @@
     </section>
     <div class="home__wrapper">
       <UiPicture src="background-splash.png" alt="splash" class="home__wrapper-bg" />
-      <UiSectionServices :items="useMapRt('home.services-cards')" />
+      <UiSectionServices :items="mapRt(tm('home.services-cards'), rt)" />
     </div>
     <section class="roadmap">
       <UiSectionHeader
@@ -108,15 +108,17 @@
       <SvgHomePatterns class="roadmap__patterns" />
     </section>
     <UiSectionSubscriptions
-      :cards="useMapRt('home.subscriptions.cards')"
+      :cards="mapRt(tm('home.subscriptions.cards'), rt)"
       :title="$t('home.subscriptions.title')"
     />
   </main>
 </template>
 
 <script setup>
-const whyItems = computed(() => useMapRt('home.why.cards'));
-const roadmapItems = computed(() => useMapRt('home.roadmap.sections'));
+const { tm, rt } = useI18n();
+
+const whyItems = mapRt(tm('home.why.cards'), rt);
+const roadmapItems = mapRt(tm('home.roadmap.sections'), rt);
 </script>
 
 <style lang="scss" scoped>

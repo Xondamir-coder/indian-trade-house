@@ -180,18 +180,20 @@ const navItems = [
   {
     label: 'customer',
     links: [
-      { label: 'client-sup', to: '/client' },
-      { label: 'help-center', to: '/help' },
-      { label: 'sys-status', to: '/system' },
-      { label: 'feedback', to: '/feedback' }
+      { label: 'client-sup', to: '/' },
+      { label: 'help-center', to: '/' },
+      { label: 'sys-status', to: '/' },
+      { label: 'feedback', to: '/' }
     ]
   }
 ];
 
-const paths = ['/privacy-policy', '/terms-and-conditions', '/copyright'];
+const paths = ['/', '/', '/'];
+
+const { tm, rt } = useI18n();
 
 const legals = computed(() =>
-  useMapRt('footer.legals')?.map((el, i) => ({
+  mapRt(tm('footer.legals'), rt).map((el, i) => ({
     label: el,
     to: paths[i]
   }))

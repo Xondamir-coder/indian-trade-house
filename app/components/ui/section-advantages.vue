@@ -8,7 +8,7 @@
     />
     <ul class="advantages__list">
       <li
-        v-for="(item, i) in useMapRt('section-advantages.info')"
+        v-for="(item, i) in mapRt($tm('section-advantages.info'), $rt)"
         :key="i"
         class="advantages__list-item"
       >
@@ -20,7 +20,7 @@
     </ul>
     <ul class="advantages__cards">
       <li
-        v-for="(card, i) in useMapRt('section-advantages.cards')"
+        v-for="(card, i) in mapRt($tm('section-advantages.cards'), $rt)"
         :key="i"
         class="advantages__card"
       >

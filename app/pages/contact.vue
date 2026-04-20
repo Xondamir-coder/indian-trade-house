@@ -14,7 +14,7 @@
       </button>
     </section>
     <UiSectionServices
-      :items="useMapRt('contact.services')"
+      :items="mapRt($tm('contact.services'), $rt)"
       :title="$t('contact.help.title')"
       :subtitle="$t('contact.help.subtitle')"
     />
@@ -33,7 +33,11 @@
           {{ $t('contact.help.next') }}
         </h3>
         <ul class="help__box-steps">
-          <li v-for="(step, i) in useMapRt('contact.help.steps')" :key="i" class="help__box-step">
+          <li
+            v-for="(step, i) in mapRt($tm('contact.help.steps'), $rt)"
+            :key="i"
+            class="help__box-step"
+          >
             <span>{{ (i + 1).toString().padStart(2, '0') }}</span>
             <span>{{ step }}</span>
           </li>
@@ -229,7 +233,7 @@ Z
       clip-path: url('#bubbleClip');
     }
     &-arrow {
-      width: max(2.4rem, 20px);
+      width: max(1.8rem, 16px);
       fill: #8e4a0b;
     }
     &-banner {

@@ -47,7 +47,7 @@ const props = defineProps({
   }
 });
 
-const splittedName = computed(() => props.src.replace(/\.[^/.]+$/, ''));
+const splittedName = props.src.replace(/\.[^/.]+$/, '');
 </script>
 
 <style lang="scss" scoped>
