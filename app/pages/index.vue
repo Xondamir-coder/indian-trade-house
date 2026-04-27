@@ -119,6 +119,35 @@ const { tm, rt } = useI18n();
 
 const whyItems = mapRt(tm('home.why.cards'), rt);
 const roadmapItems = mapRt(tm('home.roadmap.sections'), rt);
+
+let el;
+let currentX = 0;
+let currentY = 0;
+const str = 20;
+
+const handleParallax = e => {
+  if (!el) return;
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 2;
+  const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+  const targetX = x * str;
+  const targetY = y * str;
+
+  currentX += (targetX - currentX) * 0.1;
+
+  currentY += (targetY - currentY) * 0.1;
+
+  el.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+};
+
+onMounted(() => {
+  el = document.querySelector('.home__wrapper-bg');
+  if (window.innerWidth > 1280) document.addEventListener('pointermove', handleParallax);
+});
+onBeforeUnmount(() => {
+  if (window.innerWidth > 1280) document.removeEventListener('pointermove', handleParallax);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -470,6 +499,7 @@ const roadmapItems = mapRt(tm('home.roadmap.sections'), rt);
     &-bg {
       position: absolute;
       z-index: -1;
+      // transition: all 0.1s;
 
       @media screen and (min-width: vars.$bp-lg) {
         width: 123%;

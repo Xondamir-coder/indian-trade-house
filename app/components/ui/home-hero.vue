@@ -24,9 +24,13 @@
       </div>
     </div>
     <div class="hero__things">
-      <UiPicture src="spice-1.png" alt="spice 1" class="hero__things-pic" />
-      <UiPicture src="spice-2.png" alt="spice 2" class="hero__things-pic" />
-      <UiPicture src="spice-3.png" alt="spice 3" class="hero__things-pic" />
+      <UiPicture
+        v-for="index in 5"
+        :key="index"
+        :src="`spice-${index}.png`"
+        alt="spice 1"
+        class="hero__things-pic"
+      />
       <div class="hero__things-box">
         <SvgGreenLightning class="hero__things-lightning" />
       </div>
@@ -78,26 +82,35 @@
       left: 50%;
       top: 50%;
       translate: -50%;
+      z-index: 3;
     }
     &-pic {
       width: max(6.8rem, 55px);
       position: absolute;
-      border-radius: 10rem;
+      border-radius: 50%;
       border: 2px solid var(--Neutral-White-50, #fefefe);
       &:first-child {
         left: 50%;
-        translate: -50% 50%;
         bottom: 0;
+        translate: -50% 50%;
       }
       &:nth-child(2) {
         left: 0;
-        bottom: 5%;
-        translate: 20%;
+        bottom: 8%;
+        translate: 20% 0;
       }
       &:nth-child(3) {
         right: 0;
-        bottom: 5%;
-        translate: -20%;
+        bottom: 8%;
+        translate: -20% 0;
+      }
+      &:nth-child(4) {
+        left: 10%;
+        top: 10%;
+      }
+      &:nth-child(5) {
+        right: 10%;
+        top: 10%;
       }
     }
   }
@@ -126,6 +139,7 @@
     }
   }
   &__container {
+    z-index: 2;
     border-radius: max(2.4rem, 14px);
     box-shadow: 0 0 0 1px #e5e3e0;
     margin-top: calc(max(4rem, 20px) + max(3.2rem, 16px));

@@ -2,20 +2,20 @@
   <div class="layout">
     <LayoutHeader />
     <slot />
-    <UiSectionPartners
-      v-if="
-        !(
-          $route.name.includes('membership') ||
-          $route.name.includes('contact') ||
-          $route.name.includes('services')
-        )
-      "
-    />
+    <UiSectionPartners v-if="showPartnersSection" />
     <LayoutFooter />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const route = useRoute();
+
+const showPartnersSection = computed(() => {
+  const currentPath = route.path.toLowerCase();
+
+  return !['/membership', '/contact', '/services'].some(path => currentPath.includes(path));
+});
+</script>
 
 <style lang="scss" scoped>
 .layout {

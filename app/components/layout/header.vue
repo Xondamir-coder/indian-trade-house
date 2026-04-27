@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ shown: showMenu }">
+  <header ref="headerRef" class="header" :class="{ shown: showMenu }">
     <div class="header__container">
       <NuxtLink class="header__logo" :to="$localePath('/')">
         <SvgLogo />
@@ -65,7 +65,11 @@ const paths = ['/', '/about', '/products', '/membership', '/services', '/contact
 
 const showMenu = ref(false);
 
+const { $gsap } = useNuxtApp();
+
 const { tm, rt } = useI18n();
+
+const headerRef = ref();
 
 const changeLang = () => {
   setLocale(locale.value === 'en' ? 'uz' : 'en');
@@ -77,6 +81,21 @@ const links = computed(() =>
     label: el
   }))
 );
+
+onMounted(() => {
+  $gsap.to(headerRef.value, {
+    scrollTrigger: {
+      trigger: '.layout',
+      start: '+=20 top',
+      end: 'bottom bottom',
+      toggleClass: {
+        targets: headerRef.value,
+        className: 'active'
+      },
+      toggleActions: 'play none none reverse'
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -98,8 +117,17 @@ const links = computed(() =>
     box-shadow 0.5s;
   transition-delay: 0.6s;
   height: max(7.7rem, 77px);
+  transition: all 0.4s;
   @media screen and (max-width: 1110px) {
     padding-bottom: 0;
+  }
+  &.active {
+    margin-inline: 0;
+    top: 0;
+    padding-inline: var(--spacing-inline);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 0;
   }
   &.shown {
     transition-delay: 0s;
@@ -235,8 +263,6 @@ const links = computed(() =>
       display: none;
     }
   }
-  &__button {
-  }
   &__right {
     display: flex;
     gap: 1rem;
@@ -259,7 +285,6 @@ const links = computed(() =>
       align-items: center;
       gap: 8px;
       border-radius: 99px;
-      border: 2px solid #fff;
       background: var(--orgn-50, #fdf2e7);
       box-shadow: 0 4.343px 12px 0 rgba(253, 242, 231, 0.3) inset;
       color: var(--orgn-700, var(--orgn-700, #8e4a0b));
