@@ -20,7 +20,14 @@
         </div>
       </div>
       <div class="hero__box">
-        <UiPicture :src="`spice-${activePic}.png`" alt="spices banner" class="hero__pic" />
+        <UiPicture
+          src="spice-1.png"
+          alt="spices banner"
+          class="hero__pic"
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+        />
       </div>
     </div>
     <div class="hero__things">
@@ -30,6 +37,7 @@
         :src="`spice-${index}.png`"
         alt="spice 1"
         class="hero__things-pic"
+        fetchpriority="low"
       />
       <div class="hero__things-box">
         <SvgGreenLightning class="hero__things-lightning" />
@@ -50,15 +58,13 @@
 </template>
 
 <script setup>
-import gsap from 'gsap';
-import MotionPathPlugin from 'gsap/MotionPathPlugin';
+const { $gsap } = useNuxtApp();
 
-const activePic = ref(1);
+onMounted(async () => {
+  const { default: MotionPathPlugin } = await import('gsap/MotionPathPlugin');
 
-gsap.registerPlugin(MotionPathPlugin);
-
-onMounted(() => {
-  gsap.to('.hero__things-pic', {
+  $gsap.registerPlugin(MotionPathPlugin);
+  $gsap.to('.hero__things-pic', {
     duration: 10,
     motionPath: {
       path: '#circlePath',

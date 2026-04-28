@@ -5,29 +5,32 @@
       :srcset="`/images/576/${splittedName}.avif`"
       type="image/avif"
       media="(max-width: 575px)"
-    >
+    />
 
     <!-- 576–1023 -->
     <source
       :srcset="`/images/1024/${splittedName}.avif`"
       type="image/avif"
       media="(min-width: 576px) and (max-width: 1023px)"
-    >
+    />
 
     <!-- ≥1024 -->
     <source
       :srcset="`/images/1440/${splittedName}.avif`"
       type="image/avif"
       media="(min-width: 1024px)"
-    >
+    />
 
     <!-- Fallback compressed -->
     <img
       :src="`/images/compressed/${src}`"
       :alt="alt"
+      :loading
+      :decoding
+      :fetchpriority
       :class="imageClass"
       class="my-picture__image"
-    >
+    />
   </picture>
 </template>
 
@@ -44,6 +47,18 @@ const props = defineProps({
   imageClass: {
     type: String,
     default: ''
+  },
+  loading: {
+    type: String,
+    default: 'lazy'
+  },
+  decoding: {
+    type: String,
+    default: 'async'
+  },
+  fetchpriority: {
+    type: String,
+    default: 'auto'
   }
 });
 

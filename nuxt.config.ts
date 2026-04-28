@@ -46,22 +46,18 @@ export default defineNuxtConfig({
     families: [
       {
         name: 'Manrope',
-        provider: 'google',
-        weights: [400, 500, 600, 700, 800]
+        weights: [400, 500, 700, 800]
       },
       {
         name: 'Inter',
-        provider: 'google',
-        weights: [400, 500, 600, 700, 800, 900]
-      },
-      {
-        name: 'Plus Jakarta Sans',
-        provider: 'google',
         weights: [400, 500, 600, 700, 800]
       },
       {
+        name: 'Plus Jakarta Sans',
+        weights: [500]
+      },
+      {
         name: 'Radio Canada Big',
-        provider: 'google',
         weights: [500, 600]
       }
     ]

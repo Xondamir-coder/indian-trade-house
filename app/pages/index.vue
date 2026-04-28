@@ -10,7 +10,12 @@
       <ul class="why__list">
         <li v-for="(item, i) in whyItems" :key="i" class="why__item">
           <div class="why__item-top">
-            <UiPicture :src="item.image" alt="banner" class="why__item-top-banner" />
+            <UiPicture
+              :src="item.image"
+              alt="banner"
+              class="why__item-top-banner"
+              fetchpriority="low"
+            />
             <h3 class="why__item-top-title heading-md">
               {{ item['image-title'] }}
             </h3>
@@ -49,7 +54,12 @@
       </NuxtLink>
     </section>
     <div class="home__wrapper">
-      <UiPicture src="background-splash.png" alt="splash" class="home__wrapper-bg" />
+      <UiPicture
+        src="background-splash.png"
+        alt="splash"
+        class="home__wrapper-bg"
+        fetchpriority="low"
+      />
       <UiSectionServices :items="mapRt(tm('home.services-cards'), rt)" />
     </div>
     <section class="roadmap">
@@ -82,6 +92,7 @@
                 :key="img"
                 :src="img"
                 class="roadmap__item-box-pic"
+                fetchpriority="low"
               />
             </div>
             <div class="roadmap__item-bottom">
