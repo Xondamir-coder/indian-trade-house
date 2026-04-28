@@ -5,7 +5,7 @@
         <div class="info-card__top-box">
           <component :is="card.icon" class="info-card__top-icon" />
         </div>
-        <h3 class="info-card__top-title">{{ card.title }}</h3>
+        <component :is="titleTag" class="info-card__top-title">{{ card.title }}</component>
         <p class="body-md">{{ card.subtitle }}</p>
       </div>
       <button class="info-card__button">
@@ -63,6 +63,13 @@ const cardsSupply = [
 ];
 
 const { tm, rt } = useI18n();
+
+defineProps({
+  titleTag: {
+    type: String,
+    default: 'h3'
+  }
+});
 
 const infoCards = mapRt(tm('info-cards'), rt).map((el, i) => ({
   ...el,

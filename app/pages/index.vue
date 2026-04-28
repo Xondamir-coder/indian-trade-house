@@ -74,7 +74,7 @@
           <div class="roadmap__item-card">
             <div class="roadmap__item-box">
               <div v-if="i % 2 === 0" class="roadmap__item-info">
-                <h4>{{ $t('home.roadmap.info.title') }}</h4>
+                <h3>{{ $t('home.roadmap.info.title') }}</h3>
                 <div class="roadmap__item-info-boxes">
                   <div
                     v-for="box in $tm('home.roadmap.info.items')"
@@ -96,9 +96,9 @@
               />
             </div>
             <div class="roadmap__item-bottom">
-              <h4 class="roadmap__item-bottom-title">
+              <h3 class="roadmap__item-bottom-title">
                 {{ item['card-title'] }}
-              </h4>
+              </h3>
               <p class="roadmap__item-bottom-text">
                 {{ item['card-text'] }}
               </p>

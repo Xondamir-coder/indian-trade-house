@@ -30,6 +30,17 @@
   "details": "Batafsil",
   "message-us": "Bog'laning",
   "explore-catalog": "Katalogni ko'rish",
+  "accessibility": {
+    "home": "Bosh sahifaga o'tish",
+    "change-language": "Tilni o'zgartirish",
+    "open-navigation": "Navigatsiya menyusini ochish",
+    "close-navigation": "Navigatsiya menyusini yopish",
+    "close-modal": "Modal oynani yopish",
+    "clear-search": "Qidiruvni tozalash",
+    "previous-slide": "Oldingi slayd",
+    "next-slide": "Keyingi slayd",
+    "select-slide": "{number}-slaydni tanlash"
+  },
 
   "info-cards": [
     {

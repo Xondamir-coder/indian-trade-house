@@ -1,9 +1,9 @@
 <template>
   <section class="products-list">
     <div class="products-list__sidebar">
-      <h4 class="products-list__sidebar-label">
+      <h2 class="products-list__sidebar-label">
         {{ $t('products.categories.explore') }}
-      </h4>
+      </h2>
       <div class="products-list__sidebar-buttons">
         <button
           v-for="button in mapRt($tm('products.categories.filters'), $rt)"

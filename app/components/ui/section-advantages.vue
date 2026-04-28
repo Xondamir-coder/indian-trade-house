@@ -12,7 +12,7 @@
         :key="i"
         class="advantages__list-item"
       >
-        <h4 class="advantages__list-item-title">{{ item.title }}</h4>
+        <h3 class="advantages__list-item-title">{{ item.title }}</h3>
         <p>
           {{ item.subtitle }}
         </p>

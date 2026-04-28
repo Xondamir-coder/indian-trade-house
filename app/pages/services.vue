@@ -68,6 +68,8 @@
             :key="i"
             class="hero__circle"
             :class="{ active: i - 1 === activeHeroItem }"
+            :aria-label="$t('accessibility.select-slide', { number: i })"
+            :aria-pressed="i - 1 === activeHeroItem"
             @click="activeHeroItem = i - 1"
           />
         </div>

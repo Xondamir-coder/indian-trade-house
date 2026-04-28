@@ -59,10 +59,10 @@ Z
           </swiper>
         </div>
       </ClientOnly>
-      <button class="market__button">
+      <button class="market__button" :aria-label="$t('accessibility.previous-slide')">
         <IconsArrowRight class="market__button-icon" />
       </button>
-      <button class="market__button">
+      <button class="market__button" :aria-label="$t('accessibility.next-slide')">
         <IconsArrowRight class="market__button-icon" />
       </button>
       <div class="market__texts">

@@ -77,9 +77,9 @@ Z"
         <UiPicture class="trust__banner" src="hands-touch.jpg" alt="banner" />
         <div class="trust__bottom">
           <div class="trust__content">
-            <h2 class="trust__content-title">
+            <h3 class="trust__content-title">
               {{ $t('membership.trust.image-title') }}
-            </h2>
+            </h3>
             <p class="trust__content-desc">
               {{ $t('membership.trust.image-subtitle') }}
             </p>
@@ -111,9 +111,9 @@ Z"
       />
       <ul class="how__list">
         <li v-for="item in howItems" :key="item.title" class="how__item">
-          <h4 class="how__item-title">
+          <h3 class="how__item-title">
             {{ item.title }}
-          </h4>
+          </h3>
           <div class="how__item-box">
             <div class="how__item-iconbox">
               <component :is="item.icon" class="how__item-icon" />

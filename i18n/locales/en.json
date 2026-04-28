@@ -31,6 +31,17 @@
   "details": "Details",
   "message-us": "Message us",
   "add-product": "Add Product",
+  "accessibility": {
+    "home": "Go to homepage",
+    "change-language": "Change language",
+    "open-navigation": "Open navigation menu",
+    "close-navigation": "Close navigation menu",
+    "close-modal": "Close modal",
+    "clear-search": "Clear search",
+    "previous-slide": "Previous slide",
+    "next-slide": "Next slide",
+    "select-slide": "Select slide {number}"
+  },
 
   "info-cards": [
     {

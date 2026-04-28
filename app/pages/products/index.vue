@@ -10,7 +10,7 @@
       <UiSearchFilterBar />
     </section>
     <section class="cards">
-      <UiInfoCards />
+      <UiInfoCards title-tag="h2" />
     </section>
     <UiProductsList />
   </main>

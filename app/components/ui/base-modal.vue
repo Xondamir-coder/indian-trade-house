@@ -8,7 +8,7 @@
         @click.self="closeModal"
       >
         <div class="modal">
-          <button class="modal__button" @click="closeModal">
+          <button class="modal__button" :aria-label="$t('accessibility.close-modal')" @click="closeModal">
             <IconsClose class="modal__button-icon" />
           </button>
           <slot />

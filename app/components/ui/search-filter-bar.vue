@@ -1,7 +1,7 @@
 <template>
   <div class="bar" :class="{ searched: route.query?.query, empty: !query }">
     <form ref="formRef" class="bar__top" @submit.prevent="submitQuery">
-      <button class="bar__top-iconbox">
+      <button class="bar__top-iconbox" type="submit" :aria-label="$t('search-filter-bar.search')">
         <IconsSearch class="bar__top-icon" />
       </button>
       <input
@@ -14,7 +14,12 @@
         class="bar__top-input"
         :placeholder="$t('search-filter-bar.placeholder')"
       />
-      <button class="bar__top-button" type="button" @click="clearQuery">
+      <button
+        class="bar__top-button"
+        type="button"
+        :aria-label="$t('accessibility.clear-search')"
+        @click="clearQuery"
+      >
         <IconsClose />
       </button>
     </form>

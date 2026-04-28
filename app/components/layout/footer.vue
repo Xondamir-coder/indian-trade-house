@@ -8,21 +8,22 @@
         target="_blank"
         rel="noopener noreferrer"
         class="footer__socials-link"
+        :aria-label="social.label"
       >
         <component :is="social.icon" class="footer__socials-icon" />
       </a>
     </div>
     <div class="footer__header">
-      <h3 class="footer__header-text">
+      <p class="footer__header-text">
         {{ $t('footer.label') }}
-      </h3>
+      </p>
       <h2 class="footer__header-title">
         {{ $t('footer.title') }}
       </h2>
     </div>
     <div class="footer__middle">
       <div class="footer__cta">
-        <h4 class="footer__cta-label">{{ $t('footer.sub') }}</h4>
+        <h3 class="footer__cta-label">{{ $t('footer.sub') }}</h3>
         <p class="footer__cta-text">
           {{ $t('footer.sub-subtitle') }}
         </p>
@@ -32,9 +33,9 @@
         <ClientOnly>
           <ul class="footer__list">
             <li v-for="(item, i) in navItems" :key="i" class="footer__list-item">
-              <h5 class="footer__list-label">
+              <h3 class="footer__list-label">
                 {{ $t(item.label) }}
-              </h5>
+              </h3>
               <div class="footer__list-links">
                 <NuxtLink
                   v-for="link in item.links"
@@ -152,19 +153,23 @@ import { IconsDribble, IconsFacebook, IconsInstagram, IconsTwitter } from '#comp
 const socials = [
   {
     link: 'dribbble.com',
-    icon: IconsDribble
+    icon: IconsDribble,
+    label: 'Dribbble'
   },
   {
     link: 'facebook.com',
-    icon: IconsFacebook
+    icon: IconsFacebook,
+    label: 'Facebook'
   },
   {
     link: 'x.com',
-    icon: IconsTwitter
+    icon: IconsTwitter,
+    label: 'X'
   },
   {
     link: 'instagram.com',
-    icon: IconsInstagram
+    icon: IconsInstagram,
+    label: 'Instagram'
   }
 ];
 const navItems = [

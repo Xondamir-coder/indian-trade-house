@@ -1,7 +1,7 @@
 <template>
   <header ref="headerRef" class="header" :class="{ shown: showMenu }">
     <div class="header__container">
-      <NuxtLink class="header__logo" :to="$localePath('/')">
+      <NuxtLink class="header__logo" :to="$localePath('/')" :aria-label="$t('accessibility.home')">
         <SvgLogo />
       </NuxtLink>
       <nav class="header__nav">
@@ -16,20 +16,32 @@
         </NuxtLink>
       </nav>
       <div class="header__right">
-        <button class="header__right-button" @click="changeLang">
+        <button
+          class="header__right-button"
+          :aria-label="$t('accessibility.change-language')"
+          @click="changeLang"
+        >
           {{ $i18n.locales.value.find(l => l.code === $i18n.locale).name }}
         </button>
         <NuxtLink :to="$localePath('/contact')" class="header__button button--orange">
           <span>{{ $t('join-program') }}</span>
           <IconsArrowRight />
         </NuxtLink>
-        <button class="header__ham button--orange" @click="showMenu = !showMenu">
+        <button
+          class="header__ham button--orange"
+          :aria-label="
+            showMenu ? $t('accessibility.close-navigation') : $t('accessibility.open-navigation')
+          "
+          :aria-expanded="showMenu"
+          aria-controls="header-menu"
+          @click="showMenu = !showMenu"
+        >
           <div class="header__ham-item"></div>
         </button>
       </div>
     </div>
     <Transition name="appear">
-      <div v-if="showMenu" class="header__menu">
+      <div v-if="showMenu" id="header-menu" class="header__menu">
         <nav class="header__menu-nav">
           <NuxtLink
             v-for="(link, i) in links"
