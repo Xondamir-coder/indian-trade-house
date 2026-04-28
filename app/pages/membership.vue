@@ -170,6 +170,8 @@ const howItems = mapRt(tm('membership.how.cards'), rt).map((el, i) => ({
   icon: howSupply[i]
 }));
 
+usePageSEO('membership');
+
 const hideAccordions = e => {
   if (e.target.closest('.faq__accordion')) return;
   activeAccordion.value = null;

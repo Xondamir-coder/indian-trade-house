@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="hero__box">
-        <UiPicture src="spice-1.png" alt="spices banner" class="hero__pic" />
+        <UiPicture :src="`spice-${activePic}.png`" alt="spices banner" class="hero__pic" />
       </div>
     </div>
     <div class="hero__things">
@@ -34,11 +34,40 @@
       <div class="hero__things-box">
         <SvgGreenLightning class="hero__things-lightning" />
       </div>
+      <svg class="hero__things-path" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260">
+        <path
+          id="circlePath"
+          ref="pathRef"
+          d="M130,0
+       A130,130 0 1,1 129.999,0
+       Z"
+          fill="none"
+          stroke="black"
+        />
+      </svg>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import gsap from 'gsap';
+import MotionPathPlugin from 'gsap/MotionPathPlugin';
+
+const activePic = ref(1);
+
+gsap.registerPlugin(MotionPathPlugin);
+
+onMounted(() => {
+  gsap.to('.hero__things-pic', {
+    duration: 10,
+    motionPath: {
+      path: '#circlePath',
+      align: '#circlePath',
+      autoRotate: true
+    }
+  });
+});
+</script>
 
 <style lang="scss" scoped>
 .hero {
@@ -89,29 +118,10 @@
       position: absolute;
       border-radius: 50%;
       border: 2px solid var(--Neutral-White-50, #fefefe);
-      &:first-child {
-        left: 50%;
-        bottom: 0;
-        translate: -50% 50%;
-      }
-      &:nth-child(2) {
-        left: 0;
-        bottom: 8%;
-        translate: 20% 0;
-      }
-      &:nth-child(3) {
-        right: 0;
-        bottom: 8%;
-        translate: -20% 0;
-      }
-      &:nth-child(4) {
-        left: 10%;
-        top: 10%;
-      }
-      &:nth-child(5) {
-        right: 10%;
-        top: 10%;
-      }
+    }
+    &-path {
+      pointer-events: none;
+      opacity: 0;
     }
   }
   &__pic {

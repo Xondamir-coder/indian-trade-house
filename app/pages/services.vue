@@ -321,6 +321,8 @@ const showModal = ref(false);
 
 const modalData = computed(() => mapRt(tm('service-modal'), rt)[activeCoreItem.value]);
 
+usePageSEO('services');
+
 const toggleModal = idx => {
   activeCoreItem.value = idx;
   showModal.value = true;

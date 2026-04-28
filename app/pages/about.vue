@@ -20,7 +20,9 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+usePageSEO('about');
+</script>
 
 <style lang="scss" scoped>
 .hero {

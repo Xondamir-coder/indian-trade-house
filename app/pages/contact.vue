@@ -113,7 +113,9 @@ Z
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+usePageSEO('contact');
+</script>
 
 <style lang="scss" scoped>
 .map {

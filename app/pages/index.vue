@@ -148,6 +148,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (window.innerWidth > 1280) document.removeEventListener('pointermove', handleParallax);
 });
+
+usePageSEO('home');
 </script>
 
 <style lang="scss" scoped>

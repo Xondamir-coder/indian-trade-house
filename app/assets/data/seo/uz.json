@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "O‘zbekiston va Afg‘oniston uchun eksport platformasi",
+    "desc": "Hind ishlab chiqaruvchilariga O‘zbekiston va Afg‘oniston bozorlariga shourum joylashuvi va savdo yordami bilan chiqishga yordam beruvchi platforma."
+  },
+  "about": {
+    "title": "Bozor haqida",
+    "desc": "Nega O‘zbekiston va Afg‘oniston bozorlariga e’tibor qaratishimizni, logistika, talab va savdo salohiyati asosidagi yondashuvimizni bilib oling."
+  },
+  "products": {
+    "title": "Eksportga tayyor mahsulotlar",
+    "desc": "O‘zbekiston va Afg‘oniston bozorlari uchun oziq-ovqat, sanoat, tibbiyot va iste’mol sektorlaridagi eksportga tayyor mahsulotlarni ko‘ring."
+  },
+  "membership": {
+    "title": "Ishtirok va a’zolik",
+    "desc": "Eksport dasturiga qo‘shiling, ishtirok paketlarini solishtiring va mahsulotlaringizni xalqaro shourumlarda joylashtiring."
+  },
+  "services": {
+    "title": "Xizmatlar va qo‘llab-quvvatlash",
+    "desc": "O‘zbekiston va Afg‘oniston bozorlariga kirish uchun eksport, huquqiy, logistika va muvofiqlik xizmatlarini ko‘rib chiqing."
+  },
+  "contact": {
+    "title": "Aloqa va qo‘llab-quvvatlash",
+    "desc": "Eksport so‘rovlari, hamkorlik, shourum tafsilotlari va bozorga kirish bo‘yicha yordam uchun biz bilan bog‘laning."
+  }
+}

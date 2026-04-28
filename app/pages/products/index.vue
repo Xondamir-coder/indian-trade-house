@@ -16,7 +16,9 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+usePageSEO('products');
+</script>
 
 <style lang="scss" scoped>
 .cards {

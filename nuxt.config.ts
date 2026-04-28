@@ -1,8 +1,17 @@
+import { defineOrganization } from 'nuxt-schema-org/schema';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/hints', '@nuxtjs/i18n'],
+  modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/hints', '@nuxtjs/i18n', '@nuxtjs/seo'],
+
+  site: {
+    url: process.env.NUXT_SITE_URL || 'https://indiatradehouse.uz',
+    name: 'Indian Trade House',
+    description: 'Export platform connecting Indian manufacturers with Uzbekistan and Afghanistan.',
+    defaultLocale: 'en'
+  },
 
   css: ['~/assets/scss/main.scss'],
 
@@ -22,12 +31,12 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Indian Trade House',
-      titleTemplate: '%s',
+      titleTemplate: '%s | Indian Trade House',
       link: [
         {
           rel: 'icon',
-          type: 'image/svg+xml',
-          href: '/favicon.svg'
+          type: 'image/x-icon',
+          href: '/favicon.ico'
         }
       ]
     }
@@ -60,7 +69,7 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: 'en',
-    // baseUrl: 'https://indiatradehouse.uz/',
+    baseUrl: process.env.NUXT_SITE_URL || 'https://indiatradehouse.uz',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
@@ -80,5 +89,13 @@ export default defineNuxtConfig({
         file: 'uz.json'
       }
     ]
+  },
+
+  schemaOrg: {
+    identity: defineOrganization({
+      name: 'Indian Trade House',
+      url: process.env.NUXT_SITE_URL || 'https://indiatradehouse.uz',
+      logo: '/favicon.ico'
+    })
   }
 });
