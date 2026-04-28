@@ -1,7 +1,12 @@
 <template>
   <Teleport to="body">
     <Transition name="appear">
-      <div v-if="model" class="modal-container" @click.self="closeModal">
+      <div
+        v-if="model"
+        class="modal-container"
+        data-lenis-prevent
+        @click.self="closeModal"
+      >
         <div class="modal">
           <button class="modal__button" @click="closeModal">
             <IconsClose class="modal__button-icon" />
@@ -20,6 +25,8 @@
 </template>
 
 <script setup>
+const { $pauseLenis, $resumeLenis } = useNuxtApp();
+
 const model = defineModel({
   type: Boolean
 });
@@ -35,6 +42,22 @@ defineProps({
 const closeModal = () => {
   model.value = false;
 };
+
+watch(model, (isOpen, wasOpen) => {
+  if (isOpen && !wasOpen) {
+    $pauseLenis?.();
+  }
+
+  if (!isOpen && wasOpen) {
+    $resumeLenis?.();
+  }
+});
+
+onBeforeUnmount(() => {
+  if (model.value) {
+    $resumeLenis?.();
+  }
+});
 </script>
 
 <style lang="scss" scoped>
