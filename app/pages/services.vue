@@ -337,9 +337,11 @@ const coreItems = mapRt(tm('services.core.cards'), rt).map((el, i) => ({
 }));
 
 let heroReveal;
+let heroIntervalId = 0;
+const animations = [];
 
 onMounted(() => {
-  setInterval(() => {
+  heroIntervalId = window.setInterval(() => {
     activeHeroItem.value = (activeHeroItem.value + 1) % 3;
   }, 3000);
 
@@ -352,23 +354,29 @@ onMounted(() => {
     }
   });
 
-  useAnimate('.core__item', {
-    animProps: {
-      scale: 0.8,
-      stagger: 0.1
-    }
-  });
+  animations.push(
+    useAnimate('.core__item', {
+      animProps: {
+        scale: 0.8,
+        stagger: 0.1
+      }
+    })
+  );
 
-  useAnimate('.start', {
-    animProps: {
-      clipPath: 'inset(0 100%)',
-      duration: 1.2,
-      opacity: 1
-    }
-  });
+  animations.push(
+    useAnimate('.start', {
+      animProps: {
+        clipPath: 'inset(0 100%)',
+        duration: 1.2,
+        opacity: 1
+      }
+    })
+  );
 });
 
 onUnmounted(() => {
+  window.clearInterval(heroIntervalId);
+  animations.forEach(animation => animation?.revert?.());
   heroReveal?.revert();
 });
 </script>

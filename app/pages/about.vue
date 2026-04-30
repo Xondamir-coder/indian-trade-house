@@ -24,28 +24,34 @@
 usePageSEO('about');
 
 let heroReveal;
+const animations = [];
 
 onMounted(() => {
   heroReveal = useHeroReveal();
-  useAnimate('.hero__pic:first-child', {
-    animProps: {
-      y: 50,
-      rotate: 5,
-      x: -50,
-      delay: 0.5
-    }
-  });
-  useAnimate('.hero__pic:last-child', {
-    animProps: {
-      y: 50,
-      rotate: -5,
-      x: 50,
-      delay: 0.5
-    }
-  });
+  animations.push(
+    useAnimate('.hero__pic:first-child', {
+      animProps: {
+        y: 50,
+        rotate: 5,
+        x: -50,
+        delay: 0.5
+      }
+    })
+  );
+  animations.push(
+    useAnimate('.hero__pic:last-child', {
+      animProps: {
+        y: 50,
+        rotate: -5,
+        x: 50,
+        delay: 0.5
+      }
+    })
+  );
 });
 
 onBeforeUnmount(() => {
+  animations.forEach(animation => animation?.revert?.());
   heroReveal?.revert();
 });
 </script>

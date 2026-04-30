@@ -72,20 +72,14 @@
 </template>
 
 <script setup>
-const { setLocale, locale } = useI18n();
-const paths = ['/', '/about', '/products', '/membership', '/services', '/contact'];
-
-const showMenu = ref(false);
-
 const { $gsap } = useNuxtApp();
-
 const { tm, rt } = useI18n();
+const { setLocale, locale } = useI18n();
 
 const headerRef = ref();
-
-const changeLang = () => {
-  setLocale(locale.value === 'en' ? 'uz' : 'en');
-};
+const showMenu = ref(false);
+let headerAnimation;
+const paths = ['/', '/about', '/products', '/membership', '/services', '/contact'];
 
 const links = computed(() =>
   mapRt(tm('header.nav'), rt).map((el, i) => ({
@@ -95,7 +89,7 @@ const links = computed(() =>
 );
 
 onMounted(() => {
-  $gsap.to(headerRef.value, {
+  const tween = $gsap.to(headerRef.value, {
     scrollTrigger: {
       trigger: '.layout',
       start: '+=20 top',
@@ -107,7 +101,22 @@ onMounted(() => {
       toggleActions: 'play none none reverse'
     }
   });
+
+  headerAnimation = {
+    revert: () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    }
+  };
 });
+
+onBeforeUnmount(() => {
+  headerAnimation?.revert?.();
+});
+
+const changeLang = () => {
+  setLocale(locale.value === 'en' ? 'uz' : 'en');
+};
 </script>
 
 <style lang="scss" scoped>

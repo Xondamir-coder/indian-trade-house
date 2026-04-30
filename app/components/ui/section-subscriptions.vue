@@ -52,12 +52,6 @@
 </template>
 
 <script setup>
-const { t } = useI18n();
-
-const activeButton = ref(0);
-
-const buttons = computed(() => [t('quarterly'), t('yearly')]);
-
 defineProps({
   title: {
     required: true,
@@ -69,15 +63,28 @@ defineProps({
   }
 });
 
+const { t } = useI18n();
+
+const activeButton = ref(0);
+const animations = [];
+
+const buttons = computed(() => [t('quarterly'), t('yearly')]);
+
 onMounted(() => {
   wrapWithOverflowHidden('.subscriptions__item-amenity');
 
-  useAnimate('.subscriptions__item-amenity', {
-    animProps: {
-      yPercent: 100,
-      stagger: 0.07
-    }
-  });
+  animations.push(
+    useAnimate('.subscriptions__item-amenity', {
+      animProps: {
+        yPercent: 100,
+        stagger: 0.07
+      }
+    })
+  );
+});
+
+onBeforeUnmount(() => {
+  animations.forEach(animation => animation?.revert?.());
 });
 </script>
 

@@ -66,6 +66,9 @@ import MotionPathPlugin from 'gsap/MotionPathPlugin';
 
 const { $gsap } = useNuxtApp();
 
+const ORBIT_DURATION = 10;
+const VOID_PROGRESS = 0.75;
+
 const pathRef = ref(null);
 const thingPicRefs = ref([]);
 const activePic = ref(0);
@@ -73,17 +76,9 @@ const activePic = ref(0);
 const orbitTweens = [];
 const activePicTimeouts = [];
 const activePicIntervals = [];
-const ORBIT_DURATION = 10;
-const VOID_PROGRESS = 0.75;
 let heroReveal;
 
-const getTimeUntilVoid = start => {
-  const distance = (VOID_PROGRESS - start + 1) % 1;
-
-  return distance * ORBIT_DURATION;
-};
-
-onMounted(async () => {
+onMounted(() => {
   const elements = thingPicRefs.value.map(item => item?.$el ?? item).filter(Boolean);
   const totalItems = elements.length;
   const orbitItems = elements.map((element, index) => ({
@@ -139,6 +134,12 @@ onBeforeUnmount(() => {
   activePicIntervals.forEach(intervalId => window.clearInterval(intervalId));
   heroReveal?.revert();
 });
+
+const getTimeUntilVoid = start => {
+  const distance = (VOID_PROGRESS - start + 1) % 1;
+
+  return distance * ORBIT_DURATION;
+};
 </script>
 
 <style lang="scss" scoped>

@@ -27,6 +27,13 @@ import {
   IconsTractor
 } from '#components';
 
+defineProps({
+  titleTag: {
+    type: String,
+    default: 'h3'
+  }
+});
+
 const cardsSupply = [
   {
     icon: IconsTractor,
@@ -63,28 +70,28 @@ const cardsSupply = [
 ];
 
 const { tm, rt } = useI18n();
-
-onMounted(() => {
-  useAnimate('.info-card', {
-    animProps: {
-      x: () => Math.random() * 100 - 50,
-      y: () => Math.random() * 100 - 50,
-      stagger: 0.08
-    }
-  });
-});
-
-defineProps({
-  titleTag: {
-    type: String,
-    default: 'h3'
-  }
-});
+const animations = [];
 
 const infoCards = mapRt(tm('info-cards'), rt).map((el, i) => ({
   ...el,
   ...cardsSupply[i]
 }));
+
+onMounted(() => {
+  animations.push(
+    useAnimate('.info-card', {
+      animProps: {
+        x: () => Math.random() * 100 - 50,
+        y: () => Math.random() * 100 - 50,
+        stagger: 0.08
+      }
+    })
+  );
+});
+
+onBeforeUnmount(() => {
+  animations.forEach(animation => animation?.revert?.());
+});
 </script>
 
 <style lang="scss" scoped>

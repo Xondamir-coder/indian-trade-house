@@ -1,5 +1,5 @@
 <template>
-  <form class="form" @submit.prevent="submitForm">
+  <form id="form" class="form" @submit.prevent="submitForm">
     <div class="form__container">
       <div v-for="field in fields" :key="field.name" class="form__row">
         <label :for="field.name">
@@ -70,23 +70,7 @@
 </template>
 
 <script setup>
-onMounted(() => {
-  document.querySelectorAll('.form__row').forEach(el => {
-    useAnimate(el, {
-      animProps: {
-        y: 25
-      }
-    });
-  });
-  document.querySelectorAll('.help__box').forEach(el => {
-    useAnimate(el, {
-      animProps: {
-        y: 25
-      }
-    });
-  });
-});
-
+const animations = [];
 const name = ref('');
 const company = ref('');
 const email = ref('');
@@ -147,9 +131,35 @@ const isDisabled = computed(
     isLoading.value
 );
 
+onMounted(() => {
+  document.querySelectorAll('.form__row').forEach(el => {
+    animations.push(
+      useAnimate(el, {
+        animProps: {
+          y: 25
+        }
+      })
+    );
+  });
+  document.querySelectorAll('.help__box').forEach(el => {
+    animations.push(
+      useAnimate(el, {
+        animProps: {
+          y: 25
+        }
+      })
+    );
+  });
+});
+
+onBeforeUnmount(() => {
+  animations.forEach(animation => animation?.revert?.());
+});
+
 const cleanPhone = () => {
   phone.value = phone.value.replace(/[^+\s\d]/g, '');
 };
+
 const submitForm = async () => {
   isLoading.value = true;
   try {

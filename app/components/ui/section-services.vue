@@ -45,14 +45,22 @@ defineProps({
   }
 });
 
+const animations = [];
+
 onMounted(() => {
-  useAnimate('.services__item', {
-    animProps: {
-      x: () => Math.random() * 100 - 50,
-      y: () => Math.random() * 100 - 50,
-      stagger: 0.1
-    }
-  });
+  animations.push(
+    useAnimate('.services__item', {
+      animProps: {
+        x: () => Math.random() * 100 - 50,
+        y: () => Math.random() * 100 - 50,
+        stagger: 0.1
+      }
+    })
+  );
+});
+
+onBeforeUnmount(() => {
+  animations.forEach(animation => animation?.revert?.());
 });
 </script>
 

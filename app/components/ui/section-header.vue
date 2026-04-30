@@ -11,7 +11,6 @@
 
 <script setup>
 import { CustomEase } from 'gsap/CustomEase';
-import { SplitText } from 'gsap/SplitText';
 
 defineProps({
   label: {
@@ -27,30 +26,25 @@ defineProps({
     required: true
   }
 });
+
 const titleRef = ref();
 const textRef = ref();
-
-const animateLines = element => {
-  SplitText.create(element, {
-    type: 'lines',
-    mask: 'lines',
-    onSplit: self => {
-      useAnimate(self.lines, {
-        animProps: {
-          yPercent: 75,
-          ease: 'easeInCubic'
-        },
-        scrollProps: { start: 'top bottom' }
-      });
-    }
-  });
-};
+let splitAnimation;
 
 onMounted(() => {
   CustomEase.create('easeInCubic', '0.32, 0, 0.67, 0');
 
-  animateLines(titleRef.value);
-  animateLines(textRef.value);
+  splitAnimation = useSplitAnimate([titleRef.value, textRef.value], {
+    animProps: {
+      yPercent: 75,
+      ease: 'easeInCubic'
+    },
+    scrollProps: { start: 'top bottom' }
+  });
+});
+
+onBeforeUnmount(() => {
+  splitAnimation?.revert?.();
 });
 </script>
 

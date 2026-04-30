@@ -1,14 +1,13 @@
 <template>
   <Teleport to="body">
     <Transition name="appear">
-      <div
-        v-if="model"
-        class="modal-container"
-        data-lenis-prevent
-        @click.self="closeModal"
-      >
+      <div v-if="model" class="modal-container" data-lenis-prevent @click.self="closeModal">
         <div class="modal">
-          <button class="modal__button" :aria-label="$t('accessibility.close-modal')" @click="closeModal">
+          <button
+            class="modal__button"
+            :aria-label="$t('accessibility.close-modal')"
+            @click="closeModal"
+          >
             <IconsClose class="modal__button-icon" />
           </button>
           <slot />
@@ -25,8 +24,6 @@
 </template>
 
 <script setup>
-const { $pauseLenis, $resumeLenis } = useNuxtApp();
-
 const model = defineModel({
   type: Boolean
 });
@@ -39,9 +36,7 @@ defineProps({
   }
 });
 
-const closeModal = () => {
-  model.value = false;
-};
+const { $pauseLenis, $resumeLenis } = useNuxtApp();
 
 watch(model, (isOpen, wasOpen) => {
   if (isOpen && !wasOpen) {
@@ -58,6 +53,10 @@ onBeforeUnmount(() => {
     $resumeLenis?.();
   }
 });
+
+const closeModal = () => {
+  model.value = false;
+};
 </script>
 
 <style lang="scss" scoped>

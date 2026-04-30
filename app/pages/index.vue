@@ -126,8 +126,6 @@
 </template>
 
 <script setup>
-import { SplitText } from 'gsap/SplitText';
-
 const { tm, rt } = useI18n();
 
 const whyItems = mapRt(tm('home.why.cards'), rt);
@@ -136,7 +134,12 @@ const roadmapItems = mapRt(tm('home.roadmap.sections'), rt);
 let el;
 let currentX = 0;
 let currentY = 0;
+let targetX = 0;
+let targetY = 0;
+let parallaxFrame = 0;
 const str = 20;
+const animations = [];
+const splitAnimations = [];
 
 const handleParallax = e => {
   if (!el) return;
@@ -144,55 +147,62 @@ const handleParallax = e => {
   const x = (e.clientX / window.innerWidth - 0.5) * 2;
   const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
-  const targetX = x * str;
-  const targetY = y * str;
+  targetX = x * str;
+  targetY = y * str;
 
-  currentX += (targetX - currentX) * 0.1;
+  if (parallaxFrame) return;
 
-  currentY += (targetY - currentY) * 0.1;
-
-  el.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+  parallaxFrame = window.requestAnimationFrame(() => {
+    currentX += (targetX - currentX) * 0.1;
+    currentY += (targetY - currentY) * 0.1;
+    el.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+    parallaxFrame = 0;
+  });
 };
 
 onMounted(() => {
   el = document.querySelector('.home__wrapper-bg');
   if (window.innerWidth > 1280) document.addEventListener('pointermove', handleParallax);
 
-  useAnimate('.why__item', {
-    animProps: { y: 25, scale: 1.1, stagger: 0.15 }
-  });
+  animations.push(
+    useAnimate('.why__item', {
+      animProps: { y: 25, scale: 1.1, stagger: 0.15 }
+    })
+  );
   document.querySelectorAll('.roadmap__item').forEach(item => {
-    useAnimate(item.firstElementChild, {
-      animProps: {
-        y: 50
-      }
-    });
+    animations.push(
+      useAnimate(item.firstElementChild, {
+        animProps: {
+          y: 50
+        }
+      })
+    );
 
-    const titleSplit = SplitText.create(item.querySelector('.roadmap__item-title'), {
-      type: 'words',
-      mask: 'words'
-    });
-    const textSplit = SplitText.create(item.querySelector('.roadmap__item-subtitle'), {
-      type: 'lines',
-      mask: 'lines'
-    });
-
-    useAnimate(titleSplit.words, {
-      animProps: {
-        yPercent: 100,
-        stagger: 0.08
-      }
-    });
-    useAnimate(textSplit.lines, {
-      animProps: {
-        yPercent: 100,
-        stagger: 0.08
-      }
-    });
+    splitAnimations.push(
+      useSplitAnimate([item.querySelector('.roadmap__item-title')], {
+        type: 'words',
+        mask: 'words',
+        animProps: {
+          yPercent: 100,
+          stagger: 0.08
+        }
+      })
+    );
+    splitAnimations.push(
+      useSplitAnimate([item.querySelector('.roadmap__item-subtitle')], {
+        animProps: {
+          yPercent: 100,
+          stagger: 0.08
+        }
+      })
+    );
   });
 });
 onBeforeUnmount(() => {
   if (window.innerWidth > 1280) document.removeEventListener('pointermove', handleParallax);
+  if (parallaxFrame) window.cancelAnimationFrame(parallaxFrame);
+  animations.forEach(animation => animation?.revert?.());
+  splitAnimations.forEach(animation => animation?.revert?.());
 });
 
 usePageSEO('home');

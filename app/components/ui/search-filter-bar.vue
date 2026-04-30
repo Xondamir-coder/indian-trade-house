@@ -55,16 +55,17 @@ const router = useRouter();
 const inputRef = ref();
 const query = ref(route.query?.query || '');
 
+const clearQuery = () => {
+  query.value = '';
+  inputRef.value.blur();
+};
+
 const submitQuery = () => {
   if (!query.value) return;
   router.push({
     path: localePath('/products/search'),
     query: { query: query.value }
   });
-};
-const clearQuery = () => {
-  query.value = '';
-  inputRef.value.blur();
 };
 </script>
 

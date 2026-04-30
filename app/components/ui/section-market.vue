@@ -83,9 +83,9 @@ import 'swiper/css';
 
 const { tm, rt } = useI18n();
 
+const images = ['teamwork.jpg', 'men-at-office.jpg', 'teamwork.jpg'];
 const activeSlide = ref(0);
 
-const images = ['teamwork.jpg', 'men-at-office.jpg', 'teamwork.jpg'];
 const slideCards = mapRt(tm('section-market.cards'), rt).map((el, i) => ({
   ...el,
   image: images[i]
@@ -93,9 +93,9 @@ const slideCards = mapRt(tm('section-market.cards'), rt).map((el, i) => ({
 
 const text = computed(() => slideCards[activeSlide.value].text);
 
-function onSlideChange(swiper) {
+const onSlideChange = swiper => {
   activeSlide.value = swiper.activeIndex;
-}
+};
 </script>
 
 <style lang="scss" scoped>

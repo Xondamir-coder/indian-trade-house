@@ -68,65 +68,75 @@
 </template>
 
 <script setup>
-import { SplitText } from 'gsap/SplitText';
+const animations = [];
+const splitAnimations = [];
 
 onMounted(() => {
-  useAnimate('.advantages__list-item', {
-    animProps: {
-      y: 25,
-      stagger: 0.1
-    }
-  });
+  animations.push(
+    useAnimate('.advantages__list-item', {
+      animProps: {
+        y: 25,
+        stagger: 0.1
+      }
+    })
+  );
 
   document.querySelectorAll('.advantages__card').forEach(card => {
     const titleEl = card.querySelector('.advantages__card-content-title');
     const textEl = card.querySelector('.advantages__card-content-subtitle');
 
-    const titleSplit = SplitText.create(titleEl, {
-      type: 'lines',
-      mask: 'lines'
-    });
+    splitAnimations.push(
+      useSplitAnimate([titleEl], {
+        animProps: {
+          yPercent: 100,
+          stagger: 0.08
+        },
+        scrollProps: {
+          trigger: titleEl
+        }
+      })
+    );
 
-    const textSplit = SplitText.create(textEl, {
-      type: 'lines',
-      mask: 'lines'
-    });
-
-    useAnimate(titleSplit.lines, {
-      animProps: {
-        yPercent: 100,
-        stagger: 0.08
-      },
-      scrollProps: {
-        trigger: titleEl
-      }
-    });
-
-    useAnimate(textSplit.lines, {
-      animProps: {
-        yPercent: 100,
-        stagger: 0.08
-      },
-      scrollProps: {
-        trigger: textEl
-      }
-    });
+    splitAnimations.push(
+      useSplitAnimate([textEl], {
+        animProps: {
+          yPercent: 100,
+          stagger: 0.08
+        },
+        scrollProps: {
+          trigger: textEl
+        }
+      })
+    );
   });
   document.querySelectorAll('.advantages__card-content-item').forEach(el => {
-    useAnimate(el, {
-      animProps: {
-        x: -20
-      }
-    });
+    animations.push(
+      useAnimate(el, {
+        animProps: {
+          x: -20
+        }
+      })
+    );
   });
   document.querySelectorAll('.advantages__card-left').forEach(el => {
-    useAnimate(el.querySelector('img'), {
-      animProps: {
-        scale: 1.2,
-        duration: 0.8
-      }
-    });
+    const image = el.querySelector('img');
+
+    if (!image) return;
+
+    animations.push(
+      useAnimate(image, {
+        animProps: {
+          scale: 1.2,
+          duration: 0.8
+        }
+      })
+    );
   });
+});
+
+onBeforeUnmount(() => {
+  animations.forEach(animation => animation?.revert?.());
+  splitAnimations.forEach(animation => animation?.revert?.());
 });
 </script>
 

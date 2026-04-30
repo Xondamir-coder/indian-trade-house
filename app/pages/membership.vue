@@ -174,6 +174,7 @@ const howItems = mapRt(tm('membership.how.cards'), rt).map((el, i) => ({
 
 usePageSEO('membership');
 let heroReveal;
+const animations = [];
 
 const hideAccordions = e => {
   if (e.target.closest('.faq__accordion')) return;
@@ -191,36 +192,43 @@ onMounted(() => {
     }
   });
 
-  useAnimate('.trust__container', {
-    animProps: {
-      clipPath: 'inset(0 0 100%)',
-      opacity: 1
-    },
-    scrollProps: {
-      scrub: true
-    }
-  });
-  useAnimate('.how__item', {
-    animProps: {
-      x: () => Math.random() * 200 - 100,
-      y: () => Math.random() * 200 - 100
-    }
-  });
-  document.querySelectorAll('.faq__accordions li').forEach(el => {
-    useAnimate(el, {
+  animations.push(
+    useAnimate('.trust__container', {
       animProps: {
-        y: 25
+        clipPath: 'inset(0 0 100%)',
+        opacity: 1
       },
       scrollProps: {
-        scrub: true,
-        start: 'top 95%'
+        scrub: true
       }
-    });
+    })
+  );
+  animations.push(
+    useAnimate('.how__item', {
+      animProps: {
+        x: () => Math.random() * 200 - 100,
+        y: () => Math.random() * 200 - 100
+      }
+    })
+  );
+  document.querySelectorAll('.faq__accordions li').forEach(el => {
+    animations.push(
+      useAnimate(el, {
+        animProps: {
+          y: 25
+        },
+        scrollProps: {
+          scrub: true,
+          start: 'top 95%'
+        }
+      })
+    );
   });
 });
 
 onUnmounted(() => {
   document.removeEventListener('click', hideAccordions);
+  animations.forEach(animation => animation?.revert?.());
   heroReveal?.revert();
 });
 </script>

@@ -16,6 +16,14 @@
 export default (el, { animProps = {}, scrollProps = {} } = {}) => {
   const { $gsap } = useNuxtApp();
   const elements = $gsap.utils.toArray(el);
+  if (!elements.length) {
+    return {
+      elements: [],
+      tween: null,
+      revert: () => {}
+    };
+  }
+
   const trigger = elements[0];
   const rect = trigger?.getBoundingClientRect?.();
   const isInViewport = rect ? rect.top < window.innerHeight && rect.bottom > 0 : false;
@@ -33,5 +41,14 @@ export default (el, { animProps = {}, scrollProps = {} } = {}) => {
     };
   }
 
-  $gsap.from(elements, gsapProps);
+  const tween = $gsap.from(elements, gsapProps);
+
+  return {
+    elements,
+    tween,
+    revert: () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    }
+  };
 };

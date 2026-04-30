@@ -9,7 +9,7 @@
       <p class="hero__subtitle">
         {{ $t('contact.hero.subtitle') }}
       </p>
-      <button class="button--orange">
+      <button @click="goToHelp" class="button--orange">
         {{ $t('apply-membership') }}
       </button>
     </section>
@@ -18,7 +18,7 @@
       :title="$t('contact.help.title')"
       :subtitle="$t('contact.help.subtitle')"
     />
-    <section class="help">
+    <section id="help" class="help">
       <div class="help__container">
         <UiSectionHeader
           class="help__header"
@@ -114,6 +114,8 @@ Z
 </template>
 
 <script setup>
+const { $lenis } = useNuxtApp();
+
 usePageSEO('contact');
 
 let heroReveal;
@@ -131,6 +133,12 @@ onMounted(() => {
 onUnmounted(() => {
   heroReveal?.revert();
 });
+
+const goToHelp = () => {
+  $lenis.scrollTo('#help', {
+    offset: -80
+  });
+};
 </script>
 
 <style lang="scss" scoped>
