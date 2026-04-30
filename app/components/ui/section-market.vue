@@ -105,6 +105,9 @@ function onSlideChange(swiper) {
   gap: 6.4rem;
   &__texts {
     display: grid;
+    @media screen and (min-width: vars.$bp-xl) {
+      display: none;
+    }
   }
   &__text {
     grid-area: 1/1/2/2;

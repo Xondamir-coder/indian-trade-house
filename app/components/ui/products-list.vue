@@ -18,11 +18,10 @@
       </div>
     </div>
     <div class="products-list__list">
-      <NuxtLink
+      <div
         v-for="(item, i) in mapRt($tm('products.categories.items'), $rt)"
         :key="i"
         class="products-list__item"
-        :to="$localePath(`/products/${i}`)"
       >
         <div class="products-list__item-icontainer">
           <IconsEye class="products-list__item-eye" />
@@ -41,7 +40,7 @@
             </span>
           </li>
         </ul>
-      </NuxtLink>
+      </div>
     </div>
   </section>
 </template>

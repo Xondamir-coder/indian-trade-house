@@ -133,32 +133,34 @@ Z"
         :subtitle="$t('membership.faq.subtitle')"
       />
 
-      <div class="faq__accordions">
-        <button
+      <ul class="faq__accordions">
+        <li
           v-for="(accordion, i) in mapRt(tm('membership.faq.accordions'), rt)"
           :key="accordion.question"
-          class="faq__accordion"
-          :class="{ active: activeAccordion === i }"
-          @click="activeAccordion = i"
         >
-          <div class="faq__accordion-top">
-            <span class="faq__accordion-question">
-              {{ accordion.question }}
-            </span>
-            <div class="faq__accordion-icon" />
-          </div>
-          <p class="faq__accordion-answer">
-            {{ accordion.answer }}
-          </p>
-        </button>
-      </div>
+          <button
+            class="faq__accordion"
+            :class="{ active: activeAccordion === i }"
+            @click="activeAccordion = i"
+          >
+            <div class="faq__accordion-top">
+              <span class="faq__accordion-question">
+                {{ accordion.question }}
+              </span>
+              <div class="faq__accordion-icon" />
+            </div>
+            <p class="faq__accordion-answer">
+              {{ accordion.answer }}
+            </p>
+          </button>
+        </li>
+      </ul>
     </section>
   </main>
 </template>
 
 <script setup>
 import { IconsFileCopy, IconsBigCheck, IconsResetTv } from '#components';
-
 const howSupply = [IconsFileCopy, IconsBigCheck, IconsResetTv];
 
 const { tm, rt } = useI18n();
@@ -171,6 +173,7 @@ const howItems = mapRt(tm('membership.how.cards'), rt).map((el, i) => ({
 }));
 
 usePageSEO('membership');
+let heroReveal;
 
 const hideAccordions = e => {
   if (e.target.closest('.faq__accordion')) return;
@@ -179,9 +182,46 @@ const hideAccordions = e => {
 
 onMounted(() => {
   document.addEventListener('click', hideAccordions);
+
+  heroReveal = useHeroReveal({
+    extra: '.hero .button--orange',
+    extraFrom: {
+      opacity: 0,
+      scale: 1.1
+    }
+  });
+
+  useAnimate('.trust__container', {
+    animProps: {
+      clipPath: 'inset(0 0 100%)',
+      opacity: 1
+    },
+    scrollProps: {
+      scrub: true
+    }
+  });
+  useAnimate('.how__item', {
+    animProps: {
+      x: () => Math.random() * 200 - 100,
+      y: () => Math.random() * 200 - 100
+    }
+  });
+  document.querySelectorAll('.faq__accordions li').forEach(el => {
+    useAnimate(el, {
+      animProps: {
+        y: 25
+      },
+      scrollProps: {
+        scrub: true,
+        start: 'top 95%'
+      }
+    });
+  });
 });
+
 onUnmounted(() => {
   document.removeEventListener('click', hideAccordions);
+  heroReveal?.revert();
 });
 </script>
 
@@ -203,6 +243,7 @@ onUnmounted(() => {
     margin-inline: 0;
   }
   &__accordion {
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: max(2rem, 16px) max(2.4rem, 16px);
@@ -288,6 +329,9 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     gap: max(1.6rem, 16px);
+    & > * {
+      display: flex;
+    }
   }
   &__header {
     @media screen and (min-width: vars.$bp-lg) {
@@ -371,6 +415,7 @@ onUnmounted(() => {
     position: absolute;
   }
   &__container {
+    clip-path: inset(0);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -64,6 +64,16 @@ const cardsSupply = [
 
 const { tm, rt } = useI18n();
 
+onMounted(() => {
+  useAnimate('.info-card', {
+    animProps: {
+      x: () => Math.random() * 100 - 50,
+      y: () => Math.random() * 100 - 50,
+      stagger: 0.08
+    }
+  });
+});
+
 defineProps({
   titleTag: {
     type: String,

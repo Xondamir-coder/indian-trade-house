@@ -70,6 +70,23 @@
 </template>
 
 <script setup>
+onMounted(() => {
+  document.querySelectorAll('.form__row').forEach(el => {
+    useAnimate(el, {
+      animProps: {
+        y: 25
+      }
+    });
+  });
+  document.querySelectorAll('.help__box').forEach(el => {
+    useAnimate(el, {
+      animProps: {
+        y: 25
+      }
+    });
+  });
+});
+
 const name = ref('');
 const company = ref('');
 const email = ref('');

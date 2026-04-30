@@ -1,5 +1,5 @@
 <template>
-  <div class="partners">
+  <div ref="rootRef" class="partners">
     <div class="partners__header">
       <div class="partners__header-label">
         <IconsLightning class="partners__header-icon" />
@@ -19,8 +19,52 @@
 
 <script setup>
 import { SvgFigma, SvgLogoipsum, SvgTelegram, SvgZendesk } from '#components';
+import { SplitText } from 'gsap/SplitText';
+
+const { $gsap } = useNuxtApp();
 
 const partners = [SvgLogoipsum, SvgLogoipsum, SvgZendesk, SvgLogoipsum, SvgTelegram, SvgFigma];
+const rootRef = ref(null);
+let ctx;
+const splits = [];
+
+onMounted(() => {
+  ctx = $gsap.context(() => {
+    const split = SplitText.create('.partners__header h2, .partners__header p', {
+      type: 'chars',
+      mask: 'chars',
+      onSplit: self => {
+        useAnimate(self.chars, {
+          animProps: {
+            x: () => Math.random() * 100 - 50,
+            y: () => Math.random() * 100 - 50,
+            stagger: {
+              from: 'center',
+              each: 0.005
+            }
+          }
+        });
+      }
+    });
+
+    splits.push(...(Array.isArray(split) ? split : [split]));
+
+    useAnimate('.partners__item', {
+      animProps: {
+        scale: 0,
+        stagger: {
+          from: 'center',
+          each: 0.06
+        }
+      }
+    });
+  }, rootRef.value);
+});
+
+onBeforeUnmount(() => {
+  splits.forEach(split => split?.revert?.());
+  ctx?.revert();
+});
 </script>
 
 <style lang="scss" scoped>

@@ -22,6 +22,32 @@
 
 <script setup>
 usePageSEO('about');
+
+let heroReveal;
+
+onMounted(() => {
+  heroReveal = useHeroReveal();
+  useAnimate('.hero__pic:first-child', {
+    animProps: {
+      y: 50,
+      rotate: 5,
+      x: -50,
+      delay: 0.5
+    }
+  });
+  useAnimate('.hero__pic:last-child', {
+    animProps: {
+      y: 50,
+      rotate: -5,
+      x: 50,
+      delay: 0.5
+    }
+  });
+});
+
+onBeforeUnmount(() => {
+  heroReveal?.revert();
+});
 </script>
 
 <style lang="scss" scoped>
@@ -97,6 +123,7 @@ usePageSEO('about');
   &__arrow {
     width: max(23.9535rem, 100px);
     margin-top: 5%;
+    animation: appear 0.5s 0.6s backwards;
     @media screen and (max-width: vars.$bp-sm) {
       display: none;
     }

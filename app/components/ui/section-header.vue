@@ -1,15 +1,18 @@
 <template>
-  <div class="section-header">
+  <div ref="headerRef" class="section-header">
     <div class="section-header__label">
       <IconsLightning class="section-header__icon" />
       <span>{{ label }}</span>
     </div>
-    <h2 class="heading-lg">{{ title }}</h2>
-    <p class="body-xl">{{ subtitle }}</p>
+    <h2 ref="titleRef" class="heading-lg">{{ title }}</h2>
+    <p ref="textRef" class="body-xl">{{ subtitle }}</p>
   </div>
 </template>
 
 <script setup>
+import { CustomEase } from 'gsap/CustomEase';
+import { SplitText } from 'gsap/SplitText';
+
 defineProps({
   label: {
     type: String,
@@ -23,6 +26,31 @@ defineProps({
     type: String,
     required: true
   }
+});
+const titleRef = ref();
+const textRef = ref();
+
+const animateLines = element => {
+  SplitText.create(element, {
+    type: 'lines',
+    mask: 'lines',
+    onSplit: self => {
+      useAnimate(self.lines, {
+        animProps: {
+          yPercent: 75,
+          ease: 'easeInCubic'
+        },
+        scrollProps: { start: 'top bottom' }
+      });
+    }
+  });
+};
+
+onMounted(() => {
+  CustomEase.create('easeInCubic', '0.32, 0, 0.67, 0');
+
+  animateLines(titleRef.value);
+  animateLines(textRef.value);
 });
 </script>
 

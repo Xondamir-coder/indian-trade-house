@@ -336,14 +336,57 @@ const coreItems = mapRt(tm('services.core.cards'), rt).map((el, i) => ({
   icon: coreSupply[i]
 }));
 
+let heroReveal;
+
 onMounted(() => {
   setInterval(() => {
     activeHeroItem.value = (activeHeroItem.value + 1) % 3;
   }, 3000);
+
+  heroReveal = useHeroReveal({
+    extra: '.hero .button--orange',
+    subtitle: '.hero__text',
+    extraFrom: {
+      opacity: 0,
+      scale: 1.1
+    }
+  });
+
+  useAnimate('.core__item', {
+    animProps: {
+      scale: 0.8,
+      stagger: 0.1
+    }
+  });
+
+  useAnimate('.start', {
+    animProps: {
+      clipPath: 'inset(0 100%)',
+      duration: 1.2,
+      opacity: 1
+    }
+  });
+});
+
+onUnmounted(() => {
+  heroReveal?.revert();
 });
 </script>
 
 <style lang="scss" scoped>
+@keyframes animate-arrow {
+  from {
+    transform: translate(-35px, 25px);
+    opacity: 0;
+  }
+}
+@keyframes scale-up {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -440,6 +483,7 @@ onMounted(() => {
   }
 }
 .start {
+  clip-path: inset(0);
   display: grid;
   grid-template-columns: 1fr 1.72fr;
   gap: max(6rem, 30px);
@@ -905,6 +949,7 @@ onMounted(() => {
     }
   }
   &__card {
+    animation: scale-up 0.6s 0.1s backwards;
     position: absolute;
     right: 0;
     bottom: 4.55rem;
@@ -1025,6 +1070,7 @@ onMounted(() => {
     }
   }
   &__pics {
+    animation: appear 0.6s 0.2s backwards;
     display: grid;
     & > * {
       grid-area: 1/1/2/2;
@@ -1043,6 +1089,7 @@ onMounted(() => {
     }
   }
   &__box {
+    animation: scale-up 0.6s;
     font-family: vars.$font-inter;
     position: absolute;
     left: 10rem;
@@ -1095,6 +1142,7 @@ onMounted(() => {
     position: relative;
 
     &-arrow {
+      animation: animate-arrow 0.7s;
       width: 10.2995rem;
       position: absolute;
       left: -1.65rem;

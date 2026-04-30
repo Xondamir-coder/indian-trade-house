@@ -44,6 +44,16 @@ defineProps({
     required: true
   }
 });
+
+onMounted(() => {
+  useAnimate('.services__item', {
+    animProps: {
+      x: () => Math.random() * 100 - 50,
+      y: () => Math.random() * 100 - 50,
+      stagger: 0.1
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>

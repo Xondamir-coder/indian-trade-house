@@ -18,6 +18,15 @@
 
 <script setup>
 usePageSEO('products');
+let heroReveal;
+
+onMounted(() => {
+  heroReveal = useHeroReveal();
+});
+
+onBeforeUnmount(() => {
+  heroReveal?.revert();
+});
 </script>
 
 <style lang="scss" scoped>

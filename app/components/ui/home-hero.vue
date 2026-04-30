@@ -20,20 +20,24 @@
         </div>
       </div>
       <div class="hero__box">
-        <UiPicture
-          src="spice-1.png"
-          alt="spices banner"
-          class="hero__pic"
-          loading="eager"
-          decoding="sync"
-          fetchpriority="high"
-        />
+        <Transition name="pic">
+          <UiPicture
+            :key="activePic"
+            :src="`spice-${activePic + 1}.png`"
+            alt="spices banner"
+            class="hero__pic"
+            loading="eager"
+            decoding="sync"
+            fetchpriority="high"
+          />
+        </Transition>
       </div>
     </div>
     <div class="hero__things">
       <UiPicture
         v-for="index in 5"
         :key="index"
+        ref="thingPicRefs"
         :src="`spice-${index}.png`"
         alt="spice 1"
         class="hero__things-pic"
@@ -58,20 +62,82 @@
 </template>
 
 <script setup>
+import MotionPathPlugin from 'gsap/MotionPathPlugin';
+
 const { $gsap } = useNuxtApp();
 
+const pathRef = ref(null);
+const thingPicRefs = ref([]);
+const activePic = ref(0);
+
+const orbitTweens = [];
+const activePicTimeouts = [];
+const activePicIntervals = [];
+const ORBIT_DURATION = 10;
+const VOID_PROGRESS = 0.75;
+let heroReveal;
+
+const getTimeUntilVoid = start => {
+  const distance = (VOID_PROGRESS - start + 1) % 1;
+
+  return distance * ORBIT_DURATION;
+};
+
 onMounted(async () => {
-  const { default: MotionPathPlugin } = await import('gsap/MotionPathPlugin');
+  const elements = thingPicRefs.value.map(item => item?.$el ?? item).filter(Boolean);
+  const totalItems = elements.length;
+  const orbitItems = elements.map((element, index) => ({
+    element,
+    index,
+    start: 1 - (index + 1) / totalItems
+  }));
 
   $gsap.registerPlugin(MotionPathPlugin);
-  $gsap.to('.hero__things-pic', {
-    duration: 10,
-    motionPath: {
-      path: '#circlePath',
-      align: '#circlePath',
-      autoRotate: true
-    }
+
+  orbitItems.forEach(({ element, start }) => {
+    orbitTweens.push(
+      $gsap.to(element, {
+        duration: ORBIT_DURATION,
+        repeat: -1,
+        ease: 'none',
+        motionPath: {
+          path: pathRef.value,
+          align: pathRef.value,
+          alignOrigin: [0.5, 0.5],
+          start,
+          end: start + 1,
+          autoRotate: true
+        }
+      })
+    );
   });
+
+  orbitItems.forEach(({ index, start }) => {
+    const delay = getTimeUntilVoid(start) * 1000;
+
+    activePicTimeouts.push(
+      window.setTimeout(() => {
+        activePic.value = index;
+
+        activePicIntervals.push(
+          window.setInterval(() => {
+            activePic.value = index;
+          }, ORBIT_DURATION * 1000)
+        );
+      }, delay)
+    );
+  });
+
+  heroReveal = useHeroReveal({
+    extra: '.hero__buttons'
+  });
+});
+
+onBeforeUnmount(() => {
+  orbitTweens.forEach(tween => tween.kill());
+  activePicTimeouts.forEach(timeoutId => window.clearTimeout(timeoutId));
+  activePicIntervals.forEach(intervalId => window.clearInterval(intervalId));
+  heroReveal?.revert();
 });
 </script>
 
@@ -137,9 +203,17 @@ onMounted(async () => {
     overflow: hidden;
   }
   &__box {
+    @keyframes rotate {
+      to {
+        rotate: 1turn;
+      }
+    }
     position: relative;
     width: 60%;
     aspect-ratio: 2 / 1;
+    & > * {
+      animation: rotate 70s infinite linear;
+    }
     @media screen and (max-width: vars.$bp-lg) {
       width: 140%;
     }
@@ -227,5 +301,14 @@ onMounted(async () => {
     justify-content: center;
     gap: max(1.6rem, 10px);
   }
+}
+.pic-enter-active,
+.pic-leave-active {
+  transition: all 0.5s;
+}
+.pic-enter-from,
+.pic-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
 }
 </style>

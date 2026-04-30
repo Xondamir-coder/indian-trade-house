@@ -68,6 +68,17 @@ defineProps({
     type: Array
   }
 });
+
+onMounted(() => {
+  wrapWithOverflowHidden('.subscriptions__item-amenity');
+
+  useAnimate('.subscriptions__item-amenity', {
+    animProps: {
+      yPercent: 100,
+      stagger: 0.07
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>

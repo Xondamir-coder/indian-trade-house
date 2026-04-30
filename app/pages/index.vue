@@ -126,6 +126,8 @@
 </template>
 
 <script setup>
+import { SplitText } from 'gsap/SplitText';
+
 const { tm, rt } = useI18n();
 
 const whyItems = mapRt(tm('home.why.cards'), rt);
@@ -155,6 +157,39 @@ const handleParallax = e => {
 onMounted(() => {
   el = document.querySelector('.home__wrapper-bg');
   if (window.innerWidth > 1280) document.addEventListener('pointermove', handleParallax);
+
+  useAnimate('.why__item', {
+    animProps: { y: 25, scale: 1.1, stagger: 0.15 }
+  });
+  document.querySelectorAll('.roadmap__item').forEach(item => {
+    useAnimate(item.firstElementChild, {
+      animProps: {
+        y: 50
+      }
+    });
+
+    const titleSplit = SplitText.create(item.querySelector('.roadmap__item-title'), {
+      type: 'words',
+      mask: 'words'
+    });
+    const textSplit = SplitText.create(item.querySelector('.roadmap__item-subtitle'), {
+      type: 'lines',
+      mask: 'lines'
+    });
+
+    useAnimate(titleSplit.words, {
+      animProps: {
+        yPercent: 100,
+        stagger: 0.08
+      }
+    });
+    useAnimate(textSplit.lines, {
+      animProps: {
+        yPercent: 100,
+        stagger: 0.08
+      }
+    });
+  });
 });
 onBeforeUnmount(() => {
   if (window.innerWidth > 1280) document.removeEventListener('pointermove', handleParallax);
@@ -261,6 +296,7 @@ usePageSEO('home');
       }
     }
     &-info {
+      color: #fff;
       position: absolute;
       top: 0;
       left: -15%;

@@ -8,7 +8,32 @@
 </template>
 
 <script setup>
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const route = useRoute();
+const { $lenis } = useNuxtApp();
+
+watch(
+  () => route.fullPath,
+  async () => {
+    await nextTick();
+
+    requestAnimationFrame(() => {
+      $lenis.resize();
+      ScrollTrigger.refresh();
+      $lenis.scrollTo(0, {
+        immediate: true
+      });
+    });
+  }
+);
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    $lenis.resize();
+    ScrollTrigger.refresh();
+  });
+});
 
 const showPartnersSection = computed(() => {
   const currentPath = route.path.toLowerCase();

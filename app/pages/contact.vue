@@ -115,6 +115,22 @@ Z
 
 <script setup>
 usePageSEO('contact');
+
+let heroReveal;
+
+onMounted(() => {
+  heroReveal = useHeroReveal({
+    extra: '.hero .button--orange',
+    extraFrom: {
+      opacity: 0,
+      scale: 1.1
+    }
+  });
+});
+
+onUnmounted(() => {
+  heroReveal?.revert();
+});
 </script>
 
 <style lang="scss" scoped>
