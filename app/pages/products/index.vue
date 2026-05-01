@@ -1,13 +1,13 @@
 <template>
   <main class="products">
     <section class="hero">
-      <h1 class="hero__title heading-xl">
+      <h1 class="hero__title hero-reveal-title heading-xl">
         {{ $t('products.hero.title') }}
       </h1>
-      <p class="hero__subtitle">
+      <p class="hero__subtitle hero-reveal-subtitle">
         {{ $t('products.hero.subtitle') }}
       </p>
-      <UiSearchFilterBar />
+      <UiSearchFilterBar class="hero-reveal-extra" />
     </section>
     <section class="cards">
       <UiInfoCards title-tag="h2" />
@@ -18,14 +18,23 @@
 
 <script setup>
 usePageSEO('products');
+
 let heroReveal;
+let anim;
 
 onMounted(() => {
   heroReveal = useHeroReveal();
+  anim = useAnimate('.bar', {
+    animProps: {
+      yPercent: 15,
+      delay: 0.6
+    }
+  });
 });
 
 onBeforeUnmount(() => {
   heroReveal?.revert();
+  anim?.revert();
 });
 </script>
 

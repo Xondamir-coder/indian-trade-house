@@ -32,6 +32,10 @@ export default (el, { animProps = {}, scrollProps = {} } = {}) => {
     ...animProps
   };
 
+  $gsap.set(elements, {
+    visibility: 'visible'
+  });
+
   if (trigger && !isInViewport) {
     gsapProps.scrollTrigger = {
       trigger,

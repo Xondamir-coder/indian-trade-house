@@ -2,17 +2,17 @@
   <main class="about">
     <section class="hero">
       <div class="hero__content">
-        <h1 class="heading-xl">
+        <h1 class="hero-reveal-title heading-xl">
           {{ $t('about.hero.title') }}
         </h1>
-        <p class="hero__subtitle">
+        <p class="hero__subtitle hero-reveal-subtitle">
           {{ $t('about.hero.subtitle') }}
         </p>
       </div>
       <div class="hero__container">
-        <UiPicture src="about-card-1.png" class="hero__pic" />
+        <UiPicture src="about-card-1.png" class="hero__pic hero-reveal-media" />
         <SvgCurvedArrow class="hero__arrow" />
-        <UiPicture src="about-card-2.png" class="hero__pic" />
+        <UiPicture src="about-card-2.png" class="hero__pic hero-reveal-media" />
       </div>
     </section>
     <UiSectionAdvantages />

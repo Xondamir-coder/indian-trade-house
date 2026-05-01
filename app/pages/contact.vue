@@ -3,13 +3,13 @@
     <section class="hero">
       <UiPicture src="contacts-hero.png" class="hero__bg" alt="bg" />
       <UiPicture src="contacts-hero-mobile.png" class="hero__bg" alt="bg" />
-      <h1 class="heading-xl">
+      <h1 class="hero-reveal-title heading-xl">
         {{ $t('contact.hero.title') }}
       </h1>
-      <p class="hero__subtitle">
+      <p class="hero__subtitle hero-reveal-subtitle">
         {{ $t('contact.hero.subtitle') }}
       </p>
-      <button @click="goToHelp" class="button--orange">
+      <button @click="goToHelp" class="button--orange hero-reveal-extra">
         {{ $t('apply-membership') }}
       </button>
     </section>

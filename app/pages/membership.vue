@@ -1,13 +1,13 @@
 <template>
   <main class="membership">
     <section class="hero">
-      <h1 class="heading-xl">
+      <h1 class="hero-reveal-title heading-xl">
         {{ $t('membership.hero.title') }}
       </h1>
-      <p class="hero__subtitle">
+      <p class="hero__subtitle hero-reveal-subtitle">
         {{ $t('membership.hero.subtitle') }}
       </p>
-      <button class="button--orange">
+      <button class="button--orange hero-reveal-extra">
         {{ $t('apply-membership') }}
       </button>
     </section>

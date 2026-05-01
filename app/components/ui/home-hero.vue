@@ -2,15 +2,15 @@
   <section class="hero">
     <div class="hero__container">
       <div class="hero__content">
-        <h1 class="hero__title heading-xl">
+        <h1 class="hero__title hero-reveal-title heading-xl">
           <span v-for="text in $tm('home.hero.title')" :key="text">
             {{ $rt(text) }}
           </span>
         </h1>
-        <p class="hero__subtitle">
+        <p class="hero__subtitle hero-reveal-subtitle">
           {{ $t('home.hero.subtitle') }}
         </p>
-        <div class="hero__buttons">
+        <div class="hero__buttons hero-reveal-extra">
           <NuxtLink :to="$localePath('/products')" class="button--orange">
             {{ $t('explore-opp') }}
           </NuxtLink>

@@ -2,13 +2,13 @@
   <main class="services">
     <section class="hero">
       <div class="hero__content">
-        <h1 class="heading-xl">
+        <h1 class="hero-reveal-title heading-xl">
           {{ $t('services.hero.title') }}
         </h1>
-        <p class="body-xl hero__text">
+        <p class="body-xl hero__text hero-reveal-subtitle">
           {{ $t('services.hero.text') }}
         </p>
-        <button class="button--orange">
+        <button class="button--orange hero-reveal-extra">
           <span>{{ $t('services.hero.button') }}</span>
           <IconsArrowRight />
         </button>

@@ -17,8 +17,8 @@
         </button>
       </div>
     </div>
-    <div class="products-list__list">
-      <div
+    <ul class="products-list__list">
+      <li
         v-for="(item, i) in mapRt($tm('products.categories.items'), $rt)"
         :key="i"
         class="products-list__item"
@@ -40,12 +40,38 @@
             </span>
           </li>
         </ul>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+const animations = [];
+
+onMounted(() => {
+  document.querySelectorAll('.products-list__sidebar-button').forEach(el => {
+    const anim = useAnimate(el, {
+      animProps: {
+        y: 15,
+        stagger: 0.1
+      },
+      scrollProps: {
+        start: 'top 95%'
+      }
+    });
+    animations.push(anim);
+  });
+  document.querySelectorAll('.products-list__item').forEach(el => {
+    const anim = useAnimate(el, {
+      animProps: {
+        y: 25,
+        stagger: 0.1
+      }
+    });
+    animations.push(anim);
+  });
+});
+</script>
 
 <style lang="scss" scoped>
 .products-list {

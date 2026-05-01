@@ -40,6 +40,10 @@ export default ({
   });
 
   const addSplitStep = ({ target, type, from, position }) => {
+    $gsap.set(target, {
+      visibility: 'visible'
+    });
+
     const split = SplitText.create(target, {
       type,
       mask: type
@@ -68,6 +72,10 @@ export default ({
   });
 
   if (extra) {
+    $gsap.set(extra, {
+      visibility: 'visible'
+    });
+
     timeline.from(extra, extraFrom, extraPosition);
   }
 

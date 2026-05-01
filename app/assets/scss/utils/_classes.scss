@@ -1,3 +1,10 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+.hero-reveal-title,
+.hero-reveal-subtitle,
+.hero-reveal-extra,
+.hero-reveal-media {
+  visibility: hidden;
+}
